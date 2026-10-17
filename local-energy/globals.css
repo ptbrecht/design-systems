@@ -24,9 +24,11 @@
    #A6783F is not a brand color. It is only the input border.
    The site follows prefers-color-scheme and defaults to dark.
    Light: surface #F2F2F2, raised #FFFFFF, text #191919, muted #4A4A4A,
-   line #D4D4D4, focus #191919, wordmark.svg.
+   line #D4D4D4, focus #191919, wordmark.svg, error #BA0C2F.
    Dark: surface #0B1215, raised #162024, text #F2F2F2, muted #B8BDBF,
-   line #2A3236, focus #F2F2F2, wordmark-on-dark.svg.
+   line #2A3236, focus #F2F2F2, wordmark-on-dark.svg, error #FF8A8A.
+   Raised surfaces are cards and menus only. Nav and footer use the page
+   surface, with a 1px line when they meet that same page.
    Tan bands stay tan. There is no blue and no yellow. */
 
 @import "tailwindcss";
@@ -94,6 +96,7 @@
   --color-text-muted: #b8bdbf;
   --color-line: #2a3236;
   --color-focus: #f2f2f2;
+  --color-error: #ff8a8a;
 
   --color-surface-light: #f2f2f2;
   --color-surface-raised-light: #ffffff;
@@ -101,6 +104,7 @@
   --color-text-muted-light: #4a4a4a;
   --color-line-light: #d4d4d4;
   --color-focus-light: #191919;
+  --color-error-light: #ba0c2f;
 
   --color-surface-dark: #0b1215;
   --color-surface-raised-dark: #162024;
@@ -108,6 +112,7 @@
   --color-text-muted-dark: #b8bdbf;
   --color-line-dark: #2a3236;
   --color-focus-dark: #f2f2f2;
+  --color-error-dark: #ff8a8a;
 
   /* Desktop sizes. Pair with the *-mobile tokens under 768px.
      text-display is the home hero only. Article titles are text-h1. */
@@ -211,6 +216,7 @@
     --color-text-muted: #4a4a4a;
     --color-line: #d4d4d4;
     --color-focus: #191919;
+    --color-error: #ba0c2f;
     color-scheme: light;
   }
 }
@@ -225,10 +231,38 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
     min-height: 64px;
     padding: 0 var(--spacing-page);
     background: var(--color-surface);
     color: var(--color-text);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .le-footer {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .le-menu {
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border: 1px solid var(--color-line);
+  }
+
+  .le-btn.le-theme-toggle {
+    width: 44px;
+    min-width: 44px;
+    padding: 0;
+  }
+
+  .le-theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    display: block;
   }
 
   .le-nav a {
@@ -526,9 +560,16 @@
   }
 
   .le-field .le-error {
-    color: var(--color-tan);
+    color: var(--color-error);
     font-size: 0.875rem;
     line-height: 1.5;
+  }
+
+  .le-field input[aria-invalid="true"],
+  .le-field textarea[aria-invalid="true"],
+  .le-field input[aria-invalid="true"]:focus-visible,
+  .le-field textarea[aria-invalid="true"]:focus-visible {
+    border-color: var(--color-accent);
   }
 
   .le-card {
@@ -769,9 +810,13 @@
   }
 
   .le-on-dark .le-prose em.accent,
-  .le-hero .le-prose em.accent,
-  .le-on-dark .le-field .le-error {
+  .le-hero .le-prose em.accent {
     color: var(--color-tan);
+  }
+
+  .le-on-dark .le-field .le-error,
+  .le-hero .le-field .le-error {
+    color: var(--color-error-dark);
   }
 
   .le-prose blockquote {
