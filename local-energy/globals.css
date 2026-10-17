@@ -18,6 +18,9 @@
    Four brand colors: tan, red, paper, and one near-black. #191919 is ink,
    not a surface. Hover and pressed of the red button are deeper reds
    (#8F0A24, #7B091F) so the paper label stays paper and clears 7:1.
+   Neutral buttons stay dark on paper and tan (#0B1215, hover #2A3236,
+   pressed #1E2529) and light on #0B1215 (#F2F2F2, hover #D9D9D9,
+   pressed #C9C9C9). Hover does not invert.
    #A6783F is not a brand color. It is only the input border.
    There is no blue and no yellow. */
 
@@ -70,6 +73,10 @@
   --color-accent-pressed: #7b091f;
   --color-dark: #0b1215;
   --color-dark-tan: #a6783f;
+  --color-neutral-dark-hover: #2a3236;
+  --color-neutral-dark-pressed: #1e2529;
+  --color-neutral-light-hover: #d9d9d9;
+  --color-neutral-light-pressed: #c9c9c9;
   --color-on-dark: #f2f2f2;
   --color-on-accent: #f2f2f2;
   --color-on-tan: #191919;
@@ -355,30 +362,54 @@
     outline-color: var(--color-paper);
   }
 
-  .le-listen {
+  /* Neutral on paper and on tan. Hover stays dark. */
+  .le-btn-neutral,
+  .le-listen,
+  .le-on-tan .le-btn-neutral,
+  .le-on-tan .le-listen {
     background: var(--color-dark);
     border-color: var(--color-dark);
     color: var(--color-paper);
   }
 
+  .le-btn-neutral:hover,
   .le-listen:hover,
-  .le-listen:active {
-    background: var(--color-paper);
-    border-color: var(--color-dark);
-    color: var(--color-ink);
+  .le-on-tan .le-btn-neutral:hover,
+  .le-on-tan .le-listen:hover {
+    background: var(--color-neutral-dark-hover);
+    border-color: var(--color-neutral-dark-hover);
+    color: var(--color-paper);
   }
 
+  .le-btn-neutral:active,
+  .le-listen:active,
+  .le-on-tan .le-btn-neutral:active,
+  .le-on-tan .le-listen:active {
+    background: var(--color-neutral-dark-pressed);
+    border-color: var(--color-neutral-dark-pressed);
+    color: var(--color-paper);
+  }
+
+  /* Neutral on #0B1215. Hover stays light. */
+  .le-on-dark .le-btn-neutral,
   .le-on-dark .le-listen {
     background: var(--color-paper);
     border-color: var(--color-paper);
     color: var(--color-ink);
   }
 
-  .le-on-dark .le-listen:hover,
+  .le-on-dark .le-btn-neutral:hover,
+  .le-on-dark .le-listen:hover {
+    background: var(--color-neutral-light-hover);
+    border-color: var(--color-neutral-light-hover);
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-btn-neutral:active,
   .le-on-dark .le-listen:active {
-    background: var(--color-dark);
-    border-color: var(--color-paper);
-    color: var(--color-paper);
+    background: var(--color-neutral-light-pressed);
+    border-color: var(--color-neutral-light-pressed);
+    color: var(--color-ink);
   }
 
   .le-field {
