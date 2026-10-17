@@ -4,13 +4,6 @@
 <meta charset="utf-8">
 <title>Local Energy — YouTube thumbnail</title>
 <style>
-  @font-face {
-    font-family: "Archivo Black";
-    src: url("../../../fonts/ArchivoBlack-Regular.ttf") format("truetype");
-    font-weight: 400 900;
-    font-style: normal;
-    font-display: block;
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 1280px;
@@ -18,9 +11,15 @@
     overflow: hidden;
     background: #D49A45;
   }
-  /* Hosts cropped from youtube-banner.png. The banner already carries the
-     duotone; the tan ground is keyed out of host-left.png and host-right.png.
-     Do not draw YouTube's duration badge. Leave x 1024–1280, y 616–720 empty. */
+  /* Composed preview. The card and the logo stay separate files.
+     Do not redraw the wordmark or the star in this file. */
+  .card {
+    position: absolute;
+    inset: 0;
+    width: 1280px;
+    height: 720px;
+    display: block;
+  }
   .wordmark {
     position: absolute;
     left: 64px;
@@ -29,41 +28,10 @@
     width: auto;
     display: block;
   }
-  .headline {
-    position: absolute;
-    left: 64px;
-    bottom: 128px;
-    font-family: "Archivo Black", sans-serif;
-    font-weight: 900;
-    font-size: 144px;
-    line-height: 1.05;
-    letter-spacing: 0;
-    color: #191919;
-    font-synthesis: none;
-  }
-  .host {
-    position: absolute;
-    display: block;
-    height: auto;
-  }
-  .host-left {
-    left: 724px;
-    top: 52px;
-    width: 368px;
-    z-index: 1;
-  }
-  .host-right {
-    left: 948px;
-    top: 28px;
-    width: 316px;
-    z-index: 2;
-  }
 </style>
 </head>
 <body>
+  <img class="card" src="thumbnail-card.png" alt="">
   <img class="wordmark" src="wordmark.svg" alt="Local Energy">
-  <p class="headline">The line<br>that mattered</p>
-  <img class="host host-left" src="host-left.png" alt="">
-  <img class="host host-right" src="host-right.png" alt="">
 </body>
 </html>

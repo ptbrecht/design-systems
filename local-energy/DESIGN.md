@@ -485,7 +485,7 @@ The star is the same pentagram as the tiles, one point up, set like an asterisk.
 | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | On `#0B1215`. The superscript star is bare. |
 | [`wordmark-mono.svg`](../assets/logos/local-energy/wordmark-mono.svg) | `#191919` | `#191919` | One color. On `#0B1215`, set both fills to `#F2F2F2`. |
 
-Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets it at 72px tall.
+Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files, plus the star files in §8.1, are the logo. A nav, social card, or thumbnail references them. It does not redraw the letters or the star. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets `wordmark-on-dark.svg` at 72px tall. A tan thumbnail sets `wordmark.svg` at 56px tall.
 
 ### 8.3 Social card
 
@@ -493,7 +493,14 @@ Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav
 
 ### 8.4 YouTube thumbnails
 
-The channel is [youtube.com/@localenergyio](https://www.youtube.com/@localenergyio). A thumbnail is **1280×720**. It always carries the star wordmark. It is a poster. The page type scale does not govern it. The template is [`thumbnail.html`](../assets/logos/local-energy/thumbnail.html), and [`thumbnail.png`](../assets/logos/local-energy/thumbnail.png) is one filled-in example.
+The channel is [youtube.com/@localenergyio](https://www.youtube.com/@localenergyio). A thumbnail is **1280×720**. The published image always carries the star wordmark. It is a poster. The page type scale does not govern it. The logo and the card are separate files. The card does not contain the wordmark.
+
+| File | What |
+|---|---|
+| [`thumbnail-card.html`](../assets/logos/local-energy/thumbnail-card.html) | The card. Tan ground, headline, hosts. No logo. |
+| [`thumbnail-card.png`](../assets/logos/local-energy/thumbnail-card.png) | Render of that card, 1280×720. |
+| [`thumbnail.html`](../assets/logos/local-energy/thumbnail.html) | Composed template. An `img` of `thumbnail-card.png`, then an `img` of [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg). The lockup is not redrawn here. |
+| [`thumbnail.png`](../assets/logos/local-energy/thumbnail.png) | Render of the composed template. The filled-in example. |
 
 **Palette.** The example ground is tan `#D49A45`, the banner’s field. On tan, use `wordmark.svg`: ink letters, red star. A thumbnail on `#0B1215` uses `wordmark-on-dark.svg`: paper letters, red star. The superscript star is bare on either ground. No tile behind it, and no stroke. On `#0B1215` that star is **2.86:1**. That is a logo exception, same as §8.1. A star used alone on a dark thumbnail is `mark-bare.svg`, on the dark ground, with the same rule.
 
@@ -503,7 +510,7 @@ Ink `#191919` on tan is **7.12:1**, so the headline on the tan template is ink. 
 
 Set it at **144px** on the 1280 artboard. YouTube’s sidebar shows the image at about 168px wide, 0.131 of the artboard. 144 × 0.131 is 19px, which clears the 18px Archivo Black floor. At a 320px view the same line is 36px. Do not set the headline smaller than 144px on this artboard.
 
-The wordmark is a stamp, smaller than the headline. On the template it is **56px** tall. Cap height at that size is about 44px. The star’s arms sit just above that line, and the top point rises further.
+The wordmark is a stamp, smaller than the headline. On the composed template it is the standalone `wordmark.svg`, **56px** tall, 64px from the top and left. Cap height at that size is about 44px. The star’s arms sit just above that line, and the top point rises further. A dark thumbnail uses `wordmark-on-dark.svg` the same way. Do not paste the lockup’s paths into the card.
 
 **Host.** Cut the person out. No rectangle behind them. Map the photograph’s luminance so 0 becomes `#191919` and 1 becomes `#F2F2F2`, and place that cutout on the tan field. Do not draw a placeholder silhouette, and do not invent a face. The example uses the two hosts already cut from the channel banner, [`youtube-banner.png`](../assets/logos/local-energy/youtube-banner.png). The tan ground is keyed out in [`host-left.png`](../assets/logos/local-energy/host-left.png) and [`host-right.png`](../assets/logos/local-energy/host-right.png).
 
