@@ -3,7 +3,9 @@
 Stand-alone pack for [ptbrecht/design-systems](https://github.com/ptbrecht/design-systems) → `writing/`.
 If Writing / UX / FW / FWE agents are deleted, **this folder must be enough** to draft and review site copy.
 
-This folder is writing, not visual language. Do not mix these files with `material/`, `falcon-west/`, `falcon-west-energy/`, or `assets/`.
+This folder is writing, not visual language. Do not mix these files with `material/`, `falcon-west/`, `falcon-west-energy/`, `local-energy/`, or `assets/`.
+
+Local Energy’s application of `voice.md` (name, headline, tagline, blog notes) lives in [`../local-energy/VOICE.md`](../local-energy/VOICE.md). It is not a Falcon West lane file.
 
 **Gold** = Peter-locked or long-standing house rule. **Draft** = Writing seed; pending Peter mark before brand law.
 

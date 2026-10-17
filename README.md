@@ -1,6 +1,6 @@
 # Falcon West design systems
 
-**Three separate systems.** Do not mix them. Do not invent tokens.
+**Four separate systems.** Do not mix them. Do not invent tokens.
 
 This repo is the source of truth for Falcon West UX, brand, and writing: specs, specimens, tokens, fonts, brand-guide assets, and the writing pack. No WordPress, plugin, or CRM app source.
 
@@ -8,11 +8,12 @@ This repo is the source of truth for Falcon West UX, brand, and writing: specs, 
 
 ```
 README.md
-fonts/                      # Raleway (all systems) + Crimson Text (websites)
+fonts/                      # Raleway + Crimson (Falcon West) · Archivo Black + Lora (Local Energy)
 assets/                     # logos + brand style guide
 material/                   # apps / CRM / Tools / serial products ONLY
 falcon-west/                # falconwest.com — rust buttons
 falcon-west-energy/         # falconwestenergy.com — sky buttons, never rust
+local-energy/               # localenergy.com — tan field, dark-blue buttons on light
 writing/                    # voice.md source of truth + gold/draft pack + PL gold PDFs
 ```
 
@@ -22,7 +23,7 @@ Shared typefaces live in [`fonts/`](fonts/).
 
 ## 1. `material/` — Falcon West Material (apps only)
 
-Material Design 2 retuned for insurance tools. **Not falconwest.com. Not falconwestenergy.com.**
+Material Design 2 retuned for insurance tools. **Not falconwest.com. Not falconwestenergy.com. Not localenergy.com.**
 
 Locked source (Claude pack):
 
@@ -39,7 +40,7 @@ Also in `material/`:
 
 - [`material/PATTERNS.md`](material/PATTERNS.md) — app layout / placement locks (Developer scoring)
 - [`material/wordpress-admin-ux.md`](material/wordpress-admin-ux.md) — wp-admin Cove overlay (Tools house reference; not Material app chrome)
-- [`material/CRM-FACE.md`](material/CRM-FACE.md) — CRM as a **known Material face / theme variant** (Energy × Material, Accent C sky; **not** a fourth system)
+- [`material/CRM-FACE.md`](material/CRM-FACE.md) — CRM as a **known Material face / theme variant** (Energy × Material, Accent C sky; **not** its own system)
 - [`material/HANDOFF-DEVELOPER.md`](material/HANDOFF-DEVELOPER.md) — implement locks
 - [`material/light-tokens.css`](material/light-tokens.css) / [`material/light-tokens.md`](material/light-tokens.md)
 - [`material/password-gate.md`](material/password-gate.md)
@@ -76,6 +77,20 @@ Start here: [`falcon-west-energy/ENERGY-SITE-LOCKS.md`](falcon-west-energy/ENERG
 
 ---
 
+## 4. `local-energy/` — localenergy.com
+
+A fourth system, for a different brand. **Not** Falcon West Energy, and **not** Material.
+
+- The name is **Local Energy**. Not “Local Energy podcast.”
+- Paper `#F2F2F2` is the reading page. Tan `#D49A45` is the brand field, not body text (2.20:1 on paper).
+- **Dark blue `#003B4A` buttons** on paper and on tan. On a dark band the button is tan, because blue on `#0B1215` is 1.55:1.
+- Yellow `#F7BA00` is the transcript mark only. Red `#BA0C2F` is the star and errors, not a button.
+- Archivo Black for display and headings. Lora for body. Neither face is used by the other three systems.
+
+Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy/globals.css`](local-energy/globals.css) · [`local-energy/specimen.html`](local-energy/specimen.html) · [`local-energy/README.md`](local-energy/README.md)
+
+---
+
 ## Which system?
 
 | Surface | System |
@@ -83,6 +98,7 @@ Start here: [`falcon-west-energy/ENERGY-SITE-LOCKS.md`](falcon-west-energy/ENERG
 | app.falconwest.com, CRM, Tools, Academy gates, serial products | **Material** |
 | falconwest.com | **Falcon West** website (rust buttons) |
 | falconwestenergy.com | **Falcon West Energy** website (sky buttons, never rust) |
+| localenergy.com | **Local Energy** website (tan field, dark-blue buttons on light, dark bands) |
 
 ---
 
@@ -98,6 +114,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 | [`assets/logos/app/apps-logo-mark.svg`](assets/logos/app/apps-logo-mark.svg) | App quad mark (SVG) |
 | [`assets/logos/app/apps-logo-mark-oneline.svg`](assets/logos/app/apps-logo-mark-oneline.svg) | App quad mark, one-line SVG |
 | [`assets/logos/app/collide-icon-128.png`](assets/logos/app/collide-icon-128.png) | Collide icon (Chuck-craft source reference, not a Falcon West mark) |
+| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star (supplied PNG, SVG recreation, app icon, 1200×630 social card) |
 | [`assets/brand-guide/Falcon West Brand Style Guide.pdf`](assets/brand-guide/Falcon%20West%20Brand%20Style%20Guide.pdf) | One-page brand style guide. Ancestry only: it does not set button face or type floors. Preview: [`falcon-west/brand-guide-1pager.png`](falcon-west/brand-guide-1pager.png). |
 
 ---
@@ -106,16 +123,18 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 
 | File | Role |
 |---|---|
-| [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; website wordmark and chrome |
-| [`fonts/CrimsonText-Regular.ttf`](fonts/CrimsonText-Regular.ttf), [`fonts/CrimsonText-Italic.ttf`](fonts/CrimsonText-Italic.ttf), [`fonts/CrimsonText-SemiBold.ttf`](fonts/CrimsonText-SemiBold.ttf) | Website editorial. Not used in Material. |
+| [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; Falcon West website wordmark and chrome |
+| [`fonts/CrimsonText-Regular.ttf`](fonts/CrimsonText-Regular.ttf), [`fonts/CrimsonText-Italic.ttf`](fonts/CrimsonText-Italic.ttf), [`fonts/CrimsonText-SemiBold.ttf`](fonts/CrimsonText-SemiBold.ttf) | Falcon West website editorial. Not used in Material. |
+| [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display and headings. Not used on Falcon West. |
+| [`fonts/Lora-Variable.ttf`](fonts/Lora-Variable.ttf), [`fonts/Lora-Italic-Variable.ttf`](fonts/Lora-Italic-Variable.ttf) | Local Energy body. Not used on Falcon West. |
 
-Do not add a third typeface or swap these roles.
+Do not cross the pairs, and do not add a face inside a system that already has its pair. Local Energy’s license texts: [`fonts/OFL-ArchivoBlack.txt`](fonts/OFL-ArchivoBlack.txt), [`fonts/OFL-Lora.txt`](fonts/OFL-Lora.txt).
 
 ---
 
 ## Writing
 
-Stand-alone pack in [`writing/`](writing/), separate from the three visual systems. Index: [`writing/README.md`](writing/README.md).
+Stand-alone pack in [`writing/`](writing/), separate from the visual systems. Index: [`writing/README.md`](writing/README.md). Local Energy’s application of the voice file is [`local-energy/VOICE.md`](local-energy/VOICE.md).
 
 ### Voice and copy
 

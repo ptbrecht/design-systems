@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Local Energy — social card</title>
+<style>
+  @font-face {
+    font-family: "Archivo Black";
+    src: url("../../../fonts/ArchivoBlack-Regular.ttf") format("truetype");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Lora";
+    src: url("../../../fonts/Lora-Variable.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Lora";
+    src: url("../../../fonts/Lora-Italic-Variable.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: italic;
+    font-display: block;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #0B1215; }
+  body {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 0 72px;
+    color: #F2F2F2;
+    font-family: "Lora", Georgia, serif;
+    font-synthesis: none;
+  }
+  img.mark { width: 250px; height: 250px; display: block; flex: none; }
+  .copy { max-width: 740px; }
+  .wordmark {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: 0;
+    color: #F2F2F2;
+  }
+  .rule { width: 64px; height: 4px; background: #D49A45; margin: 22px 0; }
+  .headline {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #D49A45;
+  }
+  .tagline {
+    margin-top: 16px;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.4;
+    color: #F2F2F2;
+  }
+</style>
+</head>
+<body>
+  <img class="mark" src="mark.svg" alt="">
+  <div class="copy">
+    <p class="wordmark">Local Energy</p>
+    <div class="rule"></div>
+    <p class="headline">Supporting Independent Energy.</p>
+    <p class="tagline">Oil &amp; gas shop talk with Peter Brecht and Wade Spear.</p>
+  </div>
+</body>
+</html>

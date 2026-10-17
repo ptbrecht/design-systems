@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Local Energy — Design System Specimen</title>
+<style>
+  @font-face {
+    font-family: "Archivo Black";
+    src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Lora";
+    src: url("../fonts/Lora-Variable.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Lora";
+    src: url("../fonts/Lora-Italic-Variable.ttf") format("truetype");
+    font-weight: 400 700;
+    font-style: italic;
+    font-display: block;
+  }
+
+  :root {
+    --paper: #F2F2F2;
+    --ink: #191919;
+    --tan: #D49A45;
+    --dark-tan: #A6783F;
+    --action: #003B4A;
+    --accent: #BA0C2F;
+    --yellow: #F7BA00;
+    --dark: #0B1215;
+    --line: rgb(25 25 25 / 0.16);
+    --line-dark: rgb(242 242 242 / 0.20);
+    --shadow: 0 1px 2px rgb(11 18 21 / 0.06);
+    --display: "Archivo Black", sans-serif;
+    --body: "Lora", Georgia, serif;
+    --r-control: 4px;
+    --r-card: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); }
+  body {
+    width: 1440px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.65;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .nav {
+    height: 64px;
+    background: var(--dark);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    padding: 0 64px;
+    gap: 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
+  .brand img { width: 36px; height: 36px; display: block; }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--paper);
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links span {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--paper);
+  }
+  .nav-links span.current { color: var(--tan); }
+
+  .hero {
+    background: var(--dark);
+    color: var(--paper);
+    padding: 48px 64px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+  }
+  .eyebrow {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    color: var(--tan);
+    margin-bottom: 12px;
+  }
+  .display {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: 0;
+    color: var(--paper);
+    max-width: 16em;
+    padding-bottom: 12px;
+  }
+  .tagline {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--paper);
+    max-width: 36em;
+  }
+  .hero-note {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--paper);
+    max-width: 62ch;
+  }
+  .listen-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .hero-mark { width: 148px; height: 148px; display: block; }
+
+  .page { padding: 48px 64px 36px; }
+  section { margin-bottom: 48px; }
+  h2.sec {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: 0;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .lead { font-size: 20px; line-height: 1.6; max-width: 68ch; }
+
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 22px;
+  }
+  .rule, .swatch, .panel, .pair, .cover, .type-board {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-card);
+    box-shadow: var(--shadow);
+  }
+  .rule { padding: 18px 18px 16px; }
+  .rule-num {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .rule p, .panel p, .cell p { font-size: 16px; line-height: 1.5; }
+  strong { font-weight: 600; }
+
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .swatch { overflow: hidden; }
+  .chip { height: 72px; }
+  .meta { padding: 12px 14px 14px; }
+  .swatch .name {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .hex { font-size: 14px; line-height: 1.5; margin-top: 2px; }
+  .role { font-size: 15px; line-height: 1.4; margin-top: 6px; }
+
+  .type-board { padding: 28px 32px 24px; }
+  .prose { max-width: 68ch; }
+  .prose h3 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: 0;
+    padding-top: 36px;
+    padding-bottom: 8px;
+  }
+  .prose h3:first-child { padding-top: 0; }
+  .prose p { margin-bottom: 16px; }
+  .prose mark { background: var(--yellow); color: var(--ink); }
+  .gap-note {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--action);
+    font-weight: 600;
+  }
+  .type-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--action);
+  }
+
+  .comp-grid { display: grid; grid-template-columns: 1.2fr 0.9fr 0.9fr; gap: 16px; }
+  .panel { padding: 22px; }
+  .panel .eyebrow { color: var(--action); }
+  .btn {
+    box-sizing: border-box;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: var(--r-control);
+    border: 2px solid transparent;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .btn.solid { text-decoration: none; }
+  .btn-primary { background: var(--action); border-color: var(--action); color: var(--paper); }
+  .btn-primary.hover { background: var(--tan); border-color: var(--action); color: var(--ink); }
+  .btn-primary.pressed { background: var(--dark-tan); border-color: var(--action); color: var(--ink); }
+  .btn-secondary { background: transparent; border-color: var(--action); color: var(--action); text-decoration: none; }
+  .btn-link { background: transparent; border-color: transparent; color: var(--action); padding: 0 4px; }
+  .btn.focus {
+    outline: 2px solid var(--action);
+    outline-offset: 2px;
+  }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .field-label { display: block; font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+  .input {
+    height: 44px;
+    width: 100%;
+    border: 1.5px solid var(--dark-tan);
+    border-radius: var(--r-control);
+    background: var(--paper);
+    padding: 0 12px;
+    font-family: var(--body);
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .input.focused {
+    border: 2px solid var(--action);
+    outline: 2px solid var(--action);
+    outline-offset: 2px;
+  }
+  .helper { font-size: 14px; line-height: 1.5; margin-top: 8px; }
+  .helper.error { color: var(--accent); }
+  .mini h3 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1.3;
+    padding-bottom: 8px;
+  }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .badge {
+    height: 24px;
+    padding: 0 8px;
+    border-radius: var(--r-control);
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--paper);
+  }
+  .badge.action { background: var(--action); }
+  .badge.accent { background: var(--accent); }
+  a.inline { color: var(--action); }
+  a.inline.hover { color: var(--ink); }
+
+  .tan-band {
+    background: var(--tan);
+    color: var(--ink);
+    border-radius: var(--r-card);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .tan-band h2 { font-family: var(--display); font-weight: 900; font-size: 24px; line-height: 1.25; padding-bottom: 8px; }
+  .tan-band p { font-size: 18px; line-height: 1.65; max-width: 62ch; }
+  .tan-band a { color: var(--action); }
+
+  .dark-block {
+    background: var(--dark);
+    color: var(--paper);
+    border-radius: var(--r-card);
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .dark-block h2 { font-family: var(--display); font-weight: 900; font-size: 24px; line-height: 1.25; color: var(--paper); padding-bottom: 8px; }
+  .transcript {
+    background: var(--ink);
+    border-radius: var(--r-card);
+    padding: 18px 20px;
+  }
+  .who { font-size: 14px; font-weight: 600; color: var(--tan); margin-bottom: 4px; }
+  .transcript p { font-size: 16px; line-height: 1.6; color: var(--paper); }
+  .transcript .hit { color: var(--yellow); font-style: normal; }
+  .btn-dark {
+    background: var(--tan);
+    border-color: var(--tan);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .btn-dark.hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+  .btn-dark.focus { outline: 2px solid var(--paper); outline-offset: 2px; }
+  .listen {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .listen.hover { background: var(--ink); border-color: var(--paper); color: var(--paper); }
+  .glyph { width: 20px; height: 20px; display: block; }
+
+  .cover { overflow: hidden; display: grid; grid-template-columns: 280px 1fr; }
+  .cover-art {
+    background: var(--dark);
+    min-height: 180px;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    color: var(--paper);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .cover-copy { padding: 20px 24px 18px; }
+  .tick { width: 48px; height: 2px; background: var(--tan); margin-bottom: 12px; }
+  .cover h3 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1.2;
+    padding-bottom: 12px;
+  }
+
+  .pairs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .pair { padding: 16px; display: grid; gap: 12px; }
+  .pair h3 { font-family: var(--display); font-weight: 900; font-size: 20px; line-height: 1.3; }
+  .cell { border-radius: var(--r-control); padding: 14px; min-height: 132px; }
+  .cell.broken { background: #F6E7CF; }
+  .cell.spec { background: #E7EEF0; }
+  .mark {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+  .mark.bad { color: var(--accent); }
+  .mark.good { color: var(--action); }
+  .fake-yellow { color: var(--yellow); font-size: 16px; line-height: 1.5; }
+  .platform {
+    height: 64px;
+    padding: 0 22px;
+    border-radius: 16px;
+    border: 0;
+    color: #fff;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .black-page {
+    background: #000;
+    color: #fff;
+    border-radius: var(--r-control);
+    padding: 12px;
+    font-size: 16px;
+    line-height: 1.45;
+    text-shadow: 0 1px 2px #000;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <img src="../assets/logos/local-energy/mark.svg" alt="">
+      <div class="wordmark">Local Energy</div>
+    </div>
+    <nav class="nav-links" aria-label="Specimen destinations">
+      <span class="current">Shop talk</span>
+      <span>Writing</span>
+      <span>About</span>
+      <span>Listen</span>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">localenergy.com · website system</p>
+      <h1 class="display">Supporting Independent Energy.</h1>
+      <p class="tagline">Oil &amp; gas shop talk with Peter Brecht and Wade Spear.</p>
+      <div class="listen-row">
+        <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#872EC4"/><circle cx="10" cy="10" r="5" fill="none" stroke="#F2F2F2" stroke-width="1.4"/></svg>Listen on Apple</span>
+        <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
+        <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="14" y="3" rx="3" fill="#FF0000"/><path d="M8 6.5v7l6-3.5z" fill="#F2F2F2"/></svg>Watch on YouTube</span>
+      </div>
+      <p class="hero-note">The page under this band is paper. A photograph may sit behind this hero only, under a #0B1215 scrim at 68% or more. #F2F2F2 on that worst-case composite is 5.87:1. The old 54% black overlay is 4.12:1 and is retired. No text-shadow.</p>
+    </div>
+    <img class="hero-mark" src="../assets/logos/local-energy/mark.svg" alt="Local Energy star">
+  </section>
+
+  <main class="page">
+    <section>
+      <div class="rules">
+        <article class="rule">
+          <div class="rule-num">Tan is the field</div>
+          <p><strong>#D49A45</strong> is the brand. On paper it is 2.20:1, so it is not body type and not a light-page button. On #0B1215 it is 7.65:1.</p>
+        </article>
+        <article class="rule">
+          <div class="rule-num">Blue is the click</div>
+          <p>On paper and on tan, the button is <strong>#003B4A</strong> with a #F2F2F2 label (10.88:1). On a dark band that fill is 1.55:1, so the button flips to tan.</p>
+        </article>
+        <article class="rule">
+          <div class="rule-num">Yellow marks a line</div>
+          <p><strong>#F7BA00</strong> is transcript emphasis. Yellow text on paper is 1.57:1. On paper the mark is a yellow ground behind ink (10.03:1).</p>
+        </article>
+        <article class="rule">
+          <div class="rule-num">Red is the star</div>
+          <p><strong>#BA0C2F</strong> fills the star and writes errors (5.90:1 on paper). It is not a button. Against tan it is 2.67:1, so the ink stroke stays.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">Eight colors. No new hex.</h2>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#D49A45"></div><div class="meta"><div class="name">Tan</div><div class="hex">#D49A45 · 2.20:1 on paper</div><div class="role">Brand field. Button fill only on dark.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#003B4A"></div><div class="meta"><div class="name">Dark blue</div><div class="hex">#003B4A · 10.88:1 on paper</div><div class="role">Links and buttons on light. Not on #0B1215.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#A6783F"></div><div class="meta"><div class="name">Dark tan</div><div class="hex">#A6783F · 3.49:1 on paper</div><div class="role">Input border. Pressed fill. Not body text.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#BA0C2F"></div><div class="meta"><div class="name">Red</div><div class="hex">#BA0C2F · 5.90:1 on paper</div><div class="role">Star and errors. Not a link or a button.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F7BA00"></div><div class="meta"><div class="name">Yellow</div><div class="hex">#F7BA00 · 1.57:1 on paper</div><div class="role">Transcript ground on paper. Text only on dark (10.03:1).</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F2F2F2; box-shadow: inset 0 0 0 1px rgb(25 25 25 / 0.16)"></div><div class="meta"><div class="name">Paper</div><div class="hex">#F2F2F2 · the page</div><div class="role">Peter’s white. Also the label color on dark blue.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#191919"></div><div class="meta"><div class="name">Black</div><div class="hex">#191919 · 15.71:1 on paper</div><div class="role">Text. Raised dark surface for the player.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#0B1215"></div><div class="meta"><div class="name">Dark black</div><div class="hex">#0B1215 · 16.88:1 with paper</div><div class="role">Nav, footer, hero band. Not the reading page.</div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">Archivo Black for the short line. Lora for the rest.</h2>
+      <p class="lead" style="margin-bottom:16px">Display is 36px on an 18px body — 2.00×, not the 2.3–3× that left headings sitting on the paragraph above them. Space above a heading is padding, so it cannot collapse.</p>
+      <div class="type-board">
+        <div class="prose">
+          <h3>The pumper’s notebook</h3>
+          <p>A transcript is a record. It is not the judgment. <mark>Yellow marks the line worth keeping.</mark> The rest is how the hour actually went.</p>
+          <h3>What we will not call this</h3>
+          <p>The name on the door is Local Energy. The show is one room in the shop. Peter Brecht and Wade Spear talk. The notes stay up after the mics are off.</p>
+        </div>
+        <p class="gap-note">36px padding-top on the second heading, 8px under it. The heading belongs to the paragraph below. That gap is padding, so it cannot collapse.</p>
+        <div class="type-meta">
+          <span>Display 36 / 30 · h1 30 / 26 · h2 24 / 22</span>
+          <span>Body Lora 18 / 1.65 · measure 68ch</span>
+          <span>Archivo Black floor 18px · buttons are Lora</span>
+          <span>Headings #191919 · no muted gray</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">The click, the field, the card.</h2>
+      <div class="comp-grid">
+        <div class="panel">
+          <p class="eyebrow">Buttons on paper</p>
+          <div class="btn-row">
+            <span class="btn solid btn-primary">Read the note</span>
+            <span class="btn btn-secondary">About the show</span>
+            <span class="btn btn-link">Shop talk</span>
+          </div>
+          <div class="btn-row" style="margin-top:12px">
+            <span class="btn solid btn-primary hover">Hover</span>
+            <span class="btn solid btn-primary pressed">Pressed</span>
+            <span class="btn solid btn-primary focus">Focus</span>
+          </div>
+          <p class="helper">Hover keeps the dark-blue border, because tan on paper is 2.20:1. Pressed is dark tan with an ink label at 4.50:1. <a class="inline" href="#">A link stays underlined</a> · <a class="inline hover" href="#">hover</a>.</p>
+        </div>
+        <div class="panel">
+          <p class="eyebrow">Field</p>
+          <label class="field-label" for="name">Your name</label>
+          <input class="input focused" id="name" value="Wade Spear" readonly>
+          <p class="helper error">Say what went wrong, in ink-red #BA0C2F, 5.90:1.</p>
+        </div>
+        <div class="panel">
+          <p class="eyebrow">Card and badges</p>
+          <div class="mini">
+            <h3>A note from the shop.</h3>
+            <p>Paper card, 8px radius, hairline at 1.39:1. The hairline is not an input border.</p>
+          </div>
+          <div class="badges">
+            <span class="badge action">Shop talk</span>
+            <span class="badge accent">New</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="tan-band">
+        <div>
+          <h2>Tan carries ink, not paper-white.</h2>
+          <p>#191919 on #D49A45 is 7.12:1. #F2F2F2 on tan is 2.20:1 and is not used. Links on this field stay dark blue, at 4.93:1. <a href="#">Read the note</a>.</p>
+        </div>
+        <div class="btn-row">
+          <span class="btn solid btn-primary">Read the note</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="dark-block">
+        <div>
+          <h2>On dark, the button is tan.</h2>
+          <p style="font-size:16px;line-height:1.6;margin-bottom:14px">Dark blue against #0B1215 is 1.55:1. The primary fill flips to tan, label ink, 7.12:1. Focus ring is paper, 2px outside the control.</p>
+          <div class="btn-row">
+            <span class="btn solid btn-dark">Read the note</span>
+            <span class="btn solid btn-dark hover">Hover</span>
+            <span class="btn solid btn-dark focus">Focus</span>
+          </div>
+          <div class="listen-row">
+            <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
+            <span class="btn solid listen hover">Hover</span>
+          </div>
+        </div>
+        <div class="transcript">
+          <p class="who">Wade Spear · 00:14:02</p>
+          <p>The program can pull the quote. <em class="hit">It cannot tell you which line mattered.</em> That’s still the job in the room.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">The cover holds the picture. The title sits under it.</h2>
+      <article class="cover">
+        <div class="cover-art">3:2 cover. No type in the file.</div>
+        <div class="cover-copy">
+          <div class="tick"></div>
+          <h3>The pumper’s notebook</h3>
+          <p class="lead">What the hour kept, and what the summary threw out.</p>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="sec">Three ways this board gets broken.</h2>
+      <div class="pairs">
+        <article class="pair">
+          <h3>Tan is not the light-page button</h3>
+          <div class="cell broken">
+            <div class="mark bad">Broken · 2.20:1</div>
+            <span class="btn solid" style="background:#D49A45;border-color:#D49A45;color:#F2F2F2;text-decoration:none">Read the note</span>
+            <p style="margin-top:10px">White label on tan, and a tan edge against paper.</p>
+          </div>
+          <div class="cell spec">
+            <div class="mark good">On spec · 10.88:1</div>
+            <span class="btn solid btn-primary">Read the note</span>
+            <p style="margin-top:10px">Dark blue fill, paper label, on the paper page.</p>
+          </div>
+        </article>
+        <article class="pair">
+          <h3>The platform does not paint the button</h3>
+          <div class="cell broken">
+            <div class="mark bad">Broken</div>
+            <span class="platform" style="background:#1DB954">Listen on Spotify</span>
+            <p style="margin-top:10px">64px-era pill in Spotify green. The accent is borrowed.</p>
+          </div>
+          <div class="cell spec">
+            <div class="mark good">On spec</div>
+            <span class="btn solid" style="background:#191919;border-color:#191919;color:#F2F2F2;text-decoration:none"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
+            <p style="margin-top:10px">Ink button. The green stays inside the glyph.</p>
+          </div>
+        </article>
+        <article class="pair">
+          <h3>Yellow text needs a dark ground</h3>
+          <div class="cell broken">
+            <div class="mark bad">Broken · 1.57:1</div>
+            <p class="fake-yellow">Yellow letters on paper. The transcript accent, used as body.</p>
+          </div>
+          <div class="cell spec">
+            <div class="mark good">On spec · 10.03:1</div>
+            <p>Ink on a <mark style="background:#F7BA00">yellow mark</mark>, or yellow type on #191919 inside the player.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Local Energy website system · localenergy.com · not Material, not Falcon West.</p>
+      <p>Archivo Black + Lora · paper page · dark bands · self-hosted.</p>
+    </footer>
+  </main>
+</body>
+</html>
