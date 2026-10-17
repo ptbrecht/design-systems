@@ -68,11 +68,17 @@ These fills are worse against `#0B1215` than the rest red is: hover **2.01:1**, 
 
 **Dark tan `#A6783F` is not a brand color, and it is not a button fill.** It is not the field, not the star, not a link, and not a headline. It has one job: the resting input border on paper, 1.5px, **3.49:1**. Brand tan fails that border at 2.20:1. Ink is the focus border. Red is the error border. Do not set type in dark tan. Do not use it as the pressed state of the tan or secondary button. On `#0B1215` that button already rests on a tan outline and hovers to brand tan `#D49A45` (7.65:1 against the band, ink label 7.12:1).
 
+**Neutral button fills are utilities, not brand colors.** On paper and on tan the button rests on `#0B1215`. Hover is `#2A3236`. Pressed is `#1E2529`. The label stays `#F2F2F2`: **16.88:1**, **11.67:1**, **13.88:1**. On `#0B1215` the button rests on `#F2F2F2`. Hover is `#D9D9D9`. Pressed is `#C9C9C9`. The label stays `#191919`: **15.71:1**, **12.46:1**, **10.62:1**. Hover does not invert. §7.2.
+
 | Token | Hex | Role | Why it is here |
 |---|---|---|---|
 | `--color-accent-hover` | `#8F0A24` | Hover fill of the red primary. Not a brand color. | Paper label **8.39:1**. Derived from `#BA0C2F` so the label can stay paper and clear 7:1. |
 | `--color-accent-pressed` | `#7B091F` | Pressed fill of the red primary. Not a brand color. | Paper label **9.87:1**. One step darker than hover. |
 | `--color-dark-tan` | `#A6783F` | Not a brand color. 1.5px input border on paper. | **3.49:1** against paper, which clears the 3:1 control line. Too heavy for a card edge and too weak for body text. |
+| `--color-neutral-dark-hover` | `#2A3236` | Hover fill of the neutral button on paper and tan. | Paper label **11.67:1**. Not a brand color. |
+| `--color-neutral-dark-pressed` | `#1E2529` | Pressed fill of the neutral button on paper and tan. | Paper label **13.88:1**. Darker than hover, lighter than `#0B1215`. |
+| `--color-neutral-light-hover` | `#D9D9D9` | Hover fill of the neutral button on `#0B1215`. | Ink label **12.46:1**. |
+| `--color-neutral-light-pressed` | `#C9C9C9` | Pressed fill of the neutral button on `#0B1215`. | Ink label **10.62:1**. Darker than hover, lighter than paper. |
 | `--color-line` | `rgb(25 25 25 / 0.16)` | Card hairline on paper. 1.39:1. | Decorative. Cannot bound an input. Not a new hex. |
 | `--color-line-dark` | `rgb(242 242 242 / 0.20)` | Rules on `#0B1215`. 1.76:1. | Decorative. A control border on dark is `#F2F2F2` or `#D49A45`. Not a new hex. |
 | `--color-scrim` | `rgb(11 18 21 / 0.68)` | Hero photograph overlay. | `#0B1215` at 68%. On a white photo the composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. |
@@ -84,13 +90,17 @@ Yellow `#F7BA00` is not in the relaunch. It is not a caption color, not a select
 | Text | Ground | Ratio | Use |
 |---|---|---|---|
 | `#191919` | `#F2F2F2` | **15.71:1** | Headings, body, labels, captions, links at rest |
-| `#F2F2F2` | `#0B1215` | **16.88:1** | Text on nav, footer, hero, player. Listen label on paper. |
+| `#F2F2F2` | `#0B1215` | **16.88:1** | Text on nav, footer, hero, player. Neutral button label on paper and tan. |
 | `#F2F2F2` | `#BA0C2F` | **5.90:1** | Primary button label, badge label |
 | `#BA0C2F` | `#F2F2F2` | **5.90:1** | Error text, eyebrows, link hover, inline accent |
 | `#191919` | `#D49A45` | **7.12:1** | Text on a tan field. Label on a tan secondary hover. |
 | `#D49A45` | `#0B1215` | **7.65:1** | Links, speaker names, and the highlighted caption word |
 | `#F2F2F2` | `#8F0A24` | **8.39:1** | Primary button label on hover |
 | `#F2F2F2` | `#7B091F` | **9.87:1** | Primary button label on pressed |
+| `#F2F2F2` | `#2A3236` | **11.67:1** | Neutral button label on hover, paper or tan |
+| `#F2F2F2` | `#1E2529` | **13.88:1** | Neutral button label on pressed, paper or tan |
+| `#191919` | `#D9D9D9` | **12.46:1** | Neutral button label on hover, on `#0B1215` |
+| `#191919` | `#C9C9C9` | **10.62:1** | Neutral button label on pressed, on `#0B1215` |
 | `#F2F2F2` | `#191919` | **15.71:1** | Not a surface pair. Ink is never the ground. Listed so the reverse is not mistaken for a panel. |
 
 Non-text pairs:
@@ -107,6 +117,13 @@ Non-text pairs:
 | `#7B091F` pressed fill | `#0B1215` | **1.71:1** | Fails 3:1. The 2px `#F2F2F2` border stays. |
 | `#7B091F` pressed fill | `#D49A45` | **4.48:1** | The fill would pass. The ink border stays anyway. |
 | `#A6783F` input border | `#F2F2F2` | **3.49:1** | Passes 1.4.11. The only job of this hex. Do not lighten it. |
+| `#2A3236` neutral hover | `#F2F2F2` | **11.67:1** | Passes. On paper the border matches the fill. |
+| `#2A3236` neutral hover | `#D49A45` | **5.29:1** | Passes. On tan the border matches the fill. |
+| `#1E2529` neutral pressed | `#F2F2F2` | **13.88:1** | Passes. On paper the border matches the fill. |
+| `#1E2529` neutral pressed | `#D49A45` | **6.29:1** | Passes. On tan the border matches the fill. |
+| `#0B1215` neutral rest | `#D49A45` | **7.65:1** | Passes. On tan the border matches the fill. |
+| `#D9D9D9` neutral hover | `#0B1215` | **13.38:1** | Passes. On the dark surface the border matches the fill. |
+| `#C9C9C9` neutral pressed | `#0B1215` | **11.41:1** | Passes. On the dark surface the border matches the fill. |
 | `#191919` focus ring | `#F2F2F2` | **15.71:1** | Focus on paper, drawn outside the control. |
 | `#191919` focus ring | `#D49A45` | **7.12:1** | Focus on a tan field. |
 | `#F2F2F2` focus ring | `#0B1215` | **16.88:1** | Focus on the dark surface. |
@@ -315,6 +332,14 @@ Height 44px including a 2px border (`box-sizing: border-box`). Padding inline 16
 
 Color states change instantly. Do not fade them.
 
+The standard set is three buttons.
+
+1. **Primary.** Red. One main action per section.
+2. **Secondary.** An outline. The quieter action beside a primary.
+3. **Neutral.** Media and utility, including Listen. Not a second primary.
+
+Focus on every button in this set is the §6 ring: 2px, drawn 2px outside the control, on the surface behind it. On paper the ring is `#191919` (**15.71:1**). On tan it is `#191919` (**7.12:1**). On `#0B1215` it is `#F2F2F2` (**16.88:1**). Focus is never red.
+
 **Primary, on paper**
 
 - Rest: fill and border `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
@@ -334,21 +359,44 @@ Color states change instantly. Do not fade them.
 - Hover: fill `#8F0A24`, border stays 2px `#191919`, label `#F2F2F2`. The fill against tan is 3.80:1. The border stays because rest fails 3:1.
 - Pressed: fill `#7B091F`, border stays 2px `#191919`, label `#F2F2F2`. The fill against tan is 4.48:1. The border stays.
 
-**Secondary, on paper or tan**
+**Secondary, on paper**
 
-- Rest: transparent fill, border and label `#BA0C2F` on paper (5.90:1). On tan, border and label `#191919` (red on tan fails).
-- Hover: fill `#BA0C2F`, label `#F2F2F2`. On tan, keep the ink border.
+- Rest: transparent fill, border and label `#BA0C2F` (5.90:1).
+- Hover and pressed: fill `#BA0C2F`, label `#F2F2F2` (5.90:1). The border color fills the button. The label switches to paper.
+
+**Secondary, on tan**
+
+- Rest: transparent fill, border and label `#191919` (7.12:1). Red on tan fails.
+- Hover and pressed: fill `#BA0C2F`, label `#F2F2F2` (5.90:1). The ink border stays. The fill is red, not ink. Ink is not a button fill.
 
 **Secondary, on `#0B1215`**
 
 - Rest: transparent fill, border and label `#D49A45` (7.65:1). A red outline on this ground is 2.86:1.
-- Hover: fill `#D49A45`, label `#191919` (7.12:1).
+- Hover and pressed: fill `#D49A45`, label `#191919` (7.12:1). The border color fills the button. The label switches to ink.
+
+**Neutral, on paper or tan**
+
+The same button on both light surfaces. Rest is `#0B1215`, not `#191919`.
+
+- Rest: fill and border `#0B1215`, label `#F2F2F2` (**16.88:1**). The fill against paper is 16.88:1. Against tan it is 7.65:1.
+- Hover: fill and border `#2A3236`, label `#F2F2F2` (**11.67:1**). Against paper 11.67:1. Against tan 5.29:1.
+- Pressed: fill and border `#1E2529`, label `#F2F2F2` (**13.88:1**). Against paper 13.88:1. Against tan 6.29:1.
+- Hover does not flip to paper. Pressed does not return to `#0B1215`.
+
+**Neutral, on `#0B1215`**
+
+- Rest: fill and border `#F2F2F2`, label `#191919` (**15.71:1**). The fill against the band is 16.88:1.
+- Hover: fill and border `#D9D9D9`, label `#191919` (**12.46:1**). The fill against the band is 13.38:1.
+- Pressed: fill and border `#C9C9C9`, label `#191919` (**10.62:1**). The fill against the band is 11.41:1.
+- Hover does not flip to `#0B1215`. The label stays ink.
+
+Every neutral label clears 4.5:1. The border matches the fill on every state. Each fill clears 3:1 against the surface it sits on, so this button does not take the paper or ink edge the red primary needs.
 
 **Link button**
 
-The third button is a link. No fill, no border, no pill. Archivo 16px / 700, underlined, the link colors in §2.6. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link. A link inside body copy stays Lora.
+A link is not one of the three fills. No fill, no border, no pill. Archivo 16px / 700, underlined, the link colors in §2.6. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link. A link inside body copy stays Lora.
 
-One primary button in a group. Listen buttons are not primaries.
+One primary button in a group. A neutral button is not a primary.
 
 ### 7.3 Fields
 
@@ -376,8 +424,7 @@ Height 24px, padding 0 8px, radius 4px, Archivo 13px / 700, line-height 1. Not a
 
 Same geometry as a button: 44px, radius 4px, Archivo 16px / 700, sentence case (“Listen on Spotify”). A 20px platform glyph sits 8px to the left of the label. Use the platform’s official icon, in the platform’s color. The specimen draws stand-in glyphs so this repo does not ship trademark artwork.
 
-- On paper: fill and border `#0B1215`, label `#F2F2F2` (16.88:1). Hover inverts to fill `#F2F2F2`, border `#0B1215`, label `#191919`.
-- On `#0B1215`: fill and border `#F2F2F2`, label `#191919`. Hover inverts to fill `#0B1215`, border `#F2F2F2`, label `#F2F2F2`. The border is what keeps the hover visible against the band.
+Listen is the neutral button in §7.2. On paper and on tan: `#0B1215`, hover `#2A3236`, pressed `#1E2529`, label `#F2F2F2`. On `#0B1215`: `#F2F2F2`, hover `#D9D9D9`, pressed `#C9C9C9`, label `#191919`. Hover does not invert. Focus is the same §6 ring as the other buttons.
 
 Platform colors are not tokens:
 
@@ -543,6 +590,7 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 19. Calling the brand “Local Energy podcast,” or personifying AI in copy.
 20. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, or navy focus.
 21. An un-underlined text link. A fade between button states.
+22. A neutral button that inverts on hover or pressed. On paper and tan it stays a dark fill. On `#0B1215` it stays a light fill.
 
 ---
 

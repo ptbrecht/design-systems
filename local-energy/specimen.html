@@ -43,6 +43,10 @@
     --accent-hover: #8F0A24;
     --accent-pressed: #7B091F;
     --dark: #0B1215;
+    --neutral-dark-hover: #2A3236;
+    --neutral-dark-pressed: #1E2529;
+    --neutral-light-hover: #D9D9D9;
+    --neutral-light-pressed: #C9C9C9;
     --line: rgb(25 25 25 / 0.16);
     --line-dark: rgb(242 242 242 / 0.20);
     --shadow: 0 1px 2px rgb(11 18 21 / 0.06);
@@ -364,8 +368,11 @@
     color: var(--ink);
     text-decoration: none;
   }
-  .listen.hover { background: var(--dark); border-color: var(--paper); color: var(--paper); }
+  .listen.hover { background: var(--neutral-light-hover); border-color: var(--neutral-light-hover); color: var(--ink); }
+  .listen.pressed { background: var(--neutral-light-pressed); border-color: var(--neutral-light-pressed); color: var(--ink); }
   .listen.on-paper { background: var(--dark); border-color: var(--dark); color: var(--paper); }
+  .listen.on-paper.hover { background: var(--neutral-dark-hover); border-color: var(--neutral-dark-hover); color: var(--paper); }
+  .listen.on-paper.pressed { background: var(--neutral-dark-pressed); border-color: var(--neutral-dark-pressed); color: var(--paper); }
   .glyph { width: 20px; height: 20px; display: block; }
 
   .marks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
@@ -633,7 +640,12 @@
             <span class="btn solid btn-primary pressed">Pressed</span>
             <span class="btn solid btn-primary focus">Focus</span>
           </div>
-          <p class="helper">Hover is #8F0A24, paper at 8.39:1. Pressed is #7B091F, paper at 9.87:1. On paper the border matches the fill. <a class="inline" href="#">A link is ink</a> · <a class="inline hover" href="#">hover is red</a>.</p>
+          <div class="btn-row" style="margin-top:12px">
+            <span class="btn solid listen on-paper">Listen</span>
+            <span class="btn solid listen on-paper hover">Hover</span>
+            <span class="btn solid listen on-paper pressed">Pressed</span>
+          </div>
+          <p class="helper">Primary hover is #8F0A24, paper at 8.39:1. Pressed is #7B091F, paper at 9.87:1. Neutral stays dark: #0B1215 (16.88:1), hover #2A3236 (11.67:1), pressed #1E2529 (13.88:1). Focus is a 2px ink ring, 2px outside. <a class="inline" href="#">A link is ink</a> · <a class="inline hover" href="#">hover is red</a>.</p>
         </div>
         <div class="panel">
           <p class="eyebrow">Field</p>
@@ -685,7 +697,9 @@
           <div class="listen-row">
             <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
             <span class="btn solid listen hover">Hover</span>
+            <span class="btn solid listen pressed">Pressed</span>
           </div>
+          <p class="helper" style="color:#F2F2F2">Neutral on dark stays light. Hover #D9D9D9, ink at 12.46:1. Pressed #C9C9C9, ink at 10.62:1. Focus is a 2px paper ring, 2px outside.</p>
         </div>
         <div class="transcript">
           <p class="who">Wade Spear · 00:14:02</p>
@@ -732,7 +746,7 @@
           <div class="cell spec">
             <div class="flag good">On spec · 16.88:1</div>
             <span class="btn solid listen on-paper"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
-            <p style="margin-top:10px">#0B1215 button on paper. The green stays inside the glyph.</p>
+            <p style="margin-top:10px">#0B1215 button on paper, paper label at 16.88:1. Hover stays #2A3236. The green stays inside the glyph.</p>
           </div>
         </article>
         <article class="pair">
