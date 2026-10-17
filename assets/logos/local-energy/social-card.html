@@ -13,13 +13,6 @@
   }
   @font-face {
     font-family: "Lora";
-    src: url("../../../fonts/Lora-Variable.ttf") format("truetype");
-    font-weight: 400 700;
-    font-style: normal;
-    font-display: block;
-  }
-  @font-face {
-    font-family: "Lora";
     src: url("../../../fonts/Lora-Italic-Variable.ttf") format("truetype");
     font-weight: 400 700;
     font-style: italic;
@@ -29,24 +22,16 @@
   html, body { width: 1200px; height: 630px; overflow: hidden; background: #0B1215; }
   body {
     display: flex;
-    align-items: center;
-    gap: 56px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 0 72px;
     color: #F2F2F2;
     font-family: "Lora", Georgia, serif;
     font-synthesis: none;
   }
-  img.mark { width: 250px; height: 250px; display: block; flex: none; }
-  .copy { max-width: 740px; }
-  .wordmark {
-    font-family: "Archivo Black", sans-serif;
-    font-weight: 900;
-    font-size: 56px;
-    line-height: 1.05;
-    letter-spacing: 0;
-    color: #F2F2F2;
-  }
-  .rule { width: 64px; height: 4px; background: #D49A45; margin: 22px 0; }
+  img.wordmark { height: 72px; width: auto; display: block; }
+  .rule { width: 64px; height: 4px; background: #D49A45; margin: 28px 0; }
   .headline {
     font-family: "Archivo Black", sans-serif;
     font-weight: 900;
@@ -65,12 +50,9 @@
 </style>
 </head>
 <body>
-  <img class="mark" src="mark.svg" alt="">
-  <div class="copy">
-    <p class="wordmark">Local Energy</p>
-    <div class="rule"></div>
-    <p class="headline">Supporting Independent Energy.</p>
-    <p class="tagline">Oil &amp; gas shop talk with Peter Brecht and Wade Spear.</p>
-  </div>
+  <img class="wordmark" src="wordmark-on-dark.svg" alt="Local Energy">
+  <div class="rule"></div>
+  <p class="headline">Supporting Independent Energy.</p>
+  <p class="tagline">Oil &amp; gas shop talk with Peter Brecht and Wade Spear.</p>
 </body>
 </html>

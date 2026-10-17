@@ -10,7 +10,7 @@ The name, the headline, and the tagline below are Peter’s. The rest is the wor
 - **Headline:** Supporting Independent Energy.
 - **Tagline:** Oil & gas shop talk with Peter Brecht and Wade Spear.
 
-Use the name alone in the wordmark, the browser title’s brand, the nav, and the social card. “Podcast” is fine in a sentence when you mean the audio show (“Listen to the podcast”). It is not fine in the logo lockup.
+Use the name alone in the wordmark, the browser title’s brand, the nav, and the social card. “Podcast” is fine in a sentence when you mean the audio show (“Listen to the podcast”). It is not fine in the logo lockup. The lockup carries the red star as a superscript. A sentence does not. Do not type a star into body copy.
 
 ## Headlines
 
