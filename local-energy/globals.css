@@ -16,8 +16,9 @@
    Archivo is font-ui: 800 on h3, 700 on h4 and chrome. Width stays 100.
 
    Four brand colors: tan, red, paper, and one near-black. #191919 is ink,
-   not a surface. #A6783F is not a brand color. It is only the pressed fill
-   of the button (hover uses the same fill) and the input border.
+   not a surface. Hover and pressed of the red button are deeper reds
+   (#8F0A24, #7B091F) so the paper label stays paper and clears 7:1.
+   #A6783F is not a brand color. It is only the input border.
    There is no blue and no yellow. */
 
 @import "tailwindcss";
@@ -65,8 +66,10 @@
   --color-ink: #191919;
   --color-tan: #d49a45;
   --color-accent: #ba0c2f;
+  --color-accent-hover: #8f0a24;
+  --color-accent-pressed: #7b091f;
   --color-dark: #0b1215;
-  --color-pressed: #a6783f;
+  --color-dark-tan: #a6783f;
   --color-on-dark: #f2f2f2;
   --color-on-accent: #f2f2f2;
   --color-on-tan: #191919;
@@ -168,8 +171,7 @@
   }
 }
 
-/* Color states do not fade. A crossfade between paper-on-red and
-   ink-on-#A6783F passes through pairs that fail WCAG. */
+/* Color states do not fade. */
 
 @layer components {
   .le-nav {
@@ -193,14 +195,11 @@
     color: var(--color-tan);
   }
 
+  /* Nav brand is the lockup image (wordmark-on-dark.svg), not live type. */
   .le-wordmark {
-    font-family: var(--font-ui);
-    font-weight: 700;
-    font-stretch: normal;
-    font-size: 1.25rem;
-    line-height: 1;
-    letter-spacing: 0;
-    color: var(--color-on-dark);
+    display: block;
+    height: 26px;
+    width: auto;
   }
 
   .le-nav-link {
@@ -239,11 +238,16 @@
     color: var(--color-on-accent);
   }
 
-  .le-btn-primary:hover,
+  .le-btn-primary:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: var(--color-on-accent);
+  }
+
   .le-btn-primary:active {
-    background: var(--color-pressed);
-    border-color: var(--color-accent);
-    color: var(--color-ink);
+    background: var(--color-accent-pressed);
+    border-color: var(--color-accent-pressed);
+    color: var(--color-on-accent);
   }
 
   .le-on-dark .le-btn-primary {
@@ -252,11 +256,16 @@
     color: var(--color-on-accent);
   }
 
-  .le-on-dark .le-btn-primary:hover,
-  .le-on-dark .le-btn-primary:active {
-    background: var(--color-pressed);
+  .le-on-dark .le-btn-primary:hover {
+    background: var(--color-accent-hover);
     border-color: var(--color-paper);
-    color: var(--color-ink);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-dark .le-btn-primary:active {
+    background: var(--color-accent-pressed);
+    border-color: var(--color-paper);
+    color: var(--color-on-accent);
   }
 
   .le-on-tan .le-btn-primary {
@@ -265,11 +274,16 @@
     color: var(--color-on-accent);
   }
 
-  .le-on-tan .le-btn-primary:hover,
-  .le-on-tan .le-btn-primary:active {
-    background: var(--color-pressed);
+  .le-on-tan .le-btn-primary:hover {
+    background: var(--color-accent-hover);
     border-color: var(--color-ink);
-    color: var(--color-ink);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-tan .le-btn-primary:active {
+    background: var(--color-accent-pressed);
+    border-color: var(--color-ink);
+    color: var(--color-on-accent);
   }
 
   .le-btn-secondary {
@@ -388,7 +402,7 @@
     width: 100%;
     min-height: 44px;
     padding: 0.5rem 0.75rem;
-    border: 1.5px solid var(--color-pressed);
+    border: 1.5px solid var(--color-dark-tan);
     border-radius: var(--radius-control);
     background: var(--color-paper);
     color: var(--color-ink);

@@ -84,7 +84,7 @@ A fourth system, for a different brand. **Not** Falcon West Energy, and **not** 
 - The name is **Local Energy**. Not “Local Energy podcast.”
 - Paper `#F2F2F2` is the reading page. Tan `#D49A45` is the brand field, not body text (2.20:1 on paper).
 - **Red `#BA0C2F` is the accent and the primary button**, on paper and on the dark surface. The label is paper (5.90:1). On `#0B1215` the button adds a paper border (the fill alone is 2.86:1). On tan it adds an ink border (2.67:1).
-- `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. Dark tan `#A6783F` is not a brand color. It is only the pressed fill of the button and the input border.
+- `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. The red button’s hover is `#8F0A24` and its pressed state is `#7B091F`, both with a paper label. Dark tan `#A6783F` is not a brand color. It is only the input border.
 - Yellow and dark blue are not in the relaunch. A highlighted caption word on the dark surface is tan.
 - Archivo Black for display, h1, and h2. Archivo (700–800) for h3, h4, and chrome. Lora for body. None of these faces is used by the other three systems.
 
@@ -115,7 +115,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 | [`assets/logos/app/apps-logo-mark.svg`](assets/logos/app/apps-logo-mark.svg) | App quad mark (SVG) |
 | [`assets/logos/app/apps-logo-mark-oneline.svg`](assets/logos/app/apps-logo-mark-oneline.svg) | App quad mark, one-line SVG |
 | [`assets/logos/app/collide-icon-128.png`](assets/logos/app/collide-icon-128.png) | Collide icon (Chuck-craft source reference, not a Falcon West mark) |
-| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star (tan, dark, and paper tiles, standalone, one-color, app icon, 1200×630 social card) |
+| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star, bare star, wordmark lockup, favicon, 1200×630 social card, 1280×720 thumbnail |
 | [`assets/brand-guide/Falcon West Brand Style Guide.pdf`](assets/brand-guide/Falcon%20West%20Brand%20Style%20Guide.pdf) | One-page brand style guide. Ancestry only: it does not set button face or type floors. Preview: [`falcon-west/brand-guide-1pager.png`](falcon-west/brand-guide-1pager.png). |
 
 ---
