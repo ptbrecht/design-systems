@@ -1,0 +1,626 @@
+/* Local Energy — drop-in Tailwind v4 theme for localenergy.com.
+   Paste this over the Next.js app/globals.css.
+
+   Copy these files into the site's public/fonts/ (same names):
+     ArchivoBlack-Regular.ttf
+     Archivo-Variable.ttf
+     Lora-Variable.ttf
+     Lora-Italic-Variable.ttf
+   Source and OFL texts: the design-systems repo, /fonts.
+
+   If Tailwind is already imported by another file, delete the @import line
+   below and keep everything else.
+
+   Default face is Lora, hooked to Tailwind's --font-sans so unmarked text
+   is the body face. Archivo Black is font-display (hero, h1, h2) only.
+   Archivo is font-ui: 800 on h3, 700 on h4 and chrome. Width stays 100.
+
+   Four brand colors: tan, red, paper, and one near-black. #191919 is ink,
+   not a surface. #A6783F is not a brand color. It is only the pressed fill
+   of the button (hover uses the same fill) and the input border.
+   There is no blue and no yellow. */
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Archivo Black";
+  src: url("/fonts/ArchivoBlack-Regular.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/Archivo-Variable.ttf") format("truetype");
+  font-weight: 700 800;
+  font-stretch: 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora-Italic-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Lora", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-ui: "Archivo", Arial, sans-serif;
+
+  --color-paper: #f2f2f2;
+  --color-ink: #191919;
+  --color-tan: #d49a45;
+  --color-accent: #ba0c2f;
+  --color-dark: #0b1215;
+  --color-pressed: #a6783f;
+  --color-on-dark: #f2f2f2;
+  --color-on-accent: #f2f2f2;
+  --color-on-tan: #191919;
+  --color-line: rgb(25 25 25 / 0.16);
+  --color-line-dark: rgb(242 242 242 / 0.2);
+  --color-scrim: rgb(11 18 21 / 0.68);
+
+  /* Desktop sizes. Pair with the *-mobile tokens under 768px.
+     text-display is the home hero only. Article titles are text-h1. */
+  --text-display: 2.25rem;
+  --text-display--line-height: 1.15;
+  --text-display--font-weight: 900;
+  --text-display-mobile: 1.875rem;
+  --text-display-mobile--line-height: 1.15;
+  --text-display-mobile--font-weight: 900;
+
+  --text-h1: 1.875rem;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 900;
+  --text-h1-mobile: 1.625rem;
+  --text-h1-mobile--line-height: 1.2;
+  --text-h1-mobile--font-weight: 900;
+
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--font-weight: 900;
+  --text-h2-mobile: 1.375rem;
+  --text-h2-mobile--line-height: 1.25;
+  --text-h2-mobile--font-weight: 900;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 800;
+
+  --text-h4: 1.125rem;
+  --text-h4--line-height: 1.35;
+  --text-h4--font-weight: 700;
+
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.6;
+  --text-lead-mobile: 1.125rem;
+  --text-lead-mobile--line-height: 1.6;
+
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+
+  --text-ui: 1rem;
+  --text-ui--line-height: 1;
+  --text-ui--font-weight: 700;
+
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+
+  --spacing-paragraph: 1rem;
+  --spacing-h1-top: 2.5rem;
+  --spacing-h1-top-mobile: 1.75rem;
+  --spacing-h2-top: 2.25rem;
+  --spacing-h2-top-mobile: 1.5rem;
+  --spacing-h3-top: 1.75rem;
+  --spacing-h3-top-mobile: 1.25rem;
+  --spacing-h4-top: 1.5rem;
+  --spacing-h4-top-mobile: 1.25rem;
+  --spacing-display-bottom: 0.75rem;
+  --spacing-h1-bottom: 0.75rem;
+  --spacing-heading-bottom: 0.5rem;
+  --spacing-section: 4rem;
+  --spacing-section-mobile: 2.5rem;
+  --spacing-page: 1.25rem;
+  --spacing-page-desktop: 2.5rem;
+  --spacing-page-wide: 4rem;
+
+  --radius-mark: 0px;
+  --radius-control: 4px;
+  --radius-card: 8px;
+
+  --shadow-card: 0 1px 2px rgb(11 18 21 / 0.06);
+
+  --container-page: 70rem;
+  --container-measure: 68ch;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis: none;
+    color-scheme: light;
+  }
+
+  ::selection {
+    background: var(--color-tan);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
+
+/* Color states do not fade. A crossfade between paper-on-red and
+   ink-on-#A6783F passes through pairs that fail WCAG. */
+
+@layer components {
+  .le-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 64px;
+    padding: 0 var(--spacing-page);
+    background: var(--color-dark);
+    color: var(--color-on-dark);
+    color-scheme: dark;
+  }
+
+  .le-nav a {
+    color: var(--color-on-dark);
+    text-decoration: none;
+  }
+
+  .le-nav a:hover,
+  .le-nav a[aria-current="page"] {
+    color: var(--color-tan);
+  }
+
+  .le-wordmark {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-stretch: normal;
+    font-size: 1.25rem;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--color-on-dark);
+  }
+
+  .le-nav-link {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    font-weight: 700;
+    font-stretch: normal;
+    line-height: 1;
+  }
+
+  .le-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border-radius: var(--radius-control);
+    border: 2px solid transparent;
+    background: transparent;
+    font-family: var(--font-ui);
+    font-stretch: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: none;
+  }
+
+  .le-btn-primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .le-btn-primary:hover,
+  .le-btn-primary:active {
+    background: var(--color-pressed);
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-btn-primary {
+    background: var(--color-accent);
+    border-color: var(--color-paper);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-dark .le-btn-primary:hover,
+  .le-on-dark .le-btn-primary:active {
+    background: var(--color-pressed);
+    border-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .le-on-tan .le-btn-primary {
+    background: var(--color-accent);
+    border-color: var(--color-ink);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-tan .le-btn-primary:hover,
+  .le-on-tan .le-btn-primary:active {
+    background: var(--color-pressed);
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+
+  .le-btn-secondary {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .le-btn-secondary:hover,
+  .le-btn-secondary:active {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-tan .le-btn-secondary {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+
+  .le-on-tan .le-btn-secondary:hover,
+  .le-on-tan .le-btn-secondary:active {
+    background: var(--color-accent);
+    border-color: var(--color-ink);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-dark .le-btn-secondary {
+    border-color: var(--color-tan);
+    color: var(--color-tan);
+  }
+
+  .le-on-dark .le-btn-secondary:hover,
+  .le-on-dark .le-btn-secondary:active {
+    background: var(--color-tan);
+    color: var(--color-on-tan);
+  }
+
+  .le-btn-link {
+    min-height: 44px;
+    padding-inline: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-stretch: normal;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .le-btn-link:hover {
+    color: var(--color-accent);
+  }
+
+  .le-on-tan .le-btn-link,
+  .le-on-tan .le-btn-link:hover {
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-btn-link {
+    color: var(--color-tan);
+  }
+
+  .le-on-dark .le-btn-link:hover {
+    color: var(--color-paper);
+  }
+
+  .le-on-dark :focus-visible,
+  .le-hero :focus-visible {
+    outline-color: var(--color-paper);
+  }
+
+  .le-listen {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    color: var(--color-paper);
+  }
+
+  .le-listen:hover,
+  .le-listen:active {
+    background: var(--color-paper);
+    border-color: var(--color-dark);
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-listen {
+    background: var(--color-paper);
+    border-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-listen:hover,
+  .le-on-dark .le-listen:active {
+    background: var(--color-dark);
+    border-color: var(--color-paper);
+    color: var(--color-paper);
+  }
+
+  .le-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .le-field label {
+    font-family: var(--font-ui);
+    font-stretch: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-ink);
+  }
+
+  .le-field input,
+  .le-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--color-pressed);
+    border-radius: var(--radius-control);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .le-field input:focus-visible,
+  .le-field textarea:focus-visible {
+    border: 2px solid var(--color-ink);
+  }
+
+  .le-field .le-error {
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .le-card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+  }
+
+  .le-on-dark .le-card {
+    background: var(--color-dark);
+    border-color: var(--color-line-dark);
+    box-shadow: none;
+    color: var(--color-paper);
+  }
+
+  .le-badge {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 0.5rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    color: var(--color-paper);
+    font-family: var(--font-ui);
+    font-stretch: normal;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .le-on-dark .le-badge {
+    border-color: var(--color-paper);
+  }
+
+  .le-transcript {
+    background: var(--color-dark);
+    color: var(--color-paper);
+    border: 1px solid var(--color-line-dark);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    color-scheme: dark;
+  }
+
+  .le-transcript p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .le-transcript .who {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--color-tan);
+    font-family: var(--font-ui);
+    font-stretch: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .le-transcript em,
+  .le-transcript .hit {
+    color: var(--color-tan);
+    font-style: normal;
+  }
+
+  .le-hero {
+    position: relative;
+    background: var(--color-dark);
+    color: var(--color-on-dark);
+    color-scheme: dark;
+  }
+
+  .le-hero-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .le-hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: var(--color-scrim);
+  }
+
+  .le-prose {
+    max-width: var(--container-measure);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--color-ink);
+  }
+
+  .le-eyebrow {
+    font-family: var(--font-ui);
+    font-stretch: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+  }
+
+  .le-on-dark .le-eyebrow,
+  .le-hero .le-eyebrow {
+    color: var(--color-tan);
+  }
+
+  .le-prose h1,
+  .le-prose h2,
+  .le-prose h3,
+  .le-prose h4 {
+    margin: 0;
+    letter-spacing: 0;
+    color: var(--color-ink);
+  }
+
+  .le-prose h1,
+  .le-prose h2 {
+    font-family: var(--font-display);
+    font-weight: 900;
+  }
+
+  .le-prose h3,
+  .le-prose h4 {
+    font-family: var(--font-ui);
+    font-stretch: normal;
+  }
+
+  .le-prose h1 {
+    font-size: 1.625rem;
+    line-height: 1.2;
+    padding-top: var(--spacing-h1-top-mobile);
+    padding-bottom: var(--spacing-h1-bottom);
+  }
+
+  .le-prose h2 {
+    font-size: 1.375rem;
+    line-height: 1.25;
+    padding-top: var(--spacing-h2-top-mobile);
+    padding-bottom: var(--spacing-heading-bottom);
+  }
+
+  .le-prose h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.3;
+    padding-top: var(--spacing-h3-top-mobile);
+    padding-bottom: var(--spacing-heading-bottom);
+  }
+
+  .le-prose h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.35;
+    padding-top: var(--spacing-h4-top-mobile);
+    padding-bottom: var(--spacing-heading-bottom);
+  }
+
+  .le-prose > :first-child {
+    padding-top: 0;
+  }
+
+  .le-prose p {
+    margin: 0 0 var(--spacing-paragraph);
+  }
+
+  .le-prose a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .le-prose a:hover {
+    color: var(--color-accent);
+  }
+
+  .le-prose em.accent {
+    color: var(--color-accent);
+    font-style: normal;
+  }
+
+  .le-prose blockquote {
+    margin: 1.5rem 0;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    .le-prose h1 {
+      font-size: 1.875rem;
+      padding-top: var(--spacing-h1-top);
+    }
+
+    .le-prose h2 {
+      font-size: 1.5rem;
+      padding-top: var(--spacing-h2-top);
+    }
+
+    .le-prose h3 {
+      padding-top: var(--spacing-h3-top);
+    }
+
+    .le-prose h4 {
+      padding-top: var(--spacing-h4-top);
+    }
+
+    .le-prose blockquote {
+      font-size: 1.25rem;
+    }
+  }
+}

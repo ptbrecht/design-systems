@@ -1,9 +1,9 @@
 # Falcon West Material
 
 The design language for Falcon West **apps, CRM, Tools, Academy gates, and other
-serial products** (`app.falconwest.com`). It does **not** cover falconwest.com or
-falconwestenergy.com — those are separate website systems in `falcon-west/` and
-`falcon-west-energy/`.
+serial products** (`app.falconwest.com`). It does **not** cover falconwest.com,
+falconwestenergy.com, or localenergy.com — those are separate website systems
+in `falcon-west/`, `falcon-west-energy/`, and `local-energy/`.
 
 It is **Material Design 2** — not M3 — because M2's elevation, state-layer and type
 models match how these products are actually built, and because the components are
@@ -46,7 +46,7 @@ Intake). Spec, do/don’t, and Developer checklist:
 
 ## CRM face (known Material variant)
 
-CRM is **not** a fourth design system. It is a documented Material **face** —
+CRM is **not** its own design system. It is a documented Material **face** —
 Energy-meets-Material (Accent C sky CTAs, light + dark), still scored on
 [`PATTERNS.md`](PATTERNS.md) and Material tokens. See
 [`CRM-FACE.md`](CRM-FACE.md). Implement locks remain in

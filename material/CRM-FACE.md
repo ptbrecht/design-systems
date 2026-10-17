@@ -1,11 +1,12 @@
 # CRM face — known Material variant (not a separate system)
 
 **Status:** Documented **face / theme variant** of **Falcon West Material**.
-**Not** a fourth design system. **Not** a stand-alone UX brand.
+**Not** its own design system. **Not** a stand-alone UX brand.
 
-Falcon West ships **three** visual systems in this repo (`material/`,
-`falcon-west/`, `falcon-west-energy/`). CRM lives **inside Material**. When
-CRM’s paint leans sky (Energy) or runs a real dark shell, that is a
+This repo ships separate visual systems (`material/`, `falcon-west/`,
+`falcon-west-energy/`, `local-energy/`). CRM lives **inside Material**.
+Local Energy is its own website system for a different brand. CRM is not.
+When CRM’s paint leans sky (Energy) or runs a real dark shell, that is a
 **known exception on top of Material** — tokens, placement, and scoring
 still come from this folder.
 
@@ -19,15 +20,16 @@ still come from this folder.
 
 | CRM is | CRM is not |
 | --- | --- |
-| A **Material face** for `wp-plugin-falcon-west-crm` / app.falconwest.com CRM | A fourth system beside Material / Falcon West / Energy |
+| A **Material face** for `wp-plugin-falcon-west-crm` / app.falconwest.com CRM | Its own system beside Material or the websites |
 | Light + dark **Appearance** (System default) | Permission to invent CRM-only components that ignore [`PATTERNS.md`](PATTERNS.md) |
 | Sky-leaning primary actions (**Accent C** style — no rust primary *on this face*) | A new token file that forks `tokens.json` into “CRM Material” |
 | Charcoal / paper shells documented in handoff | Marketing-site chrome from `falcon-west/` or `falcon-west-energy/` |
 | Same placement locks as other apps | “CRM UX” as a brand name in decks or plugin READMEs |
 
-If a future product needs a different face, document it the same way:
+If a future Falcon West product needs a different face, document it the same way:
 **variant of Material**, with an explicit exception list — never a new
-top-level system folder.
+top-level system folder. A separate public site (Local Energy) is its own
+system. A Falcon West product face is not.
 
 ---
 
@@ -148,7 +150,7 @@ is still the same pattern as a rust ADD on Tools.
 
 Use **in addition to** the [`PATTERNS.md`](PATTERNS.md) checklist.
 
-- [ ] Documented as Material **face / variant** — not a fourth system
+- [ ] Documented as Material **face / variant** — not its own system
 - [ ] Placement matches PATTERNS (Back/Close, trailing primary, dialogs, focus)
 - [ ] Token roles (shape 0 cards, 4px controls, elevation, type, ink/paper) intact
 - [ ] CRM primary actions = Accent C sky `#2d78ad` (no rust primary on this face)
