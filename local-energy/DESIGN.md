@@ -218,7 +218,7 @@ Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, 
 
 Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
 
-The nav brand is not a row in this table. It is the wordmark lockup, 26px tall in the 64px bar (cap height about 24.6px). §7.1 and §8.
+The nav brand is not a row in this table. It is the wordmark lockup, 26px tall in the 64px bar (cap height about 20.3px). §7.1 and §8.
 
 A link inside a paragraph stays Lora, at the size of the paragraph, underlined. A link button is Archivo 16/700. Do not set body copy in Archivo.
 
@@ -230,7 +230,6 @@ Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6
 - **h1** is the article title. Articles do not use Display.
 - **h2–h4** run inside the prose column, in order. Do not skip from h1 to h3.
 - The social card is a poster at 1200×630. It may set type larger than Display. The page scale does not govern it. The brand on the card is the wordmark lockup (paper letters, red star), not a second line of live type. The headline stays Archivo Black. The tagline stays Lora italic. There is no Archivo UI type on the card. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
-- A YouTube thumbnail is a poster at 1280×720. Same exception. The headline is Archivo Black at 144px on that artboard so it still clears 18px when the image is shown about 168px wide. §8.4.
 
 ### 3.3 Measure
 
@@ -305,7 +304,7 @@ The current site’s 3px white ring is about 1.12:1 on `#F2F2F2`. It is retired.
 
 A 64px bar, background `#0B1215`. This is chrome, not a button.
 
-- Brand: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 26px tall. Paper letters, red superscript star, no tile. Cap height is about 24.6px, above the 18px Archivo Black floor. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
+- Brand: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 26px tall. Paper letters, red superscript star, no tile. Cap height is about 20.3px, above the 18px Archivo Black floor. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
 - Destinations in Archivo 16px / 700, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill. The current item does not get a heavier weight.
 - Suggested destinations: Shop talk, Writing, About, Listen.
 - Under 768px the same bar stays. Destinations move into a `#0B1215` panel under the bar, separated by `--color-line-dark`. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
@@ -458,7 +457,7 @@ The outline is dropped. Red against the tan tile is **2.67:1** and red against `
 
 [`mark.png`](../assets/logos/local-energy/mark.png) is the tan tile rendered from `mark.svg`. [`mark-bare.png`](../assets/logos/local-energy/mark-bare.png) is the same star with a transparent background. [`app-icon.png`](../assets/logos/local-energy/app-icon.png) and [`favicon.png`](../assets/logos/local-energy/favicon.png) are rendered from `mark-on-paper.svg`.
 
-On `#0B1215` — the nav band, the hero, a dark thumbnail — a star used alone is [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg). It sits on the dark ground. No paper tile, no tan tile, no white chip, no stroke. The paper tile is the favicon and the app icon, and nothing else.
+On `#0B1215` — the nav band and the hero — a star used alone is [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg). It sits on the dark ground. No paper tile, no tan tile, no white chip, no stroke. The paper tile is the favicon and the app icon, and nothing else.
 
 **Clear space.** Inside every 512 tile, and inside the bare star’s 512 box, the nearest point of the star is 15% of the box away from the edge (77px on the master). Outside a tile, or around the bare, standalone, and one-color stars, keep a margin equal to one quarter of the star’s width. Nothing sits in that margin: no type, no rule, no second mark.
 
@@ -466,17 +465,18 @@ On `#0B1215` — the nav band, the hero, a dark thumbnail — a star used alone 
 
 ### 8.2 The wordmark
 
-Whenever “Local Energy” is a logo — nav, footer lockup, social card, banner, thumbnail, specimen — it is this lockup. LOCAL ENERGY in Archivo Black caps, tracking 0, and the red star as a superscript asterisk after ENERGY. In running text, write Local Energy in the sentence’s face and do not insert a star glyph.
+Whenever “Local Energy” is a logo — nav, footer lockup, social card, banner, specimen — it is this lockup. LOCAL ENERGY in Archivo Black caps, tracking 0, and the red star as a superscript asterisk after ENERGY. In running text, write Local Energy in the sentence’s face and do not insert a star glyph.
 
 The letters are outlines from `ArchivoBlack-Regular.ttf`, not live text, so the SVG does not depend on the font being installed. Cap height in that file is 688 units per 1000. The string LOCAL ENERGY advances 8722. The Y’s ink ends at 8714.
 
 | | Relative to cap height (688) | Master units |
 |---|---|---|
-| Star width | **0.42 × cap** | 288.94 (scale 0.808 on the 357.60-wide master star) |
-| Gap from the Y’s ink to the star’s left point | **0.18 × cap** | 123.84 |
-| Star top above the cap line | **0.04 × cap** | top at 715.52 |
+| Star width | **0.65 × cap** | 447.21 (scale 1.2506 on the 357.60-wide master star) |
+| Gap from the Y’s ink to the star’s left point | **0.08 × cap** | 55.04 |
+| Arm line | **0.03 × cap above the cap line** | The horizontal through the left and right arm points sits at font y 708.64, 20.64 units above font y 688. |
+| Top point above the cap line | **0.27 × cap** | font y 871.11. The point rises further above the caps. |
 
-The star is the same pentagram as the tiles, one point up. It is not inside the type’s vertical flip, or the point would aim down. Clear space around the whole lockup is **half a cap height**. Nothing else sits in that margin.
+The star is the same pentagram as the tiles, one point up, set like an asterisk. The line through its left and right arms sits 0.03 of the cap height above the cap line. The top point rises further above the letters. It is not inside the type’s vertical flip, or the point would aim down. Clear space around the whole lockup is **half a cap height**. Nothing else sits in that margin.
 
 | File | Letters | Star | Use |
 |---|---|---|---|
@@ -484,7 +484,7 @@ The star is the same pentagram as the tiles, one point up. It is not inside the 
 | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | On `#0B1215`. The superscript star is bare. |
 | [`wordmark-mono.svg`](../assets/logos/local-energy/wordmark-mono.svg) | `#191919` | `#191919` | One color. On `#0B1215`, set both fills to `#F2F2F2`. |
 
-Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav the on-dark lockup is **26px** tall. Width is about 324px. The social card sets it at 72px tall.
+Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files are the wordmark. The star files in §8.1 are the star alone. A nav or social card references the lockup. It does not redraw the letters or the star. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets `wordmark-on-dark.svg` at 72px tall.
 
 ### 8.3 Social card
 
@@ -492,21 +492,9 @@ Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav
 
 ### 8.4 YouTube thumbnails
 
-The channel is [youtube.com/@localenergyio](https://www.youtube.com/@localenergyio). A thumbnail is **1280×720**. It always carries the star wordmark. It is a poster. The page type scale does not govern it. The template is [`thumbnail.html`](../assets/logos/local-energy/thumbnail.html), and [`thumbnail.png`](../assets/logos/local-energy/thumbnail.png) is one filled-in example.
+YouTube thumbnail template: TBD.
 
-**Palette.** The example ground is tan `#D49A45`, the banner’s field. On tan, use `wordmark.svg`: ink letters, red star. A thumbnail on `#0B1215` uses `wordmark-on-dark.svg`: paper letters, red star. The superscript star is bare on either ground. No tile behind it, and no stroke. On `#0B1215` that star is **2.86:1**. That is a logo exception, same as §8.1. A star used alone on a dark thumbnail is `mark-bare.svg`, on the dark ground, with the same rule.
-
-Ink `#191919` on tan is **7.12:1**, so the headline on the tan template is ink. On a dark thumbnail the headline is paper (**16.88:1**). Tan type on a dark thumbnail is legal for a short line (**7.65:1**) and is not the headline’s job here.
-
-**Headline.** Archivo Black, sentence case, weight 900, tracking 0, line-height 1.05. **Two to six words**, the rule in [`VOICE.md`](VOICE.md). Not all caps. Caps are the wordmark only. At most two lines. The example line is “The line that mattered.”
-
-Set it at **144px** on the 1280 artboard. YouTube’s sidebar shows the image at about 168px wide, 0.131 of the artboard. 144 × 0.131 is 19px, which clears the 18px Archivo Black floor. At a 320px view the same line is 36px. Do not set the headline smaller than 144px on this artboard.
-
-The wordmark is a stamp, smaller than the headline. On the template it is **56px** tall. Cap height at that size is about 53px.
-
-**Host.** Cut the person out. No rectangle behind them. Map the photograph’s luminance so 0 becomes `#191919` and 1 becomes `#F2F2F2`, and place that cutout on the tan field. Stroke the silhouette with `#F2F2F2`, **6px** at 1280. The template draws the treatment as a silhouette slot so a real photograph can drop in. Do not invent a face for Peter or Wade.
-
-**Safe zones.** Keep **64px** inside the frame around the wordmark and the headline. YouTube paints the duration on top of the bottom-right corner. Leave that rectangle empty: **x 1024–1280, y 616–720** (256×104). No wordmark, no headline, and no face in that box. The duration is an overlay. Do not draw it, and do not draw the zone, on the exported PNG.
+The channel banner, [`youtube-banner.png`](../assets/logos/local-energy/youtube-banner.png), stays in the logo folder. It is not a thumbnail template.
 
 ---
 

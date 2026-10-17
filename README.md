@@ -115,7 +115,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 | [`assets/logos/app/apps-logo-mark.svg`](assets/logos/app/apps-logo-mark.svg) | App quad mark (SVG) |
 | [`assets/logos/app/apps-logo-mark-oneline.svg`](assets/logos/app/apps-logo-mark-oneline.svg) | App quad mark, one-line SVG |
 | [`assets/logos/app/collide-icon-128.png`](assets/logos/app/collide-icon-128.png) | Collide icon (Chuck-craft source reference, not a Falcon West mark) |
-| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star, bare star, wordmark lockup, favicon, 1200×630 social card, 1280×720 thumbnail |
+| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star, wordmark lockup (svg/png, on-dark, mono), favicon, 1200×630 social card, channel banner (`youtube-banner.png`). YouTube thumbnail template: TBD. |
 | [`assets/brand-guide/Falcon West Brand Style Guide.pdf`](assets/brand-guide/Falcon%20West%20Brand%20Style%20Guide.pdf) | One-page brand style guide. Ancestry only: it does not set button face or type floors. Preview: [`falcon-west/brand-guide-1pager.png`](falcon-west/brand-guide-1pager.png). |
 
 ---
