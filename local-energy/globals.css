@@ -16,7 +16,8 @@
    Archivo is font-ui: 800 on h3, 700 on h4 and chrome. Width stays 100.
 
    Four brand colors: tan, red, paper, and one near-black. #191919 is ink,
-   not a surface. #A6783F is the pressed fill and the input border only.
+   not a surface. #A6783F is not a brand color. It is only the pressed fill
+   of the button (hover uses the same fill) and the input border.
    There is no blue and no yellow. */
 
 @import "tailwindcss";

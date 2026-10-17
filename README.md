@@ -84,7 +84,7 @@ A fourth system, for a different brand. **Not** Falcon West Energy, and **not** 
 - The name is **Local Energy**. Not “Local Energy podcast.”
 - Paper `#F2F2F2` is the reading page. Tan `#D49A45` is the brand field, not body text (2.20:1 on paper).
 - **Red `#BA0C2F` is the accent and the primary button**, on paper and on the dark surface. The label is paper (5.90:1). On `#0B1215` the button adds a paper border (the fill alone is 2.86:1). On tan it adds an ink border (2.67:1).
-- `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. Dark tan `#A6783F` is the pressed fill and the input border, not a brand color.
+- `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. Dark tan `#A6783F` is not a brand color. It is only the pressed fill of the button and the input border.
 - Yellow and dark blue are not in the relaunch. A highlighted caption word on the dark surface is tan.
 - Archivo Black for display, h1, and h2. Archivo (700–800) for h3, h4, and chrome. Lora for body. None of these faces is used by the other three systems.
 

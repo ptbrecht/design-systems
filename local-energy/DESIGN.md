@@ -1,6 +1,6 @@
-# Local Energy — Design System
+# Local Energy — Brand Guide
 
-A complete, buildable description of the **website** for localenergy.com. Every value here is literal. Contrast ratios are WCAG 2.x relative luminance, rounded to two decimals. A pair is legal for body text at **4.5:1** or better, for large text at **3:1** or better, and for a control boundary at **3:1** (WCAG 2.2 1.4.11). Large text means 24px regular or at least 19px at weight 700 or heavier.
+The brand guide for localenergy.com, and the spec you build from. It covers the palette (§2), the type (§3), the logo (§8), the components (§7), and the voice (§9, which points at [`VOICE.md`](VOICE.md)). Every value here is literal. Contrast ratios are WCAG 2.x relative luminance, rounded to two decimals. A pair is legal for body text at **4.5:1** or better, for large text at **3:1** or better, and for a control boundary at **3:1** (WCAG 2.2 1.4.11). Large text means 24px regular or at least 19px at weight 700 or heavier.
 
 This is **not** Falcon West, Falcon West Energy, or Material. Do not import their tokens, type, buttons, or focus. If a behavior is not in this file, do not borrow it from those folders.
 
@@ -41,7 +41,7 @@ The site is being rebuilt from Carrd into hand-coded Next.js and Tailwind. The d
 
 ### 2.1 Core palette
 
-Four colors. No other brand hex. `#003B4A` is not in this system.
+Four brand colors. No other brand hex. `#003B4A` is not in this system. Dark tan `#A6783F` is not a fifth brand color. It is a utility shade, defined in §2.2, and it does not belong on a palette slide.
 
 | Token | Hex | Role |
 |---|---|---|
@@ -60,9 +60,14 @@ Four colors. No other brand hex. `#003B4A` is not in this system.
 
 Not brand colors. Do not put them in a palette slide.
 
+**Dark tan `#A6783F` is not a brand color.** It is not the field, not the star, not a link, and not a headline. It has two jobs:
+
+1. The pressed state of the button. The primary rests on red. Pressed, the fill becomes this darker tan and the label becomes ink (4.50:1). Hover uses the same fill, so the control does not fade through a failing pair and does not take a new hex. Brand tan `#D49A45` cannot do this job on paper: paper on `#D49A45` is 2.20:1.
+2. The input border on paper, 1.5px. That edge is 3.49:1. Do not lighten it, and do not set type in it.
+
 | Token | Hex | Role | Why it is here |
 |---|---|---|---|
-| `--color-pressed` | `#A6783F` | Hover and pressed fill of the primary button. Input border on paper. | The core palette has no second red. Paper on this fill is 3.49:1 and fails as a label, so the label flips to ink (4.50:1). On paper the border is 3.49:1, which clears the 3:1 control line and is too heavy to use as a card edge. |
+| `--color-pressed` | `#A6783F` | Not a brand color. Pressed fill of the button (hover uses the same fill). Input border on paper. | Paper on this fill is 3.49:1 and fails as a label, so the label is ink (4.50:1). On paper the border clears the 3:1 control line. It is too heavy for a card edge and too weak for body text. |
 | `--color-line` | `rgb(25 25 25 / 0.16)` | Card hairline on paper. 1.39:1. | Decorative. Cannot bound an input. Not a new hex. |
 | `--color-line-dark` | `rgb(242 242 242 / 0.20)` | Rules on `#0B1215`. 1.76:1. | Decorative. A control border on dark is `#F2F2F2` or `#D49A45`. Not a new hex. |
 | `--color-scrim` | `rgb(11 18 21 / 0.68)` | Hero photograph overlay. | `#0B1215` at 68%. On a white photo the composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. |
@@ -205,7 +210,7 @@ Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. 
 
 A link inside a paragraph stays Lora, at the size of the paragraph, underlined. A link button is Archivo 16/700. Do not set body copy in Archivo.
 
-Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px Lora italic when they need to feel quieter. Disabled controls may use `#A6783F`; that color is not for live text.
+Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px Lora italic when they need to feel quieter. Do not use dark tan to mute a disabled control. It is not a text color.
 
 ### 3.2 Where each level goes
 
@@ -302,7 +307,7 @@ Color states change instantly. Do not fade them. A crossfade between paper-on-re
 **Primary, on paper**
 
 - Rest: fill and border `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
-- Hover and pressed: fill `#A6783F`, border stays `#BA0C2F`, label `#191919` (4.50:1). Do not leave the label on `#F2F2F2` (3.49:1).
+- Hover and pressed: fill `#A6783F`, border stays `#BA0C2F`, label `#191919` (4.50:1). Do not leave the label on `#F2F2F2` (3.49:1). `#A6783F` is the utility shade from §2.2, not a brand color and not `#D49A45`.
 
 **Primary, on `#0B1215`**
 
@@ -473,7 +478,7 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 7. Red text on `#0B1215` or on tan. Ink text on a red fill.
 8. A red button on `#0B1215` without the paper border, or on tan without the ink border.
 9. A `#F2F2F2` label on the `#A6783F` hover fill.
-10. `#A6783F` as a brand color, a link, or body text.
+10. `#A6783F` as a brand color, a field, a star, a link, a headline, or body text. Its only jobs are the pressed button fill and the input border.
 11. Platform-colored button fills.
 12. Buttons at 64px, or controls at a 16px radius.
 13. Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav, labels, badges, or body. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.

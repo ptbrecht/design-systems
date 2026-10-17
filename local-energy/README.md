@@ -6,7 +6,7 @@ Tan `#D49A45` is the brand field. The page is paper `#F2F2F2`. Red `#BA0C2F` is 
 
 | File | Role |
 |---|---|
-| [DESIGN.md](DESIGN.md) | Spec. Literal values, contrast ratios, binding rules. |
+| [DESIGN.md](DESIGN.md) | Brand guide. Palette, type, logo, components, voice pointer. Literal values and contrast. |
 | [tokens.json](tokens.json) | The same roles as data. |
 | [globals.css](globals.css) | Drop-in Tailwind v4 theme for the Next.js site. |
 | [VOICE.md](VOICE.md) | Headlines and blog copy. Applies [`../writing/voice.md`](../writing/voice.md). |
