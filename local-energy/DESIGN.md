@@ -47,8 +47,8 @@ Four brand colors. No other brand hex. `#003B4A` is not in this system. The deep
 |---|---|---|
 | `--color-tan` | `#D49A45` | Brand field. Logo tile. Links and caption emphasis on the dark surface. |
 | `--color-accent` | `#BA0C2F` | The accent. Star fill. Primary button fill. Badges. Error text on paper. |
-| `--color-paper` | `#F2F2F2` | Page, cards, field fill, and the label on a red fill. Peter’s white. Not `#FFFFFF`. |
-| `--color-dark` | `#0B1215` | The only dark surface. Nav, footer, hero, player, menus. Not `#000000`. |
+| `--color-paper` | `#F2F2F2` | Light-mode page. Field fill. Label on a red fill. Peter’s white. |
+| `--color-dark` | `#0B1215` | Dark-mode page. Hero, player, and any band that stays dark. Not `#000000`. |
 
 `#191919` is **ink**, the text color on light grounds. It is not a surface. Do not paint a panel, a nav, or a button fill with it.
 
@@ -79,8 +79,8 @@ These fills are worse against `#0B1215` than the rest red is: hover **2.01:1**, 
 | `--color-neutral-dark-pressed` | `#1E2529` | Pressed fill of the neutral button on paper and tan. | Paper label **13.88:1**. Darker than hover, lighter than `#0B1215`. |
 | `--color-neutral-light-hover` | `#D9D9D9` | Hover fill of the neutral button on `#0B1215`. | Ink label **12.46:1**. |
 | `--color-neutral-light-pressed` | `#C9C9C9` | Pressed fill of the neutral button on `#0B1215`. | Ink label **10.62:1**. Darker than hover, lighter than paper. |
-| `--color-line` | `rgb(25 25 25 / 0.16)` | Card hairline on paper. 1.39:1. | Decorative. Cannot bound an input. Not a new hex. |
-| `--color-line-dark` | `rgb(242 242 242 / 0.20)` | Rules on `#0B1215`. 1.76:1. | Decorative. A control border on dark is `#F2F2F2` or `#D49A45`. Not a new hex. |
+| `--color-line` | `#D4D4D4` in light, `#2A3236` in dark | Decorative divider only. | Light: **1.32:1** on `#F2F2F2`, **1.48:1** on `#FFFFFF`. Dark: **1.45:1** on `#0B1215`, **1.27:1** on `#162024`. Not an input border. `#2A3236` is also the neutral hover fill; the hex is shared and the jobs are not. |
+| `--color-text-muted` | `#4A4A4A` in light, `#B8BDBF` in dark | Secondary text on the page and on a raised card. | Light: **7.92:1** on `#F2F2F2`, **8.86:1** on `#FFFFFF`. Dark: **9.96:1** on `#0B1215`, **8.74:1** on `#162024`. Not on tan (**3.59:1**). |
 | `--color-scrim` | `rgb(11 18 21 / 0.68)` | Hero photograph overlay. | `#0B1215` at 68%. On a white photo the composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. |
 
 Yellow `#F7BA00` is not in the relaunch. It is not a caption color, not a selection color, and not a token. On a dark video the highlighted word is tan (`#D49A45` on `#0B1215` is 7.65:1). Red cannot do that job: red on `#0B1215` is 2.86:1.
@@ -89,10 +89,17 @@ Yellow `#F7BA00` is not in the relaunch. It is not a caption color, not a select
 
 | Text | Ground | Ratio | Use |
 |---|---|---|---|
-| `#191919` | `#F2F2F2` | **15.71:1** | Headings, body, labels, captions, links at rest |
-| `#F2F2F2` | `#0B1215` | **16.88:1** | Text on nav, footer, hero, player. Neutral button label on paper and tan. |
+| `#191919` | `#F2F2F2` | **15.71:1** | Headings, body, labels, captions, links at rest, in light mode |
+| `#191919` | `#FFFFFF` | **17.58:1** | The same text on a light-mode raised card |
+| `#4A4A4A` | `#F2F2F2` | **7.92:1** | Muted text on the light page |
+| `#4A4A4A` | `#FFFFFF` | **8.86:1** | Muted text on a light raised card |
+| `#F2F2F2` | `#0B1215` | **16.88:1** | Text on the dark page, hero, and player. Neutral button label on paper and tan. |
+| `#F2F2F2` | `#162024` | **14.81:1** | Text on a dark raised card |
+| `#B8BDBF` | `#0B1215` | **9.96:1** | Muted text on the dark page |
+| `#B8BDBF` | `#162024` | **8.74:1** | Muted text on a dark raised card |
 | `#F2F2F2` | `#BA0C2F` | **5.90:1** | Primary button label, badge label |
-| `#BA0C2F` | `#F2F2F2` | **5.90:1** | Error text, eyebrows, link hover, inline accent |
+| `#BA0C2F` | `#F2F2F2` | **5.90:1** | Error text, eyebrows, link hover, and inline accent, on the light page |
+| `#BA0C2F` | `#FFFFFF` | **6.60:1** | The same red text on a light raised card |
 | `#191919` | `#D49A45` | **7.12:1** | Text on a tan field. Label on a tan secondary hover. |
 | `#D49A45` | `#0B1215` | **7.65:1** | Links, speaker names, and the highlighted caption word |
 | `#F2F2F2` | `#8F0A24` | **8.39:1** | Primary button label on hover |
@@ -117,6 +124,7 @@ Non-text pairs:
 | `#7B091F` pressed fill | `#0B1215` | **1.71:1** | Fails 3:1. The 2px `#F2F2F2` border stays. |
 | `#7B091F` pressed fill | `#D49A45` | **4.48:1** | The fill would pass. The ink border stays anyway. |
 | `#A6783F` input border | `#F2F2F2` | **3.49:1** | Passes 1.4.11. The only job of this hex. Do not lighten it. |
+| `#A6783F` input border | `#FFFFFF` | **3.90:1** | Still passes when the field sits on a light raised card. The border stays `#A6783F`. |
 | `#2A3236` neutral hover | `#F2F2F2` | **11.67:1** | Passes. On paper the border matches the fill. |
 | `#2A3236` neutral hover | `#D49A45` | **5.29:1** | Passes. On tan the border matches the fill. |
 | `#1E2529` neutral pressed | `#F2F2F2` | **13.88:1** | Passes. On paper the border matches the fill. |
@@ -124,15 +132,17 @@ Non-text pairs:
 | `#0B1215` neutral rest | `#D49A45` | **7.65:1** | Passes. On tan the border matches the fill. |
 | `#D9D9D9` neutral hover | `#0B1215` | **13.38:1** | Passes. On the dark surface the border matches the fill. |
 | `#C9C9C9` neutral pressed | `#0B1215` | **11.41:1** | Passes. On the dark surface the border matches the fill. |
-| `#191919` focus ring | `#F2F2F2` | **15.71:1** | Focus on paper, drawn outside the control. |
+| `#191919` focus ring | `#F2F2F2` | **15.71:1** | Focus on the light page, drawn outside the control. |
+| `#191919` focus ring | `#FFFFFF` | **17.58:1** | Focus on a light raised card. |
 | `#191919` focus ring | `#D49A45` | **7.12:1** | Focus on a tan field. |
-| `#F2F2F2` focus ring | `#0B1215` | **16.88:1** | Focus on the dark surface. |
+| `#F2F2F2` focus ring | `#0B1215` | **16.88:1** | Focus on the dark page. |
+| `#F2F2F2` focus ring | `#162024` | **14.81:1** | Focus on a dark raised card. |
 | `#BA0C2F` as a ring | `#0B1215` | **2.86:1** | Not a focus color. |
 | `#BA0C2F` as a ring | `#D49A45` | **2.67:1** | Not a focus color. |
 | `#0B1215` listen fill | `#F2F2F2` | **16.88:1** | Passes. |
-| Red star | `#F2F2F2` tile | **5.90:1** | Favicon and app icon. No stroke. |
+| Red star | `#F2F2F2` tile | **5.90:1** | Apple-touch icon and app icon. No stroke. Not the favicon. |
 | Red star | `#D49A45` tile | **2.67:1** | Brand graphic, 48px and up. Not the favicon. |
-| Red star, bare | `#0B1215` | **2.86:1** | Logo on the dark ground. No tile, no stroke. Logos are exempt from WCAG contrast. |
+| Red star, bare | `#0B1215` | **2.86:1** | Logo on the dark ground, and the favicon. No tile, no stroke. Logos are exempt from WCAG contrast. |
 
 ### 2.4 Pairs that fail
 
@@ -140,7 +150,9 @@ Non-text pairs:
 |---|---|---|
 | `#D49A45` on `#F2F2F2` | 2.20:1 | Tan text on the page, at any size. |
 | `#F2F2F2` on `#D49A45` | 2.20:1 | Paper type on a tan field or a tan button. |
-| `#BA0C2F` on `#0B1215` | 2.86:1 | Red text on the dark surface. A red control with no light border. |
+| `#BA0C2F` on `#0B1215` | 2.86:1 | Red text or links on the dark page. On dark, red is fill-only. A red control with no light border. |
+| `#BA0C2F` on `#162024` | 2.51:1 | Red text or links on a dark raised card. On dark, red is fill-only. |
+| `#4A4A4A` on `#D49A45` | 3.59:1 | Muted text on tan. Tan type stays `#191919` (7.12:1). |
 | `#BA0C2F` on `#D49A45` | 2.67:1 | Red text on tan. A red control on tan with no ink border. The star on the tan tile, below 48px. |
 | `#BA0C2F` on `#191919` | 2.66:1 | Red type on ink. |
 | `#191919` on `#BA0C2F` | 2.66:1 | Ink labels on a red button. Labels on red are `#F2F2F2`. |
@@ -161,33 +173,51 @@ Red is the accent and the primary button, on paper and on the dark surface.
 - On `#0B1215`, that button also has a 2px `#F2F2F2` border on rest, hover, and pressed. Rest is 2.86:1 against the band. Hover is 2.01:1. Pressed is 1.71:1.
 - On `#D49A45`, that button also has a 2px `#191919` border on every state, because rest against tan is 2.67:1.
 - Badges: `#F2F2F2` label on a red fill. On the dark surface, add the same 2px paper border.
-- Text on `#F2F2F2` only: errors, eyebrows, link hover, a short inline accent (5.90:1).
+- Text on light surfaces only: errors, eyebrows, link hover, a short inline accent. `#BA0C2F` on `#F2F2F2` is **5.90:1**. On `#FFFFFF` it is **6.60:1**.
 
 **Forbidden**
 
-- Red text on `#0B1215` or on `#D49A45`.
+- Red text on `#0B1215` (2.86:1) or on `#162024` (2.51:1). On dark, red is fill-only: the star, the primary button, and badges.
+- Red text on `#D49A45`.
 - Ink text on a red fill.
 - A red focus ring.
 - Red as the resting link color. Links at rest are ink, so the accent stays on the thing you click.
 
 ### 2.6 Links
 
-- On `#F2F2F2`: `#191919`, underlined (15.71:1). Hover `#BA0C2F`, still underlined (5.90:1).
-- On `#D49A45`: `#191919`, underlined (7.12:1). Red on tan fails, so the hover does not change color.
-- On `#0B1215`: `#D49A45`, underlined (7.65:1). Hover `#F2F2F2`.
+- On light surfaces (`#F2F2F2` and `#FFFFFF`): `#191919`, underlined (**15.71:1** on paper, **17.58:1** on white). Hover `#BA0C2F`, still underlined (**5.90:1** on paper, **6.60:1** on white).
+- On `#D49A45`: `#191919`, underlined (7.12:1). Red on tan fails, so the hover does not change color. Nav hover on a light bar is red, not tan: tan on paper is 2.20:1.
+- On dark surfaces (`#0B1215` and `#162024`): `#D49A45`, underlined (**7.65:1** on the page, **6.72:1** on the raised card). Hover `#F2F2F2`. Red is not a link color here.
 
 The underline is part of the link, not a hover trick.
 
-### 2.7 One dark surface
+### 2.7 Light and dark
 
-The reading page is `#F2F2F2`. `#0B1215` is the nav, the footer, the hero band, the player, and any menu. There is no second black and no `prefers-color-scheme` theme. A card on a dark band is the same `#0B1215`, separated by `--color-line-dark` or by a tan rule. `#191919` never fills that card.
+The site follows `prefers-color-scheme`. When the device does not say, the site is dark. Tan bands stay tan in both modes. The hero and the player stay `#0B1215` in both modes, because the type there sits on a photograph and a scrim.
 
-On `#0B1215`:
+| Token | Light | Dark |
+|---|---|---|
+| `--color-surface` | `#F2F2F2` | `#0B1215` |
+| `--color-surface-raised` | `#FFFFFF` | `#162024` |
+| `--color-text` | `#191919` | `#F2F2F2` |
+| `--color-text-muted` | `#4A4A4A` | `#B8BDBF` |
+| `--color-line` | `#D4D4D4` | `#2A3236` |
+| `--color-focus` | `#191919`, 2px, offset 2px | `#F2F2F2`, 2px, offset 2px |
+| Wordmark | [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg) | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) |
+
+`#FFFFFF` is only the light raised surface. It is not a page, not type, and not a replacement for `#F2F2F2`. `#162024` is only the dark raised surface. It is not a second brand black. `#191919` still never fills a panel.
+
+The line is a decorative divider. It does not bound an input. The input border stays `#A6783F` in both modes (**3.49:1** on paper, **3.90:1** on white).
+
+Muted text is legal on the page and on the raised card in both modes. It is not legal on tan.
+
+On a dark surface:
 
 - Body and headings are `#F2F2F2`.
+- Muted text is `#B8BDBF`.
 - Links, speaker names, and a highlighted caption word are `#D49A45`.
 - The primary button is red with a paper label and a paper border (§7.2).
-- Red text is not used.
+- Red text is not used. Red is fill-only.
 
 ---
 
@@ -203,7 +233,7 @@ Two families, three files. Do not add another face. Do not use Inter, Raleway, o
 
 All three are SIL Open Font License. Files and the license texts live in [`../fonts/`](../fonts/). Self-host them. The specimen and `globals.css` do not call the Google Fonts CDN.
 
-**Archivo Black** is the display cut. Its file’s internal weight class is Regular. The `@font-face` rule assigns that file to weight 900 and sets `font-synthesis: none`, so the browser does not faux-bold an already-black face. Set `font-weight: 900` wherever this family is used. It is too heavy for UI. Its floor is **18px**. It is not used for h3, h4, nav destinations, buttons, labels, badges, or eyebrows. The wordmark lockup is the exception: LOCAL ENERGY in this face, caps, drawn as outlines rather than live nav type. Its cap height stays at or above 18px. §8.
+**Archivo Black** is the display cut. Its file’s internal weight class is Regular. The `@font-face` rule assigns that file to weight 900 and sets `font-synthesis: none`, so the browser does not faux-bold an already-black face. Set `font-weight: 900` wherever this family is used. It is too heavy for UI. Its floor is **18px**. It is not used for h3, h4, nav destinations, buttons, labels, badges, or eyebrows. The wordmark lockup is the exception: LOCAL ENERGY in this face, caps, drawn as outlines rather than live nav type. Live Archivo Black still stops at 18px. The lockup’s own floor is a **10px cap height**. Below that, use the bare star. §8.
 
 **Archivo** is the variable file (`Archivo-Variable.ttf`). The weight axis runs 100–900 and the width axis runs 62–125. The file’s default instance is weight 600 at width 100. This system does not use that default. Width stays **100** (`font-stretch: normal`). The only weights are **800** on h3 and **700** on h4, eyebrows, buttons, nav destinations, labels, badges, and listen-button labels. The variable file also contains a Black instance at 900. Do not use it. Display type is the Archivo Black file, not Archivo at 900. The wordmark is not Archivo.
 
@@ -233,13 +263,13 @@ A heading that follows other content gets its space from **padding-top**, not ma
 
 Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. Archivo 700 and the padding-top are what mark it against Lora 400. Removing that padding makes h4 disappear into the paragraph.
 
-Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
+Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on light surfaces and `#D49A45` on dark surfaces. On tan the eyebrow is ink, because red on tan is 2.67:1. They are not uppercase.
 
-The nav brand is not a row in this table. It is the wordmark lockup, 26px tall in the 64px bar (cap height about 20.3px). §7.1 and §8.
+The nav brand is not a row in this table. It is the wordmark lockup, 13px tall in the 64px bar (cap height about 10.1px). §7.1 and §8.
 
 A link inside a paragraph stays Lora, at the size of the paragraph, underlined. A link button is Archivo 16/700. Do not set body copy in Archivo.
 
-Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px Lora italic when they need to feel quieter. Do not use dark tan to mute a disabled control. It is not a text color.
+Headings and body follow the scheme: `#191919` on light, `#F2F2F2` on dark. Muted text is `#4A4A4A` on light and `#B8BDBF` on dark, and only on the page or a raised card. On tan, muted `#4A4A4A` is 3.59:1, so tan type stays ink. `#A6783F` fails captions at 3.49:1. Do not use dark tan to mute a disabled control. It is not a text color.
 
 ### 3.2 Where each level goes
 
@@ -298,14 +328,14 @@ A 2px ring, 2px outside the control, so the ring sits on the surface behind it.
 
 ```css
 :focus-visible {
-  outline: 2px solid #191919;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 ```
 
-On `#0B1215` and on the hero scrim, the ring is `#F2F2F2`. Paper on `#0B1215` is 16.88:1.
+Light mode, including a `#FFFFFF` card: the ring is `#191919` (**15.71:1** on paper, **17.58:1** on white). Dark mode, including a `#162024` card and the hero scrim: the ring is `#F2F2F2` (**16.88:1** on `#0B1215`, **14.81:1** on `#162024`).
 
-Ink on paper is 15.71:1. Ink on tan is 7.12:1. A red ring fails on tan (2.67:1) and on `#0B1215` (2.86:1), so focus is never red.
+Ink on tan is 7.12:1. A red ring fails on tan (2.67:1), on `#0B1215` (2.86:1), and on `#162024` (2.51:1), so focus is never red.
 
 The offset is required. A ring drawn on top of the red fill has to contrast with the fill, and paper-on-red is the label, not a ring sitting in the same pixels. The offset puts the ring on the surface behind the control.
 
@@ -319,12 +349,13 @@ The current site’s 3px white ring is about 1.12:1 on `#F2F2F2`. It is retired.
 
 ### 7.1 Navigation
 
-A 64px bar, background `#0B1215`. This is chrome, not a button.
+A 64px bar. In dark mode the bar is `#0B1215`. In light mode it is `#F2F2F2`. This is chrome, not a button. The hero lockup does not follow the bar: the hero stays dark, so a lockup on the hero is always [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg).
 
-- Brand: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 26px tall. Paper letters, red superscript star, no tile. Cap height is about 20.3px, above the 18px Archivo Black floor. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
-- Destinations in Archivo 16px / 700, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill. The current item does not get a heavier weight.
+- Brand, dark: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 13px tall. Paper letters, red superscript star, no tile. Cap height is about 10.1px, which is the lockup floor. Width is about 135px. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
+- Brand, light: [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg), the same 13px. Ink letters, red star. A tan band uses this file in both modes.
+- Destinations in Archivo 16px / 700. Dark: `#F2F2F2`, hover and current `#D49A45` (7.65:1). Light: `#191919`, hover and current `#BA0C2F` (5.90:1). Tan as a light-bar hover is 2.20:1 and is not used. Not a filled pill. The current item does not get a heavier weight.
 - Suggested destinations: Shop talk, Writing, About, Listen.
-- Under 768px the same bar stays. Destinations move into a `#0B1215` panel under the bar, separated by `--color-line-dark`. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
+- Under 768px the same bar stays. Destinations move into a panel of the same surface, separated by `--color-line`. Padding 12px 20px, min height 44px. Hover matches the bar.
 
 ### 7.2 Buttons
 
@@ -338,7 +369,7 @@ The standard set is three buttons.
 2. **Secondary.** An outline. The quieter action beside a primary.
 3. **Neutral.** Media and utility, including Listen. Not a second primary.
 
-Focus on every button in this set is the §6 ring: 2px, drawn 2px outside the control, on the surface behind it. On paper the ring is `#191919` (**15.71:1**). On tan it is `#191919` (**7.12:1**). On `#0B1215` it is `#F2F2F2` (**16.88:1**). Focus is never red.
+Focus on every button in this set is the §6 ring: 2px, drawn 2px outside the control, on the surface behind it. On the light page the ring is `#191919` (**15.71:1** on paper, **17.58:1** on white). On tan it is `#191919` (**7.12:1**). On the dark page it is `#F2F2F2` (**16.88:1** on `#0B1215`, **14.81:1** on `#162024`). Focus is never red.
 
 **Primary, on paper**
 
@@ -472,9 +503,9 @@ The title and the dek sit **under** the image, on `#F2F2F2`, in the 68ch column.
 
 | Current Carrd page | This system |
 |---|---|
-| Always `#000000` | `#F2F2F2` page. `#0B1215` for every dark band. |
-| `#FFFFFF` and `#F2F2F2` type | `#F2F2F2` on dark. `#191919` on paper. |
-| Divider `#262626` | `--color-line` on paper, `--color-line-dark` on dark. |
+| Always `#000000` | Follows `prefers-color-scheme`, default dark. Light page `#F2F2F2`, light card `#FFFFFF`. Dark page `#0B1215`, dark card `#162024`. |
+| `#FFFFFF` and `#F2F2F2` type | `#F2F2F2` on dark. `#191919` on light. `#FFFFFF` is a card, not type. |
+| Divider `#262626` | `--color-line`: `#D4D4D4` in light, `#2A3236` in dark. Decorative only. |
 | Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. |
 | Logo top-left, no nav | Wordmark lockup and destinations. §7.1. |
 | Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black for display, h1, and h2. Archivo 700–800 for the smaller headings and the chrome. Lora for body. §3. |
@@ -496,15 +527,16 @@ The outline is dropped. Red against the tan tile is **2.67:1** and red against `
 | File | What | Smallest size |
 |---|---|---|
 | [`mark.svg`](../assets/logos/local-energy/mark.svg) | Red star on the tan tile. The square brand mark, off a dark ground. | **48px** |
-| [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg) | Red star, no tile, transparent ground. The star on `#0B1215`. | **32px** |
-| [`mark-on-paper.svg`](../assets/logos/local-energy/mark-on-paper.svg) | Red star on the paper tile. Favicon and app icon only. | **16px** |
+| [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg) | Red star, no tile, transparent ground. The star on `#0B1215`, and the source of the favicon. | **32px** |
+| [`favicon.svg`](../assets/logos/local-energy/favicon.svg), [`favicon.png`](../assets/logos/local-energy/favicon.png) | The same bare red star. No tile. This overrides the paper-tile rule. | **32px** |
+| [`mark-on-paper.svg`](../assets/logos/local-energy/mark-on-paper.svg) | Red star on the paper tile. Apple-touch icon and app icon only. Not the favicon. | **16px** |
 | [`mark-standalone.svg`](../assets/logos/local-energy/mark-standalone.svg) | Red star, tight crop, no tile. On paper only. | **16px** |
 | [`mark-mono.svg`](../assets/logos/local-energy/mark-mono.svg) | One-color star, `#0B1215`. On paper it is 16.88:1. Set the fill to `#F2F2F2` when it sits on `#0B1215`. | **16px** |
 | [`mark-on-dark.svg`](../assets/logos/local-energy/mark-on-dark.svg) | Red star on an opaque `#0B1215` square. Not the site mark. The ground is already `#0B1215`; use the bare star. | — |
 
-[`mark.png`](../assets/logos/local-energy/mark.png) is the tan tile rendered from `mark.svg`. [`mark-bare.png`](../assets/logos/local-energy/mark-bare.png) is the same star with a transparent background. [`app-icon.png`](../assets/logos/local-energy/app-icon.png) and [`favicon.png`](../assets/logos/local-energy/favicon.png) are rendered from `mark-on-paper.svg`.
+[`mark.png`](../assets/logos/local-energy/mark.png) is the tan tile rendered from `mark.svg`. [`mark-bare.png`](../assets/logos/local-energy/mark-bare.png) is the same star with a transparent background. [`favicon.svg`](../assets/logos/local-energy/favicon.svg) is that bare star, and [`favicon.png`](../assets/logos/local-energy/favicon.png) is the 32×32 render of it, with a transparent ground. [`app-icon.png`](../assets/logos/local-energy/app-icon.png) is rendered from `mark-on-paper.svg`. The apple-touch icon keeps that paper tile. The favicon does not.
 
-On `#0B1215` — the nav band and the hero — a star used alone is [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg). It sits on the dark ground. No paper tile, no tan tile, no white chip, no stroke. The paper tile is the favicon and the app icon, and nothing else.
+On `#0B1215` — a dark nav, and the hero — a star used alone is [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg). It sits on the dark ground. No paper tile, no tan tile, no white chip, no stroke. The same bare star is the favicon. The paper tile is the apple-touch icon and the app icon, and nothing else.
 
 **Clear space.** Inside every 512 tile, and inside the bare star’s 512 box, the nearest point of the star is 15% of the box away from the edge (77px on the master). Outside a tile, or around the bare, standalone, and one-color stars, keep a margin equal to one quarter of the star’s width. Nothing sits in that margin: no type, no rule, no second mark.
 
@@ -527,11 +559,13 @@ The star is the same pentagram as the tiles, one point up, set like an asterisk.
 
 | File | Letters | Star | Use |
 |---|---|---|---|
-| [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg) | `#191919` | `#BA0C2F` | On tan and on paper. Transparent ground. |
-| [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | On `#0B1215`. The superscript star is bare. |
+| [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg) | `#191919` | `#BA0C2F` | Light mode, and on tan in both modes. Transparent ground. |
+| [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | Dark mode, and on the hero in both modes. The superscript star is bare. |
 | [`wordmark-mono.svg`](../assets/logos/local-energy/wordmark-mono.svg) | `#191919` | `#191919` | One color. On `#0B1215`, set both fills to `#F2F2F2`. |
 
-Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files are the wordmark. The star files in §8.1 are the star alone. A nav or social card references the lockup. It does not redraw the letters or the star. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets `wordmark-on-dark.svg` at 72px tall.
+Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files are the wordmark. The star files in §8.1 are the star alone. A nav or social card references the lockup. It does not redraw the letters or the star.
+
+The smallest lockup is a **10px cap height**. Nav and hero use a **13px** image, which is a cap of about **10.1px** and a width of about **135px**. Peter cut those two in half from the old 26px image. An image shorter than 12.84px drops the cap under 10px, so 13px is the smallest whole pixel that stays on the floor. Below a 10px cap, do not shrink the letters further. Use [`mark-bare.svg`](../assets/logos/local-energy/mark-bare.svg) alone. The social card sets `wordmark-on-dark.svg` at 72px tall. Live Archivo Black on the page still starts at 18px. That floor does not move.
 
 ### 8.3 Social card
 
@@ -570,22 +604,22 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 ## 11. Prohibitions
 
 1. `#000000` as a page, a band, or a scrim. The dark ground is `#0B1215`.
-2. `#FFFFFF` as a token. The white is `#F2F2F2`.
+2. `#FFFFFF` as a page, a band, or type. The only `#FFFFFF` is the light-mode raised surface.
 3. `#191919` used as a surface, a nav, or a button fill. It is ink.
 4. `#003B4A`, or any blue, anywhere.
 5. `#F7BA00`, or any yellow.
 6. Tan text on paper, or paper text on tan.
-7. Red text on `#0B1215` or on tan. Ink text on a red fill. The bare star on `#0B1215` is the logo exception in §8.1, not red text.
+7. Red text on `#0B1215`, on `#162024`, or on tan. On dark, red is fill-only. Ink text on a red fill. The bare star on `#0B1215` is the logo exception in §8.1, not red text. The favicon is that same bare star.
 8. A red button on `#0B1215` without the paper border, on any state, or on tan without the ink border.
 9. An ink label on the red button. The label stays `#F2F2F2` on rest, hover, and pressed.
 10. `#A6783F` as a brand color, a button fill, a field, a star, a link, a headline, or body text. Its only job is the input border.
 11. Platform-colored button fills.
 12. Buttons at 64px, or controls at a 16px radius.
-13. Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav destinations, labels, badges, or body. The wordmark lockup is the exception, and its cap height still clears 18px. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.
+13. Live Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav destinations, labels, badges, or body. The wordmark lockup is outlined, and its floor is a 10px cap, not 18px. Below 10px, use the bare star. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.
 14. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
 15. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
 16. A red focus ring. A white focus ring on paper.
-17. The tan-tile star below 48px. A stroke put back on the star. A paper or tan tile behind the star on `#0B1215`. The opaque dark tile used as the site mark.
+17. The tan-tile star below 48px. A stroke put back on the star. A paper or tan tile behind the star on `#0B1215`. A paper tile on the favicon. The opaque dark tile used as the site mark.
 18. A star glyph forced into a sentence of body copy. The star belongs to the lockup.
 19. Calling the brand “Local Energy podcast,” or personifying AI in copy.
 20. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, or navy focus.

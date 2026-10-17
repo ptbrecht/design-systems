@@ -99,7 +99,7 @@ Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy
 | app.falconwest.com, CRM, Tools, Academy gates, serial products | **Material** |
 | falconwest.com | **Falcon West** website (rust buttons) |
 | falconwestenergy.com | **Falcon West Energy** website (sky buttons, never rust) |
-| localenergy.com | **Local Energy** website (tan field, red buttons, one dark surface) |
+| localenergy.com | **Local Energy** website (tan field, red buttons, light and dark) |
 
 ---
 
@@ -115,7 +115,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 | [`assets/logos/app/apps-logo-mark.svg`](assets/logos/app/apps-logo-mark.svg) | App quad mark (SVG) |
 | [`assets/logos/app/apps-logo-mark-oneline.svg`](assets/logos/app/apps-logo-mark-oneline.svg) | App quad mark, one-line SVG |
 | [`assets/logos/app/collide-icon-128.png`](assets/logos/app/collide-icon-128.png) | Collide icon (Chuck-craft source reference, not a Falcon West mark) |
-| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star, wordmark lockup (svg/png, on-dark, mono), favicon, 1200×630 social card, channel banner (`youtube-banner.png`). YouTube thumbnail template: TBD. |
+| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star, wordmark lockup (svg/png, on-dark, mono; 10px cap floor), bare-star favicon (`favicon.svg` / `favicon.png`, no tile), paper-tile app icon, 1200×630 social card, channel banner (`youtube-banner.png`). YouTube thumbnail template: TBD. |
 | [`assets/brand-guide/Falcon West Brand Style Guide.pdf`](assets/brand-guide/Falcon%20West%20Brand%20Style%20Guide.pdf) | One-page brand style guide. Ancestry only: it does not set button face or type floors. Preview: [`falcon-west/brand-guide-1pager.png`](falcon-west/brand-guide-1pager.png). |
 
 ---
