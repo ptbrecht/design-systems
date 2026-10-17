@@ -218,7 +218,7 @@ Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, 
 
 Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
 
-The nav brand is not a row in this table. It is the wordmark lockup, 26px tall in the 64px bar (cap height about 25.1px). §7.1 and §8.
+The nav brand is not a row in this table. It is the wordmark lockup, 26px tall in the 64px bar (cap height about 20.7px). §7.1 and §8.
 
 A link inside a paragraph stays Lora, at the size of the paragraph, underlined. A link button is Archivo 16/700. Do not set body copy in Archivo.
 
@@ -305,7 +305,7 @@ The current site’s 3px white ring is about 1.12:1 on `#F2F2F2`. It is retired.
 
 A 64px bar, background `#0B1215`. This is chrome, not a button.
 
-- Brand: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 26px tall. Paper letters, red superscript star, no tile. Cap height is about 25.1px, above the 18px Archivo Black floor. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
+- Brand: [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg), 26px tall. Paper letters, red superscript star, no tile. Cap height is about 20.7px, above the 18px Archivo Black floor. The star sits on `#0B1215` with no paper tile and no stroke (2.86:1, a logo exception, §8).
 - Destinations in Archivo 16px / 700, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill. The current item does not get a heavier weight.
 - Suggested destinations: Shop talk, Writing, About, Listen.
 - Under 768px the same bar stays. Destinations move into a `#0B1215` panel under the bar, separated by `--color-line-dark`. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
@@ -474,9 +474,10 @@ The letters are outlines from `ArchivoBlack-Regular.ttf`, not live text, so the 
 |---|---|---|
 | Star width | **0.65 × cap** | 447.21 (scale 1.2506 on the 357.60-wide master star) |
 | Gap from the Y’s ink to the star’s left point | **0.08 × cap** | 55.04 |
-| Star top | **the cap line** | font y 688, the top of the letters |
+| Arm line | **the cap line** | The horizontal through the left and right arm points sits on font y 688, the top of the letters. |
+| Top point above the cap line | **0.24 × cap** | font y 850.47. The point rises above the caps. |
 
-The star is the same pentagram as the tiles, one point up, set like an asterisk: its top point sits on the cap line, and the star hangs beside the top of the Y. It does not rise above the caps. It is not inside the type’s vertical flip, or the point would aim down. Clear space around the whole lockup is **half a cap height**. Nothing else sits in that margin.
+The star is the same pentagram as the tiles, one point up, set like an asterisk. The line through its left and right arms is the cap line. The top point rises above the letters. It is not inside the type’s vertical flip, or the point would aim down. Clear space around the whole lockup is **half a cap height**. Nothing else sits in that margin.
 
 | File | Letters | Star | Use |
 |---|---|---|---|
@@ -484,7 +485,7 @@ The star is the same pentagram as the tiles, one point up, set like an asterisk:
 | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | On `#0B1215`. The superscript star is bare. |
 | [`wordmark-mono.svg`](../assets/logos/local-energy/wordmark-mono.svg) | `#191919` | `#191919` | One color. On `#0B1215`, set both fills to `#F2F2F2`. |
 
-Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav the on-dark lockup is **26px** tall. Width is about 334px. The social card sets it at 72px tall.
+Matching PNGs sit beside the SVGs, with transparent backgrounds. In the 64px nav the on-dark lockup is **26px** tall. Width is about 276px. The social card sets it at 72px tall.
 
 ### 8.3 Social card
 
@@ -502,7 +503,7 @@ Ink `#191919` on tan is **7.12:1**, so the headline on the tan template is ink. 
 
 Set it at **144px** on the 1280 artboard. YouTube’s sidebar shows the image at about 168px wide, 0.131 of the artboard. 144 × 0.131 is 19px, which clears the 18px Archivo Black floor. At a 320px view the same line is 36px. Do not set the headline smaller than 144px on this artboard.
 
-The wordmark is a stamp, smaller than the headline. On the template it is **56px** tall. Cap height at that size is about 54px.
+The wordmark is a stamp, smaller than the headline. On the template it is **56px** tall. Cap height at that size is about 45px. The star’s top point rises above that.
 
 **Host.** Cut the person out. No rectangle behind them. Map the photograph’s luminance so 0 becomes `#191919` and 1 becomes `#F2F2F2`, and place that cutout on the tan field. Stroke the silhouette with `#F2F2F2`, **6px** at 1280. The template draws the treatment as a silhouette slot so a real photograph can drop in. Do not invent a face for Peter or Wade.
 
