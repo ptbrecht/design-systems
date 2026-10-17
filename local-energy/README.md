@@ -12,7 +12,7 @@ Tan `#D49A45` is the brand field. The page is paper `#F2F2F2`. Red `#BA0C2F` is 
 | [VOICE.md](VOICE.md) | Headlines and blog copy. Applies [`../writing/voice.md`](../writing/voice.md). |
 | [specimen.html](specimen.html) / [specimen.png](specimen.png) | Visual specimen. The PNG is a render of the HTML. |
 
-Marks, the wordmark, favicon, the social card, and the YouTube thumbnail live in [`../assets/logos/local-energy/`](../assets/logos/local-energy/). The logo and the thumbnail card are separate files. Archivo Black, Archivo, and Lora live in [`../fonts/`](../fonts/) under the OFL. They are not the Falcon West faces. Archivo Black is display, h1, h2, and the wordmark lockup. Archivo at 700 and 800 is the smaller headings and the chrome. Lora is body.
+Marks, the wordmark, favicon, the social card, and the YouTube thumbnail live in [`../assets/logos/local-energy/`](../assets/logos/local-energy/). The wordmark is only the lockup files. The thumbnail is the card, with no logo. Archivo Black, Archivo, and Lora live in [`../fonts/`](../fonts/) under the OFL. They are not the Falcon West faces. Archivo Black is display, h1, h2, and the wordmark lockup. Archivo at 700 and 800 is the smaller headings and the chrome. Lora is body.
 
 | File | Role |
 |---|---|
@@ -20,8 +20,7 @@ Marks, the wordmark, favicon, the social card, and the YouTube thumbnail live in
 | `wordmark-on-dark.svg`, `wordmark-on-dark.png` | Lockup on `#0B1215`. Paper letters, red star. |
 | `wordmark-mono.svg`, `wordmark-mono.png` | One-color lockup. |
 | `mark.svg`, `mark-bare.svg`, `mark-on-paper.svg`, `mark-standalone.svg`, `mark-mono.svg` | The star alone. PNGs: `mark.png`, `mark-bare.png`, `favicon.png`, `app-icon.png`. |
-| `thumbnail-card.html`, `thumbnail-card.png` | 1280×720 card. Headline and hosts. No logo. |
-| `thumbnail.html`, `thumbnail.png` | Composed preview. The template places `wordmark.svg` on the card. |
+| `thumbnail.html`, `thumbnail.png` | 1280×720 card. Tan field, headline, hosts. No wordmark. |
 | `social-card.html`, `social-card.png` | 1200×630 card. Places `wordmark-on-dark.svg`. |
 
 **Recommendation, short form:** this is a website system, like falconwest.com. It is not a Material theme. A future app, if one is built, would be a Material face — see DESIGN.md §10.

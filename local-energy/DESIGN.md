@@ -466,7 +466,7 @@ On `#0B1215` — the nav band, the hero, a dark thumbnail — a star used alone 
 
 ### 8.2 The wordmark
 
-Whenever “Local Energy” is a logo — nav, footer lockup, social card, banner, thumbnail, specimen — it is this lockup. LOCAL ENERGY in Archivo Black caps, tracking 0, and the red star as a superscript asterisk after ENERGY. In running text, write Local Energy in the sentence’s face and do not insert a star glyph.
+Whenever “Local Energy” is a logo — nav, footer lockup, social card, banner, specimen — it is this lockup. LOCAL ENERGY in Archivo Black caps, tracking 0, and the red star as a superscript asterisk after ENERGY. In running text, write Local Energy in the sentence’s face and do not insert a star glyph. The YouTube thumbnail files do not carry this lockup.
 
 The letters are outlines from `ArchivoBlack-Regular.ttf`, not live text, so the SVG does not depend on the font being installed. Cap height in that file is 688 units per 1000. The string LOCAL ENERGY advances 8722. The Y’s ink ends at 8714.
 
@@ -485,7 +485,7 @@ The star is the same pentagram as the tiles, one point up, set like an asterisk.
 | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) | `#F2F2F2` | `#BA0C2F` | On `#0B1215`. The superscript star is bare. |
 | [`wordmark-mono.svg`](../assets/logos/local-energy/wordmark-mono.svg) | `#191919` | `#191919` | One color. On `#0B1215`, set both fills to `#F2F2F2`. |
 
-Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files, plus the star files in §8.1, are the logo. A nav, social card, or thumbnail references them. It does not redraw the letters or the star. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets `wordmark-on-dark.svg` at 72px tall. A tan thumbnail sets `wordmark.svg` at 56px tall.
+Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`, `wordmark-on-dark.png`, `wordmark-mono.png`. These six files are the wordmark. The star files in §8.1 are the star alone. A nav or social card references the lockup. It does not redraw the letters or the star. The thumbnail files do not include it. In the 64px nav the on-dark lockup is **26px** tall. Width is about 269px. The social card sets `wordmark-on-dark.svg` at 72px tall.
 
 ### 8.3 Social card
 
@@ -493,28 +493,22 @@ Matching PNGs sit beside the SVGs, with transparent backgrounds: `wordmark.png`,
 
 ### 8.4 YouTube thumbnails
 
-The channel is [youtube.com/@localenergyio](https://www.youtube.com/@localenergyio). A thumbnail is **1280×720**. The published image always carries the star wordmark. It is a poster. The page type scale does not govern it. The logo and the card are separate files. The card does not contain the wordmark.
+The channel is [youtube.com/@localenergyio](https://www.youtube.com/@localenergyio). A thumbnail file is **1280×720**. It is the card: tan field, headline, host photos. It does not contain the wordmark or the star. Those live only in §8.1 and §8.2. It is a poster. The page type scale does not govern it.
 
 | File | What |
 |---|---|
-| [`thumbnail-card.html`](../assets/logos/local-energy/thumbnail-card.html) | The card. Tan ground, headline, hosts. No logo. |
-| [`thumbnail-card.png`](../assets/logos/local-energy/thumbnail-card.png) | Render of that card, 1280×720. |
-| [`thumbnail.html`](../assets/logos/local-energy/thumbnail.html) | Composed template. An `img` of `thumbnail-card.png`, then an `img` of [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg). The lockup is not redrawn here. |
-| [`thumbnail.png`](../assets/logos/local-energy/thumbnail.png) | Render of the composed template. The filled-in example. |
+| [`thumbnail.html`](../assets/logos/local-energy/thumbnail.html) | The card. Tan ground, headline, hosts. No logo. |
+| [`thumbnail.png`](../assets/logos/local-energy/thumbnail.png) | Render of that card, 1280×720. |
 
-**Palette.** The example ground is tan `#D49A45`, the banner’s field. On tan, use `wordmark.svg`: ink letters, red star. A thumbnail on `#0B1215` uses `wordmark-on-dark.svg`: paper letters, red star. The superscript star is bare on either ground. No tile behind it, and no stroke. On `#0B1215` that star is **2.86:1**. That is a logo exception, same as §8.1. A star used alone on a dark thumbnail is `mark-bare.svg`, on the dark ground, with the same rule.
-
-Ink `#191919` on tan is **7.12:1**, so the headline on the tan template is ink. On a dark thumbnail the headline is paper (**16.88:1**). Tan type on a dark thumbnail is legal for a short line (**7.65:1**) and is not the headline’s job here.
+**Palette.** The example ground is tan `#D49A45`, the banner’s field. Ink `#191919` on tan is **7.12:1**, so the headline is ink. On a dark card the headline is paper (**16.88:1**). Tan type on a dark card is legal for a short line (**7.65:1**) and is not the headline’s job here.
 
 **Headline.** Archivo Black, sentence case, weight 900, tracking 0, line-height 1.05. **Two to six words**, the rule in [`VOICE.md`](VOICE.md). Not all caps. Caps are the wordmark only. At most two lines. The example line is “The line that mattered.”
 
 Set it at **144px** on the 1280 artboard. YouTube’s sidebar shows the image at about 168px wide, 0.131 of the artboard. 144 × 0.131 is 19px, which clears the 18px Archivo Black floor. At a 320px view the same line is 36px. Do not set the headline smaller than 144px on this artboard.
 
-The wordmark is a stamp, smaller than the headline. On the composed template it is the standalone `wordmark.svg`, **56px** tall, 64px from the top and left. Cap height at that size is about 44px. The star’s arms sit just above that line, and the top point rises further. A dark thumbnail uses `wordmark-on-dark.svg` the same way. Do not paste the lockup’s paths into the card.
-
 **Host.** Cut the person out. No rectangle behind them. Map the photograph’s luminance so 0 becomes `#191919` and 1 becomes `#F2F2F2`, and place that cutout on the tan field. Do not draw a placeholder silhouette, and do not invent a face. The example uses the two hosts already cut from the channel banner, [`youtube-banner.png`](../assets/logos/local-energy/youtube-banner.png). The tan ground is keyed out in [`host-left.png`](../assets/logos/local-energy/host-left.png) and [`host-right.png`](../assets/logos/local-energy/host-right.png).
 
-**Safe zones.** Keep **64px** inside the frame around the wordmark and the headline. YouTube paints the duration on top of the bottom-right corner. Leave that rectangle empty: **x 1024–1280, y 616–720** (256×104). No wordmark, no headline, and no face in that box. The duration is an overlay. Do not draw it, and do not draw the zone, on the exported PNG.
+**Safe zones.** Keep **64px** inside the frame around the headline. YouTube paints the duration on top of the bottom-right corner. Leave that rectangle empty: **x 1024–1280, y 616–720** (256×104). No headline and no face in that box. The duration is an overlay. Do not draw it, and do not draw the zone, on the exported PNG.
 
 ---
 
