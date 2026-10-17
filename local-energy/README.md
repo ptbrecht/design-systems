@@ -2,7 +2,7 @@
 
 Website system for Local Energy. **Not** Falcon West, Falcon West Energy, or Material. Do not mix tokens, type, or buttons with those folders.
 
-Tan `#D49A45` is the brand field. The page is paper `#F2F2F2`. Red `#BA0C2F` is the accent and the primary button, with a paper label. Hover `#8F0A24` and pressed `#7B091F` are derived reds so that label stays paper and clears 7:1. `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a panel. The star is the California and Texas state star: a solid upright pentagram, no stroke, and nothing else from either flag. On `#0B1215` it sits bare. The wordmark is LOCAL ENERGY in Archivo Black caps with that star as a superscript.
+Tan `#D49A45` is the brand field. The site follows `prefers-color-scheme` and defaults to dark. Light page `#F2F2F2`, light card `#FFFFFF`, ink `#191919`, muted `#4A4A4A`. Dark page `#0B1215`, dark card `#162024`, text `#F2F2F2`, muted `#B8BDBF`. Tan bands stay tan. Red `#BA0C2F` is the accent and the primary button, with a paper label. Hover `#8F0A24` and pressed `#7B091F` are derived reds so that label stays paper and clears 7:1. `#191919` is ink on light grounds, not a panel. The star is the California and Texas state star: a solid upright pentagram, no stroke, and nothing else from either flag. On `#0B1215` it sits bare. The favicon is that bare star. The apple-touch icon and the app icon keep the paper tile. The wordmark is LOCAL ENERGY in Archivo Black caps with that star as a superscript. Its floor is a 10px cap. Below that, use the bare star.
 
 | File | Role |
 |---|---|
@@ -16,10 +16,12 @@ Marks, the wordmark, favicon, the social card, and the channel banner live in [`
 
 | File | Role |
 |---|---|
-| `wordmark.svg`, `wordmark.png` | Lockup on tan and paper. Ink letters, red star. |
-| `wordmark-on-dark.svg`, `wordmark-on-dark.png` | Lockup on `#0B1215`. Paper letters, red star. |
+| `wordmark.svg`, `wordmark.png` | Lockup in light mode, and on tan in both modes. Ink letters, red star. Floor is a 10px cap (nav and hero are a 13px image, about 10.1px). |
+| `wordmark-on-dark.svg`, `wordmark-on-dark.png` | Lockup in dark mode, and on the hero in both modes. Paper letters, red star. |
 | `wordmark-mono.svg`, `wordmark-mono.png` | One-color lockup. |
-| `mark.svg`, `mark-bare.svg`, `mark-on-paper.svg`, `mark-standalone.svg`, `mark-mono.svg` | The star alone. PNGs: `mark.png`, `mark-bare.png`, `favicon.png`, `app-icon.png`. |
+| `mark-bare.svg`, `favicon.svg`, `favicon.png` | Bare red star, no tile. The favicon is this star. `favicon.png` is 32×32, transparent. |
+| `mark-on-paper.svg`, `app-icon.png` | Paper tile. Apple-touch icon and app icon only. Not the favicon. |
+| `mark.svg`, `mark-standalone.svg`, `mark-mono.svg` | The star alone otherwise. PNGs: `mark.png`, `mark-bare.png`. |
 | `social-card.html`, `social-card.png` | 1200×630 card. Places `wordmark-on-dark.svg`. |
 | `youtube-banner.png` | Channel banner. Not a thumbnail template. |
 

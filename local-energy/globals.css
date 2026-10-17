@@ -22,7 +22,12 @@
    pressed #1E2529) and light on #0B1215 (#F2F2F2, hover #D9D9D9,
    pressed #C9C9C9). Hover does not invert.
    #A6783F is not a brand color. It is only the input border.
-   There is no blue and no yellow. */
+   The site follows prefers-color-scheme and defaults to dark.
+   Light: surface #F2F2F2, raised #FFFFFF, text #191919, muted #4A4A4A,
+   line #D4D4D4, focus #191919, wordmark.svg.
+   Dark: surface #0B1215, raised #162024, text #F2F2F2, muted #B8BDBF,
+   line #2A3236, focus #F2F2F2, wordmark-on-dark.svg.
+   Tan bands stay tan. There is no blue and no yellow. */
 
 @import "tailwindcss";
 
@@ -80,9 +85,29 @@
   --color-on-dark: #f2f2f2;
   --color-on-accent: #f2f2f2;
   --color-on-tan: #191919;
-  --color-line: rgb(25 25 25 / 0.16);
-  --color-line-dark: rgb(242 242 242 / 0.2);
   --color-scrim: rgb(11 18 21 / 0.68);
+
+  /* Active scheme. Dark is the default. Light overrides these six. */
+  --color-surface: #0b1215;
+  --color-surface-raised: #162024;
+  --color-text: #f2f2f2;
+  --color-text-muted: #b8bdbf;
+  --color-line: #2a3236;
+  --color-focus: #f2f2f2;
+
+  --color-surface-light: #f2f2f2;
+  --color-surface-raised-light: #ffffff;
+  --color-text-light: #191919;
+  --color-text-muted-light: #4a4a4a;
+  --color-line-light: #d4d4d4;
+  --color-focus-light: #191919;
+
+  --color-surface-dark: #0b1215;
+  --color-surface-raised-dark: #162024;
+  --color-text-dark: #f2f2f2;
+  --color-text-muted-dark: #b8bdbf;
+  --color-line-dark: #2a3236;
+  --color-focus-dark: #f2f2f2;
 
   /* Desktop sizes. Pair with the *-mobile tokens under 768px.
      text-display is the home hero only. Article titles are text-h1. */
@@ -160,11 +185,11 @@
 
 @layer base {
   html {
-    background: var(--color-paper);
-    color: var(--color-ink);
+    background: var(--color-surface);
+    color: var(--color-text);
     font-family: var(--font-body);
     font-synthesis: none;
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   ::selection {
@@ -173,27 +198,41 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-surface: #f2f2f2;
+    --color-surface-raised: #ffffff;
+    --color-text: #191919;
+    --color-text-muted: #4a4a4a;
+    --color-line: #d4d4d4;
+    --color-focus: #191919;
+    color-scheme: light;
   }
 }
 
 /* Color states do not fade. */
 
 @layer components {
+  .le-on-tan { color: var(--color-ink); }
+  .le-on-dark { color: var(--color-text-dark); }
+
   .le-nav {
     display: flex;
     align-items: center;
     gap: 1.25rem;
     min-height: 64px;
     padding: 0 var(--spacing-page);
-    background: var(--color-dark);
-    color: var(--color-on-dark);
-    color-scheme: dark;
+    background: var(--color-surface);
+    color: var(--color-text);
   }
 
   .le-nav a {
-    color: var(--color-on-dark);
+    color: var(--color-text);
     text-decoration: none;
   }
 
@@ -202,11 +241,27 @@
     color: var(--color-tan);
   }
 
-  /* Nav brand is the lockup image (wordmark-on-dark.svg), not live type. */
+  /* Lockup image, not live type. 13px tall is a 10.1px cap. */
   .le-wordmark {
     display: block;
-    height: 26px;
+    height: 13px;
     width: auto;
+  }
+
+  .le-wordmark-light { display: none; }
+  .le-wordmark-dark { display: block; }
+
+  /* Hero and any explicit dark band keep the paper lockup. Tan keeps the ink lockup. */
+  .le-hero .le-wordmark-dark,
+  .le-on-dark .le-wordmark-dark { display: block; }
+  .le-hero .le-wordmark-light,
+  .le-on-dark .le-wordmark-light { display: none; }
+  .le-on-tan .le-wordmark-light { display: block; }
+  .le-on-tan .le-wordmark-dark { display: none; }
+
+  .le-on-dark .le-nav a:hover,
+  .le-on-dark .le-nav a[aria-current="page"] {
+    color: var(--color-tan);
   }
 
   .le-nav-link {
@@ -241,19 +296,19 @@
 
   .le-btn-primary {
     background: var(--color-accent);
-    border-color: var(--color-accent);
+    border-color: var(--color-paper);
     color: var(--color-on-accent);
   }
 
   .le-btn-primary:hover {
     background: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
+    border-color: var(--color-paper);
     color: var(--color-on-accent);
   }
 
   .le-btn-primary:active {
     background: var(--color-accent-pressed);
-    border-color: var(--color-accent-pressed);
+    border-color: var(--color-paper);
     color: var(--color-on-accent);
   }
 
@@ -294,14 +349,14 @@
   }
 
   .le-btn-secondary {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--color-tan);
+    color: var(--color-tan);
   }
 
   .le-btn-secondary:hover,
   .le-btn-secondary:active {
-    background: var(--color-accent);
-    color: var(--color-on-accent);
+    background: var(--color-tan);
+    color: var(--color-on-tan);
   }
 
   .le-on-tan .le-btn-secondary {
@@ -332,7 +387,7 @@
     padding-inline: 0;
     border: 0;
     background: transparent;
-    color: var(--color-ink);
+    color: var(--color-tan);
     font-family: var(--font-ui);
     font-weight: 700;
     font-stretch: normal;
@@ -341,7 +396,7 @@
   }
 
   .le-btn-link:hover {
-    color: var(--color-accent);
+    color: var(--color-paper);
   }
 
   .le-on-tan .le-btn-link,
@@ -362,9 +417,28 @@
     outline-color: var(--color-paper);
   }
 
-  /* Neutral on paper and on tan. Hover stays dark. */
+  /* Neutral on the dark page. Hover stays light. Tan overrides below. */
   .le-btn-neutral,
-  .le-listen,
+  .le-listen {
+    background: var(--color-paper);
+    border-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .le-btn-neutral:hover,
+  .le-listen:hover {
+    background: var(--color-neutral-light-hover);
+    border-color: var(--color-neutral-light-hover);
+    color: var(--color-ink);
+  }
+
+  .le-btn-neutral:active,
+  .le-listen:active {
+    background: var(--color-neutral-light-pressed);
+    border-color: var(--color-neutral-light-pressed);
+    color: var(--color-ink);
+  }
+
   .le-on-tan .le-btn-neutral,
   .le-on-tan .le-listen {
     background: var(--color-dark);
@@ -372,8 +446,6 @@
     color: var(--color-paper);
   }
 
-  .le-btn-neutral:hover,
-  .le-listen:hover,
   .le-on-tan .le-btn-neutral:hover,
   .le-on-tan .le-listen:hover {
     background: var(--color-neutral-dark-hover);
@@ -381,8 +453,6 @@
     color: var(--color-paper);
   }
 
-  .le-btn-neutral:active,
-  .le-listen:active,
   .le-on-tan .le-btn-neutral:active,
   .le-on-tan .le-listen:active {
     background: var(--color-neutral-dark-pressed);
@@ -424,7 +494,15 @@
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  .le-on-tan .le-field label {
     color: var(--color-ink);
+  }
+
+  .le-on-dark .le-field label {
+    color: var(--color-text-dark);
   }
 
   .le-field input,
@@ -448,24 +526,31 @@
   }
 
   .le-field .le-error {
-    color: var(--color-accent);
+    color: var(--color-tan);
     font-size: 0.875rem;
     line-height: 1.5;
   }
 
   .le-card {
-    background: var(--color-paper);
+    background: var(--color-surface-raised);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     padding: 1.5rem;
+    color: var(--color-text);
   }
 
   .le-on-dark .le-card {
-    background: var(--color-dark);
+    background: var(--color-surface-raised-dark);
     border-color: var(--color-line-dark);
     box-shadow: none;
-    color: var(--color-paper);
+    color: var(--color-text-dark);
+  }
+
+  .le-on-tan .le-card {
+    background: var(--color-paper);
+    border-color: rgb(25 25 25 / 0.16);
+    color: var(--color-ink);
   }
 
   .le-badge {
@@ -474,7 +559,7 @@
     align-items: center;
     height: 24px;
     padding: 0 0.5rem;
-    border: 2px solid transparent;
+    border: 2px solid var(--color-paper);
     border-radius: var(--radius-control);
     background: var(--color-accent);
     color: var(--color-paper);
@@ -546,7 +631,7 @@
     max-width: var(--container-measure);
     font-size: 1.125rem;
     line-height: 1.65;
-    color: var(--color-ink);
+    color: var(--color-text);
   }
 
   .le-eyebrow {
@@ -556,7 +641,11 @@
     font-size: 0.875rem;
     line-height: 1.4;
     letter-spacing: 0.04em;
-    color: var(--color-accent);
+    color: var(--color-tan);
+  }
+
+  .le-on-tan .le-eyebrow {
+    color: var(--color-ink);
   }
 
   .le-on-dark .le-eyebrow,
@@ -570,7 +659,28 @@
   .le-prose h4 {
     margin: 0;
     letter-spacing: 0;
+    color: var(--color-text);
+  }
+
+  .le-on-tan .le-prose,
+  .le-on-tan .le-prose h1,
+  .le-on-tan .le-prose h2,
+  .le-on-tan .le-prose h3,
+  .le-on-tan .le-prose h4 {
     color: var(--color-ink);
+  }
+
+  .le-on-dark .le-prose,
+  .le-on-dark .le-prose h1,
+  .le-on-dark .le-prose h2,
+  .le-on-dark .le-prose h3,
+  .le-on-dark .le-prose h4,
+  .le-hero .le-prose,
+  .le-hero .le-prose h1,
+  .le-hero .le-prose h2,
+  .le-hero .le-prose h3,
+  .le-hero .le-prose h4 {
+    color: var(--color-text-dark);
   }
 
   .le-prose h1,
@@ -624,18 +734,44 @@
   }
 
   .le-prose a {
-    color: var(--color-ink);
+    color: var(--color-tan);
     text-decoration: underline;
     text-underline-offset: 0.15em;
   }
 
   .le-prose a:hover {
-    color: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  .le-on-tan .le-prose a,
+  .le-on-tan .le-prose a:hover {
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-prose a,
+  .le-hero .le-prose a {
+    color: var(--color-tan);
+  }
+
+  .le-on-dark .le-prose a:hover,
+  .le-hero .le-prose a:hover {
+    color: var(--color-paper);
   }
 
   .le-prose em.accent {
-    color: var(--color-accent);
+    color: var(--color-tan);
     font-style: normal;
+  }
+
+  .le-on-tan .le-prose em.accent,
+  .le-on-tan .le-field .le-error {
+    color: var(--color-ink);
+  }
+
+  .le-on-dark .le-prose em.accent,
+  .le-hero .le-prose em.accent,
+  .le-on-dark .le-field .le-error {
+    color: var(--color-tan);
   }
 
   .le-prose blockquote {
@@ -666,6 +802,97 @@
 
     .le-prose blockquote {
       font-size: 1.25rem;
+    }
+  }
+}
+
+/* Light scheme. Same layer as the components, so .le-on-tan and .le-on-dark still win. */
+@layer components {
+  @media (prefers-color-scheme: light) {
+    .le-nav a:hover,
+    .le-nav a[aria-current="page"] {
+      color: var(--color-accent);
+    }
+
+    .le-wordmark-light { display: block; }
+    .le-wordmark-dark { display: none; }
+
+    .le-btn-primary,
+    .le-btn-primary:hover,
+    .le-btn-primary:active {
+      border-color: var(--color-accent);
+    }
+
+    .le-btn-primary:hover {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+
+    .le-btn-primary:active {
+      background: var(--color-accent-pressed);
+      border-color: var(--color-accent-pressed);
+    }
+
+    .le-btn-secondary {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .le-btn-secondary:hover,
+    .le-btn-secondary:active {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-on-accent);
+    }
+
+    .le-btn-link {
+      color: var(--color-ink);
+    }
+
+    .le-btn-link:hover {
+      color: var(--color-accent);
+    }
+
+    .le-btn-neutral,
+    .le-listen {
+      background: var(--color-dark);
+      border-color: var(--color-dark);
+      color: var(--color-paper);
+    }
+
+    .le-btn-neutral:hover,
+    .le-listen:hover {
+      background: var(--color-neutral-dark-hover);
+      border-color: var(--color-neutral-dark-hover);
+      color: var(--color-paper);
+    }
+
+    .le-btn-neutral:active,
+    .le-listen:active {
+      background: var(--color-neutral-dark-pressed);
+      border-color: var(--color-neutral-dark-pressed);
+      color: var(--color-paper);
+    }
+
+    .le-badge {
+      border-color: transparent;
+    }
+
+    .le-eyebrow {
+      color: var(--color-accent);
+    }
+
+    .le-prose a {
+      color: var(--color-ink);
+    }
+
+    .le-prose a:hover {
+      color: var(--color-accent);
+    }
+
+    .le-prose em.accent,
+    .le-field .le-error {
+      color: var(--color-accent);
     }
   }
 }

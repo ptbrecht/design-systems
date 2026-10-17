@@ -79,7 +79,7 @@
     gap: 28px;
   }
   .brand { display: flex; align-items: center; margin-right: auto; }
-  .brand img { height: 26px; width: auto; display: block; }
+  .brand img { height: 13px; width: auto; display: block; }
   .nav-links { display: flex; gap: 28px; }
   .nav-links span {
     font-family: var(--ui);
@@ -517,8 +517,8 @@
           <p>The button is <strong>#BA0C2F</strong> with a #F2F2F2 label (5.90:1). Hover is #8F0A24 (8.39:1) and pressed is #7B091F (9.87:1). The label stays paper.</p>
         </article>
         <article class="rule">
-          <div class="rule-num">One dark surface</div>
-          <p><strong>#0B1215</strong> is nav, footer, hero, and player. #191919 is ink on light grounds. It does not fill a panel.</p>
+          <div class="rule-num">Light and dark</div>
+          <p>The site follows the device and defaults to dark. Dark page <strong>#0B1215</strong>, card <strong>#162024</strong>. Light page <strong>#F2F2F2</strong>, card <strong>#FFFFFF</strong>. Tan stays tan. Ink does not fill a panel.</p>
         </article>
         <article class="rule">
           <div class="rule-num">The star, no stroke</div>
@@ -532,8 +532,10 @@
       <div class="swatches">
         <div class="swatch"><div class="chip" style="background:#D49A45"></div><div class="meta"><div class="name">Tan</div><div class="hex">#D49A45 · 7.65:1 on #0B1215</div><div class="role">Brand field. Links and the caption word on the dark surface. Not text on paper (2.20:1).</div></div></div>
         <div class="swatch"><div class="chip" style="background:#BA0C2F"></div><div class="meta"><div class="name">Red</div><div class="hex">#BA0C2F · 5.90:1 with paper</div><div class="role">The accent. Star, primary button, badges, errors. Not text on dark (2.86:1) or on tan (2.67:1).</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#F2F2F2; box-shadow: inset 0 0 0 1px rgb(25 25 25 / 0.16)"></div><div class="meta"><div class="name">Paper</div><div class="hex">#F2F2F2 · the page</div><div class="role">Peter’s white. The label on a red fill. Not #FFFFFF.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#0B1215"></div><div class="meta"><div class="name">Near-black</div><div class="hex">#0B1215 · 16.88:1 with paper</div><div class="role">The only dark surface. Not #000000, and not a second black beside it.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F2F2F2; box-shadow: inset 0 0 0 1px rgb(25 25 25 / 0.16)"></div><div class="meta"><div class="name">Paper</div><div class="hex">#F2F2F2 · light page</div><div class="role">Peter’s white. The label on a red fill. The light card is #FFFFFF, not this.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#FFFFFF; box-shadow: inset 0 0 0 1px #D4D4D4"></div><div class="meta"><div class="name">Raised, light</div><div class="hex">#FFFFFF · light card only</div><div class="role">Not a page and not type. Ink on it is 17.58:1. Muted #4A4A4A is 8.86:1.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#0B1215"></div><div class="meta"><div class="name">Near-black</div><div class="hex">#0B1215 · dark page</div><div class="role">The dark page, the hero, and the player. Not #000000. Paper on it is 16.88:1.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#162024"></div><div class="meta"><div class="name">Raised, dark</div><div class="hex">#162024 · dark card only</div><div class="role">Not a second brand black. Paper on it is 14.81:1. Muted #B8BDBF is 8.74:1. Red text on it is 2.51:1, so red stays a fill.</div></div></div>
         <div class="swatch"><div class="chip" style="background:#191919"></div><div class="meta"><div class="name">Ink</div><div class="hex">#191919 · 15.71:1 on paper</div><div class="role">Text on paper and on tan. Focus ring on light. Never a surface, a nav, or a button fill.</div></div></div>
         <div class="swatch"><div class="chip" style="background:#8F0A24"></div><div class="meta"><div class="name">Hover red</div><div class="hex">#8F0A24 · derived · 8.39:1 with paper</div><div class="role">Not a brand color. Hover fill of the red button, so the label can stay paper and clear 7:1. Against #0B1215 it is 2.01:1, so the paper border stays.</div></div></div>
         <div class="swatch"><div class="chip" style="background:#7B091F"></div><div class="meta"><div class="name">Pressed red</div><div class="hex">#7B091F · derived · 9.87:1 with paper</div><div class="role">Not a brand color. One step darker than hover. Against #0B1215 it is 1.71:1. The paper border stays.</div></div></div>
@@ -557,14 +559,14 @@
             <img src="../assets/logos/local-energy/mark-bare.svg" width="96" height="96" alt="">
           </div>
           <div class="name">Bare star</div>
-          <p>On #0B1215 the star has no tile and no stroke. 2.86:1 is a logo exception. Not the favicon.</p>
+          <p>On #0B1215 the star has no tile and no stroke. 2.86:1 is a logo exception. This bare star is also the favicon.</p>
         </article>
         <article class="mark-card">
           <div class="mark-stage">
             <img src="../assets/logos/local-energy/mark-on-paper.svg" width="96" height="96" alt="">
           </div>
           <div class="name">Paper tile</div>
-          <p>5.90:1. Favicon and app icon only. Not the nav.</p>
+          <p>5.90:1. Apple-touch icon and app icon. Not the favicon, and not the nav.</p>
         </article>
         <article class="mark-card">
           <div class="mark-stage">
@@ -583,11 +585,11 @@
       </div>
       <div class="mark-card" style="margin-top:14px; padding:16px 18px; display:flex; align-items:center; gap:28px;">
         <div class="sizes">
+          <img src="../assets/logos/local-energy/favicon.svg" width="32" height="32" alt="">
           <img src="../assets/logos/local-energy/mark-on-paper.svg" width="16" height="16" alt="">
-          <img src="../assets/logos/local-energy/mark-on-paper.svg" width="32" height="32" alt="">
           <img src="../assets/logos/local-energy/mark-on-paper.svg" width="48" height="48" alt="">
         </div>
-        <p style="font-size:16px; line-height:1.5; max-width:68ch;">16, 32, and 48. The paper tile holds a point at 16px. It is the favicon and the app icon. Clear space inside the 512 box is 15% of the box. Outside a lone star, leave a quarter of the star’s width.</p>
+        <p style="font-size:16px; line-height:1.5; max-width:68ch;">The 32px star is the favicon: bare red, no tile. The paper tile is the apple-touch icon and the app icon, and it still holds a point at 16px. Clear space inside the 512 box is 15% of the box. Outside a lone star, leave a quarter of the star’s width.</p>
       </div>
       <div class="lockup tan">
         <img src="../assets/logos/local-energy/wordmark.svg" alt="Local Energy">
@@ -595,7 +597,7 @@
       </div>
       <div class="lockup dark">
         <img src="../assets/logos/local-energy/wordmark-on-dark.svg" alt="Local Energy">
-        <p>Paper letters, red star, no tile. Nav, footer lockup, and social card. The star on #0B1215 is bare.</p>
+        <p>Paper letters, red star, no tile. Dark mode, and the hero in both modes. Nav and hero set this at 13px, a 10.1px cap. Below a 10px cap, use the bare star.</p>
       </div>
       <div class="lockup">
         <img src="../assets/logos/local-energy/wordmark-mono.svg" alt="Local Energy, one color">
