@@ -8,7 +8,7 @@ This repo is the source of truth for Falcon West UX, brand, and writing: specs, 
 
 ```
 README.md
-fonts/                      # Raleway + Crimson (Falcon West) · Archivo Black + Lora (Local Energy)
+fonts/                      # Raleway + Crimson (Falcon West) · Archivo Black, Archivo, Lora (Local Energy)
 assets/                     # logos + brand style guide
 material/                   # apps / CRM / Tools / serial products ONLY
 falcon-west/                # falconwest.com — rust buttons
@@ -86,7 +86,7 @@ A fourth system, for a different brand. **Not** Falcon West Energy, and **not** 
 - **Red `#BA0C2F` is the accent and the primary button**, on paper and on the dark surface. The label is paper (5.90:1). On `#0B1215` the button adds a paper border (the fill alone is 2.86:1). On tan it adds an ink border (2.67:1).
 - `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. Dark tan `#A6783F` is the pressed fill and the input border, not a brand color.
 - Yellow and dark blue are not in the relaunch. A highlighted caption word on the dark surface is tan.
-- Archivo Black for display and headings. Lora for body. Neither face is used by the other three systems.
+- Archivo Black for display, h1, and h2. Archivo (700–800) for h3, h4, and chrome. Lora for body. None of these faces is used by the other three systems.
 
 Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy/globals.css`](local-energy/globals.css) · [`local-energy/specimen.html`](local-energy/specimen.html) · [`local-energy/README.md`](local-energy/README.md)
 
@@ -126,10 +126,11 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 |---|---|
 | [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; Falcon West website wordmark and chrome |
 | [`fonts/CrimsonText-Regular.ttf`](fonts/CrimsonText-Regular.ttf), [`fonts/CrimsonText-Italic.ttf`](fonts/CrimsonText-Italic.ttf), [`fonts/CrimsonText-SemiBold.ttf`](fonts/CrimsonText-SemiBold.ttf) | Falcon West website editorial. Not used in Material. |
-| [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display and headings. Not used on Falcon West. |
+| [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display, h1, and h2. Not used on Falcon West. |
+| [`fonts/Archivo-Variable.ttf`](fonts/Archivo-Variable.ttf) | Local Energy h3, h4, and chrome. Width 100. Weights 700 and 800 only. Not used on Falcon West. |
 | [`fonts/Lora-Variable.ttf`](fonts/Lora-Variable.ttf), [`fonts/Lora-Italic-Variable.ttf`](fonts/Lora-Italic-Variable.ttf) | Local Energy body. Not used on Falcon West. |
 
-Do not cross the pairs, and do not add a face inside a system that already has its pair. Local Energy’s license texts: [`fonts/OFL-ArchivoBlack.txt`](fonts/OFL-ArchivoBlack.txt), [`fonts/OFL-Lora.txt`](fonts/OFL-Lora.txt).
+Do not cross the sets, and do not add a face inside a system that already has its set. Local Energy’s license texts: [`fonts/OFL-ArchivoBlack.txt`](fonts/OFL-ArchivoBlack.txt), [`fonts/OFL-Archivo.txt`](fonts/OFL-Archivo.txt), [`fonts/OFL-Lora.txt`](fonts/OFL-Lora.txt).
 
 ---
 

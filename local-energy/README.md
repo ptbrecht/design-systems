@@ -12,6 +12,6 @@ Tan `#D49A45` is the brand field. The page is paper `#F2F2F2`. Red `#BA0C2F` is 
 | [VOICE.md](VOICE.md) | Headlines and blog copy. Applies [`../writing/voice.md`](../writing/voice.md). |
 | [specimen.html](specimen.html) / [specimen.png](specimen.png) | Visual specimen. The PNG is a render of the HTML. |
 
-Marks, favicon, and the social card live in [`../assets/logos/local-energy/`](../assets/logos/local-energy/). Archivo Black and Lora live in [`../fonts/`](../fonts/) under the OFL. They are not the Falcon West faces.
+Marks, favicon, and the social card live in [`../assets/logos/local-energy/`](../assets/logos/local-energy/). Archivo Black, Archivo, and Lora live in [`../fonts/`](../fonts/) under the OFL. They are not the Falcon West faces. Archivo Black is display, h1, and h2. Archivo at 700 and 800 is the smaller headings and the chrome. Lora is body.
 
 **Recommendation, short form:** this is a website system, like falconwest.com. It is not a Material theme. A future app, if one is built, would be a Material face — see DESIGN.md §10.

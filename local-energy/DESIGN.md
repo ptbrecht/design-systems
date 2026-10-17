@@ -10,7 +10,7 @@ The relaunch palette is the one below. Older yellow transcript styling and the d
 
 ## 0. The one-sentence read
 
-Warm and plain-spoken: Archivo Black for the short line, Lora for the talk, tan as the field, red as the click, one near-black for every dark band.
+Warm and plain-spoken: Archivo Black for the short line, Archivo for the chrome, Lora for the talk, tan as the field, red as the click, one near-black for every dark band.
 
 ---
 
@@ -160,22 +160,25 @@ On `#0B1215`:
 
 ## 3. Typography
 
-Two families. Do not swap them. Do not add a third. Do not use Inter, Archivo (the regular family), Raleway, or Crimson Text on this site.
+Two families, three files. Do not add another face. Do not use Inter, Raleway, or Crimson Text on this site.
 
 ```
---font-display   "Archivo Black"     weight 900, headings and the wordmark only
---font-body      "Lora"              400 body, 600 labels and buttons, italic for the tagline and quotes
+--font-display   "Archivo Black"    weight 900. Display, h1, and h2 only.
+--font-ui        "Archivo"          weight 800 for h3. Weight 700 for h4 and chrome.
+--font-body      "Lora"             400 body. 400 italic for the tagline and pull quotes.
 ```
 
-Both are SIL Open Font License. Files and the license texts live in [`../fonts/`](../fonts/). Self-host them. The specimen and `globals.css` do not call the Google Fonts CDN.
+All three are SIL Open Font License. Files and the license texts live in [`../fonts/`](../fonts/). Self-host them. The specimen and `globals.css` do not call the Google Fonts CDN.
 
-The Archivo Black file’s internal weight class is Regular. The `@font-face` rule assigns the file to weight 900 and sets `font-synthesis: none`, so the browser does not faux-bold an already-black face. Set `font-weight: 900` wherever the family is used.
+**Archivo Black** is the display cut. Its file’s internal weight class is Regular. The `@font-face` rule assigns that file to weight 900 and sets `font-synthesis: none`, so the browser does not faux-bold an already-black face. Set `font-weight: 900` wherever this family is used. It is too heavy for UI. Its floor is **18px**. It is not used for h3, h4, the nav, buttons, labels, badges, or eyebrows.
 
-Archivo Black is too heavy for UI. Its floor is **18px**. The nav wordmark is 20px, which clears that floor. Buttons, nav links, labels, captions, and eyebrows are Lora.
+**Archivo** is the variable file (`Archivo-Variable.ttf`). The weight axis runs 100–900 and the width axis runs 62–125. The file’s default instance is weight 600 at width 100. This system does not use that default. Width stays **100** (`font-stretch: normal`). The only weights are **800** on h3 and **700** on h4, eyebrows, buttons, the nav (wordmark and links), labels, badges, and listen-button labels. The variable file also contains a Black instance at 900. Do not use it. Display type is the Archivo Black file, not Archivo at 900.
+
+**Lora** is body, lead, captions, helpers, field text, and transcript lines. Italic is the tagline and pull quotes only.
 
 ### 3.1 Scale
 
-Body stays 18px on desktop and mobile, so the ratios below are against 18px. Nothing in the page scale is 2.3× body or larger. Archivo Black at 36px already looks like a much larger regular bold; that is why the hero stops at 36.
+Body stays 18px on desktop and mobile, so the ratios below are against 18px. Nothing in the page scale is 2.3× body or larger. Archivo Black at 36px already looks like a much larger regular bold; that is why the hero stops at 36. Moving h3 and h4 off Archivo Black is what keeps the lower headings from shouting.
 
 A heading that follows other content gets its space from **padding-top**, not margin-top, so the gap cannot collapse away. The first heading on the page uses padding-top 0. Padding-bottom is short, so the heading belongs to the text under it.
 
@@ -184,27 +187,32 @@ A heading that follows other content gets its space from **padding-top**, not ma
 | Display | Archivo Black | 36px | 30px | 900 | 1.15 | 0 | 12px |
 | h1 | Archivo Black | 30px | 26px | 900 | 1.20 | 40px / 28px | 12px |
 | h2 | Archivo Black | 24px | 22px | 900 | 1.25 | 36px / 24px | 8px |
-| h3 | Archivo Black | 20px | 20px | 900 | 1.30 | 28px / 20px | 8px |
-| h4 | Archivo Black | 18px | 18px | 900 | 1.35 | 24px / 20px | 8px |
+| h3 | Archivo | 20px | 20px | 800 | 1.30 | 28px / 20px | 8px |
+| h4 | Archivo | 18px | 18px | 700 | 1.35 | 24px / 20px | 8px |
 | Lead | Lora | 20px | 18px | 400 | 1.60 | 0 | 16px |
 | Body | Lora | 18px | 18px | 400 | 1.65 | 0 | 16px between paragraphs |
 | Tagline, quote | Lora | 20px | 18px | 400 italic | 1.50 | — | — |
-| Button, nav link | Lora | 16px | 16px | 600 button, 400 link | 1 | — | — |
-| Eyebrow, label | Lora | 14px | 14px | 600 | 1.40 | — | 8px under an eyebrow |
+| Nav wordmark | Archivo | 20px | 20px | 700 | 1 | — | — |
+| Button, listen, nav link | Archivo | 16px | 16px | 700 | 1 | — | — |
+| Eyebrow, label | Archivo | 14px | 14px | 700 | 1.40 | — | 8px under an eyebrow |
+| Badge | Archivo | 13px | 13px | 700 | 1 | — | — |
 | Caption, helper | Lora | 14px | 14px | 400 | 1.50 | — | — |
+| Field text | Lora | 16px | 16px | 400 | 1.50 | — | — |
 
-Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. The black weight and the padding-top are what mark it. Removing that padding makes h4 disappear into the paragraph.
+Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. Archivo 700 and the padding-top are what mark it against Lora 400. Removing that padding makes h4 disappear into the paragraph.
 
-Tracking is 0 on display and headings. Do not tighten Archivo Black. Eyebrows are sentence case, Lora 14/600, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
+Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
 
-Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px italic when they need to feel quieter. Disabled controls may use `#A6783F`; that color is not for live text.
+A link inside a paragraph stays Lora, at the size of the paragraph, underlined. A link button is Archivo 16/700. Do not set body copy in Archivo.
+
+Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px Lora italic when they need to feel quieter. Disabled controls may use `#A6783F`; that color is not for live text.
 
 ### 3.2 Where each level goes
 
 - **Display** is the home hero line only. “Supporting Independent Energy.” One display per page.
 - **h1** is the article title. Articles do not use Display.
 - **h2–h4** run inside the prose column, in order. Do not skip from h1 to h3.
-- The social card is a poster at 1200×630. It may set the wordmark larger than Display. The page scale does not govern it. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
+- The social card is a poster at 1200×630. It may set the wordmark larger than Display. The page scale does not govern it. The wordmark and the headline stay Archivo Black. The tagline stays Lora italic. There is no Archivo UI type on the card. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
 
 ### 3.3 Measure
 
@@ -280,14 +288,14 @@ The current site’s 3px white ring is about 1.12:1 on `#F2F2F2`. It is retired.
 A 64px bar, background `#0B1215`. This is chrome, not a button.
 
 - Mark 36px. Use [`mark-on-paper.svg`](../assets/logos/local-energy/mark-on-paper.svg) (red on paper, 5.90:1). The tan tile is below its 48px minimum here.
-- Wordmark “Local Energy” in Archivo Black 20px / 900, `#F2F2F2`, 12px to the right of the mark.
-- Destinations in Lora 16px / 400, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill.
+- Wordmark “Local Energy” in Archivo 20px / 700, `#F2F2F2`, 12px to the right of the mark. Not Archivo Black.
+- Destinations in Archivo 16px / 700, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill. The current item does not get a heavier weight.
 - Suggested destinations: Shop talk, Writing, About, Listen.
 - Under 768px the same bar stays. Destinations move into a `#0B1215` panel under the bar, separated by `--color-line-dark`. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
 
 ### 7.2 Buttons
 
-Height 44px including a 2px border (`box-sizing: border-box`). Padding inline 16px. Radius 4px. Label Lora 16px / 600, sentence case, tracking 0. Not Archivo Black. Not 64px tall. Not a 16px radius.
+Height 44px including a 2px border (`box-sizing: border-box`). Padding inline 16px. Radius 4px. Label Archivo 16px / 700, sentence case, tracking 0. Not Archivo Black. Not 64px tall. Not a 16px radius.
 
 Color states change instantly. Do not fade them. A crossfade between paper-on-red and ink-on-`#A6783F` passes through pairs that fail.
 
@@ -318,17 +326,17 @@ Color states change instantly. Do not fade them. A crossfade between paper-on-re
 
 **Link button**
 
-The third button is a link. No fill, no border, no pill. Lora 16px / 600, underlined, the link colors in §2.6. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link.
+The third button is a link. No fill, no border, no pill. Archivo 16px / 700, underlined, the link colors in §2.6. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link. A link inside body copy stays Lora.
 
 One primary button in a group. Listen buttons are not primaries.
 
 ### 7.3 Fields
 
-- Label above the box, Lora 14px / 600, `#191919`, 8px gap. The placeholder is not the label.
-- Input height 44px, radius 4px, fill `#F2F2F2`, text Lora 16px `#191919`.
+- Label above the box, Archivo 14px / 700, `#191919`, 8px gap. The placeholder is not the label.
+- Input height 44px, radius 4px, fill `#F2F2F2`, text Lora 16px / 400, `#191919`.
 - Resting border 1.5px solid `#A6783F` (3.49:1). Do not swap in the hairline.
 - Focus: border 2px `#191919` plus the §6 ring.
-- Helper: Lora 14px `#191919`, 8px under the box.
+- Helper: Lora 14px / 400, `#191919`, 8px under the box.
 - Error: border and helper `#BA0C2F` (5.90:1). Do not invent a pale red fill.
 
 ### 7.4 Cards
@@ -339,14 +347,14 @@ A card on a dark band is `#0B1215` with a 1px `--color-line-dark` edge and `#F2F
 
 ### 7.5 Badges
 
-Height 24px, padding 0 8px, radius 4px, Lora 13px / 600. Not a button.
+Height 24px, padding 0 8px, radius 4px, Archivo 13px / 700, line-height 1. Not a button.
 
 - On paper: fill `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
 - On `#0B1215`: the same fill and label, plus a 2px `#F2F2F2` border (the fill against the band is 2.86:1).
 
 ### 7.6 Listen buttons
 
-Same geometry as a button: 44px, radius 4px, Lora 16px / 600, sentence case (“Listen on Spotify”). A 20px platform glyph sits 8px to the left of the label. Use the platform’s official icon, in the platform’s color. The specimen draws stand-in glyphs so this repo does not ship trademark artwork.
+Same geometry as a button: 44px, radius 4px, Archivo 16px / 700, sentence case (“Listen on Spotify”). A 20px platform glyph sits 8px to the left of the label. Use the platform’s official icon, in the platform’s color. The specimen draws stand-in glyphs so this repo does not ship trademark artwork.
 
 - On paper: fill and border `#0B1215`, label `#F2F2F2` (16.88:1). Hover inverts to fill `#F2F2F2`, border `#0B1215`, label `#191919`.
 - On `#0B1215`: fill and border `#F2F2F2`, label `#191919`. Hover inverts to fill `#0B1215`, border `#F2F2F2`, label `#F2F2F2`. The border is what keeps the hover visible against the band.
@@ -364,7 +372,7 @@ Platform colors are not tokens:
 The player is `#0B1215`. There is no second panel color under it.
 
 - Line: Lora 16px / 400, line-height 1.6, color `#F2F2F2`.
-- Speaker: Lora 14px / 600, `#D49A45` (7.65:1).
+- Speaker: Archivo 14px / 700, `#D49A45` (7.65:1). The label style, not Lora.
 - Timestamp: Lora 14px / 400, `#F2F2F2`.
 - The highlighted word, including a YouTube Shorts caption, is `#D49A45`. Red is 2.86:1 here and cannot be the highlight. Yellow is not in the relaunch.
 - On a paper article, a short emphasis is red text `#BA0C2F` (5.90:1), not a colored ground behind the letters. Ink on red is 2.66:1, so do not put a red highlight behind ink type.
@@ -402,7 +410,7 @@ The title and the dek sit **under** the image, on `#F2F2F2`, in the 68ch column.
 | Divider `#262626` | `--color-line` on paper, `--color-line-dark` on dark. |
 | Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. |
 | Logo top-left, no nav | Mark, wordmark, and destinations. §7.1. |
-| Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black and Lora. §3. |
+| Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black for display, h1, and h2. Archivo 700–800 for the smaller headings and the chrome. Lora for body. §3. |
 | Buttons 64px tall, 16px radius, platform fills | 44px, 4px radius, red primary, one listen style. |
 | Focus 3px white | 2px ink ring on light, 2px paper ring on dark, 2px offset. |
 
@@ -468,7 +476,7 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 10. `#A6783F` as a brand color, a link, or body text.
 11. Platform-colored button fills.
 12. Buttons at 64px, or controls at a 16px radius.
-13. Archivo Black under 18px, or Archivo Black on buttons, links, labels, or body.
+13. Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav, labels, badges, or body. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.
 14. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
 15. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
 16. A red focus ring. A white focus ring on paper.

@@ -12,6 +12,14 @@
     font-display: block;
   }
   @font-face {
+    font-family: "Archivo";
+    src: url("../fonts/Archivo-Variable.ttf") format("truetype");
+    font-weight: 700 800;
+    font-stretch: 100%;
+    font-style: normal;
+    font-display: block;
+  }
+  @font-face {
     font-family: "Lora";
     src: url("../fonts/Lora-Variable.ttf") format("truetype");
     font-weight: 400 700;
@@ -37,6 +45,7 @@
     --line-dark: rgb(242 242 242 / 0.20);
     --shadow: 0 1px 2px rgb(11 18 21 / 0.06);
     --display: "Archivo Black", sans-serif;
+    --ui: "Archivo", Arial, sans-serif;
     --body: "Lora", Georgia, serif;
     --r-control: 4px;
     --r-card: 8px;
@@ -66,8 +75,9 @@
   .brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
   .brand img { width: 36px; height: 36px; display: block; }
   .wordmark {
-    font-family: var(--display);
-    font-weight: 900;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 20px;
     line-height: 1;
     letter-spacing: 0;
@@ -75,8 +85,11 @@
   }
   .nav-links { display: flex; gap: 28px; }
   .nav-links span {
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 16px;
-    line-height: 1.4;
+    line-height: 1;
     color: var(--paper);
   }
   .nav-links span.current { color: var(--tan); }
@@ -91,7 +104,9 @@
     align-items: end;
   }
   .eyebrow {
-    font-weight: 600;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 14px;
     letter-spacing: 0.04em;
     line-height: 1.4;
@@ -152,10 +167,11 @@
   }
   .rule { padding: 18px 18px 16px; }
   .rule-num {
-    font-family: var(--display);
-    font-weight: 900;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 18px;
-    line-height: 1.2;
+    line-height: 1.35;
     margin-bottom: 8px;
   }
   .rule p, .panel p, .cell p { font-size: 16px; line-height: 1.5; }
@@ -166,17 +182,18 @@
   .chip { height: 72px; }
   .meta { padding: 12px 14px 14px; }
   .swatch .name {
-    font-family: var(--display);
-    font-weight: 900;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 18px;
-    line-height: 1.2;
+    line-height: 1.35;
   }
   .hex { font-size: 14px; line-height: 1.5; margin-top: 2px; }
   .role { font-size: 15px; line-height: 1.4; margin-top: 6px; }
 
   .type-board { padding: 28px 32px 24px; }
   .prose { max-width: 68ch; }
-  .prose h3 {
+  .prose h2 {
     font-family: var(--display);
     font-weight: 900;
     font-size: 24px;
@@ -185,15 +202,27 @@
     padding-top: 36px;
     padding-bottom: 8px;
   }
-  .prose h3:first-child { padding-top: 0; }
+  .prose h2:first-child { padding-top: 0; }
+  .prose h3 {
+    font-family: var(--ui);
+    font-weight: 800;
+    font-stretch: normal;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: 0;
+    padding-top: 28px;
+    padding-bottom: 8px;
+  }
   .prose p { margin-bottom: 16px; }
-  .prose .accent { color: var(--accent); font-style: normal; font-weight: 600; }
+  .prose .accent { color: var(--accent); font-style: normal; }
   .gap-note {
     margin-top: 14px;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.4;
     color: var(--accent);
-    font-weight: 600;
   }
   .type-meta {
     display: flex;
@@ -217,8 +246,9 @@
     padding: 0 16px;
     border-radius: var(--r-control);
     border: 2px solid transparent;
-    font-family: var(--body);
-    font-weight: 600;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 16px;
     line-height: 1;
     display: inline-flex;
@@ -241,7 +271,7 @@
     outline-offset: 2px;
   }
   .btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-  .field-label { display: block; font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+  .field-label { display: block; font-family: var(--ui); font-weight: 700; font-stretch: normal; font-size: 14px; line-height: 1.4; margin-bottom: 8px; }
   .input {
     height: 44px;
     width: 100%;
@@ -261,8 +291,9 @@
   .helper { font-size: 14px; line-height: 1.5; margin-top: 8px; }
   .helper.error { color: var(--accent); }
   .mini h3 {
-    font-family: var(--display);
-    font-weight: 900;
+    font-family: var(--ui);
+    font-weight: 800;
+    font-stretch: normal;
     font-size: 20px;
     line-height: 1.3;
     padding-bottom: 8px;
@@ -276,8 +307,11 @@
     border: 2px solid transparent;
     display: inline-flex;
     align-items: center;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 13px;
-    font-weight: 600;
+    line-height: 1;
     background: var(--accent);
     color: var(--paper);
   }
@@ -317,7 +351,7 @@
     border-radius: var(--r-card);
     padding: 18px 20px;
   }
-  .who { font-size: 14px; font-weight: 600; color: var(--tan); margin-bottom: 4px; }
+  .who { font-family: var(--ui); font-weight: 700; font-stretch: normal; font-size: 14px; line-height: 1.4; color: var(--tan); margin-bottom: 4px; }
   .transcript p { font-size: 16px; line-height: 1.6; color: var(--paper); }
   .transcript .hit { color: var(--tan); font-style: normal; font-weight: 600; }
   .btn-on-dark {
@@ -354,10 +388,11 @@
   .mark-stage.tan { background: var(--tan); }
   .mark-card img { display: block; }
   .mark-card .name {
-    font-family: var(--display);
-    font-weight: 900;
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 18px;
-    line-height: 1.2;
+    line-height: 1.35;
   }
   .mark-card p { font-size: 14px; line-height: 1.45; margin-top: 6px; }
   .sizes { display: flex; align-items: flex-end; gap: 10px; }
@@ -386,13 +421,16 @@
 
   .pairs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .pair { padding: 16px; display: grid; gap: 12px; }
-  .pair h3 { font-family: var(--display); font-weight: 900; font-size: 20px; line-height: 1.3; }
+  .pair h3 { font-family: var(--ui); font-weight: 800; font-stretch: normal; font-size: 20px; line-height: 1.3; }
   .cell { border-radius: var(--r-control); padding: 14px; min-height: 148px; background: var(--paper); border: 1px solid var(--line); }
   .cell.broken { box-shadow: inset 0 3px 0 var(--accent); }
   .cell.spec { box-shadow: inset 0 3px 0 var(--tan); }
   .flag {
+    font-family: var(--ui);
+    font-weight: 700;
+    font-stretch: normal;
     font-size: 13px;
-    font-weight: 600;
+    line-height: 1.4;
     letter-spacing: 0.04em;
     margin-bottom: 10px;
   }
@@ -536,21 +574,23 @@
     </section>
 
     <section>
-      <h2 class="sec">Archivo Black for the short line. Lora for the rest.</h2>
-      <p class="lead" style="margin-bottom:16px">Display is 36px on an 18px body — 2.00×, not the 2.3–3× that left headings sitting on the paragraph above them. Space above a heading is padding, so it cannot collapse.</p>
+      <h2 class="sec">Archivo Black for the short line. Archivo for the chrome. Lora for the talk.</h2>
+      <p class="lead" style="margin-bottom:16px">Display is 36px on an 18px body — 2.00×, not the 2.3–3× that left headings sitting on the paragraph above them. Space above a heading is padding, so it cannot collapse. h3 is Archivo 800, not Archivo Black.</p>
       <div class="type-board">
         <div class="prose">
-          <h3>The pumper’s notebook</h3>
+          <h2>The pumper’s notebook</h2>
           <p>A transcript is a record. It is not the judgment. <span class="accent">Red marks a short word on paper.</span> The rest is how the hour actually went.</p>
-          <h3>What we will not call this</h3>
+          <h3>What the note keeps</h3>
+          <p>This line is Archivo at 800, 20px. The paragraph under it stays Lora.</p>
+          <h2>What we will not call this</h2>
           <p>The name on the door is Local Energy. The show is one room in the shop. Peter Brecht and Wade Spear talk. The notes stay up after the mics are off.</p>
         </div>
-        <p class="gap-note">36px padding-top on the second heading, 8px under it. The heading belongs to the paragraph below. That gap is padding, so it cannot collapse.</p>
+        <p class="gap-note">36px padding-top on the second h2, 8px under it. The heading belongs to the paragraph below. That gap is padding, so it cannot collapse.</p>
         <div class="type-meta">
-          <span>Display 36 / 30 · h1 30 / 26 · h2 24 / 22</span>
+          <span>Display 36 / 30 · h1 30 / 26 · h2 24 / 22 · Archivo Black 900</span>
+          <span>h3 20 Archivo 800 · h4 18 Archivo 700</span>
           <span>Body Lora 18 / 1.65 · measure 68ch</span>
-          <span>Archivo Black floor 18px · buttons are Lora</span>
-          <span>Headings #191919 · no muted gray</span>
+          <span>Buttons, nav, labels: Archivo 16 or 14 / 700</span>
         </div>
       </div>
     </section>
@@ -684,7 +724,7 @@
 
     <footer class="footer">
       <p>Local Energy website system · localenergy.com · not Material, not Falcon West.</p>
-      <p>Archivo Black + Lora · paper page · one dark surface · red click.</p>
+      <p>Archivo Black, Archivo, Lora · paper page · one dark surface · red click.</p>
     </footer>
   </main>
 </body>
