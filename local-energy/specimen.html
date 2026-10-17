@@ -30,10 +30,8 @@
     --paper: #F2F2F2;
     --ink: #191919;
     --tan: #D49A45;
-    --dark-tan: #A6783F;
-    --action: #003B4A;
+    --pressed: #A6783F;
     --accent: #BA0C2F;
-    --yellow: #F7BA00;
     --dark: #0B1215;
     --line: rgb(25 25 25 / 0.16);
     --line-dark: rgb(242 242 242 / 0.20);
@@ -144,9 +142,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-top: 22px;
+    margin-top: 0;
   }
-  .rule, .swatch, .panel, .pair, .cover, .type-board {
+  .rule, .swatch, .panel, .pair, .cover, .type-board, .mark-card {
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: var(--r-card);
@@ -163,7 +161,7 @@
   .rule p, .panel p, .cell p { font-size: 16px; line-height: 1.5; }
   strong { font-weight: 600; }
 
-  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .swatch { overflow: hidden; }
   .chip { height: 72px; }
   .meta { padding: 12px 14px 14px; }
@@ -189,12 +187,12 @@
   }
   .prose h3:first-child { padding-top: 0; }
   .prose p { margin-bottom: 16px; }
-  .prose mark { background: var(--yellow); color: var(--ink); }
+  .prose .accent { color: var(--accent); font-style: normal; font-weight: 600; }
   .gap-note {
     margin-top: 14px;
     font-size: 14px;
     line-height: 1.5;
-    color: var(--action);
+    color: var(--accent);
     font-weight: 600;
   }
   .type-meta {
@@ -207,12 +205,12 @@
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--action);
+    color: var(--ink);
   }
 
   .comp-grid { display: grid; grid-template-columns: 1.2fr 0.9fr 0.9fr; gap: 16px; }
   .panel { padding: 22px; }
-  .panel .eyebrow { color: var(--action); }
+  .panel .eyebrow { color: var(--accent); }
   .btn {
     box-sizing: border-box;
     height: 44px;
@@ -232,13 +230,14 @@
     text-underline-offset: 0.18em;
   }
   .btn.solid { text-decoration: none; }
-  .btn-primary { background: var(--action); border-color: var(--action); color: var(--paper); }
-  .btn-primary.hover { background: var(--tan); border-color: var(--action); color: var(--ink); }
-  .btn-primary.pressed { background: var(--dark-tan); border-color: var(--action); color: var(--ink); }
-  .btn-secondary { background: transparent; border-color: var(--action); color: var(--action); text-decoration: none; }
-  .btn-link { background: transparent; border-color: transparent; color: var(--action); padding: 0 4px; }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .btn-primary.hover,
+  .btn-primary.pressed { background: var(--pressed); border-color: var(--accent); color: var(--ink); }
+  .btn-secondary { background: transparent; border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .btn-link { background: transparent; border-color: transparent; color: var(--ink); padding: 0 4px; }
+  .btn-link.hover { color: var(--accent); }
   .btn.focus {
-    outline: 2px solid var(--action);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
   .btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
@@ -246,7 +245,7 @@
   .input {
     height: 44px;
     width: 100%;
-    border: 1.5px solid var(--dark-tan);
+    border: 1.5px solid var(--pressed);
     border-radius: var(--r-control);
     background: var(--paper);
     padding: 0 12px;
@@ -255,8 +254,8 @@
     color: var(--ink);
   }
   .input.focused {
-    border: 2px solid var(--action);
-    outline: 2px solid var(--action);
+    border: 2px solid var(--ink);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
   .helper { font-size: 14px; line-height: 1.5; margin-top: 8px; }
@@ -270,19 +269,20 @@
   }
   .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
   .badge {
+    box-sizing: border-box;
     height: 24px;
     padding: 0 8px;
     border-radius: var(--r-control);
+    border: 2px solid transparent;
     display: inline-flex;
     align-items: center;
     font-size: 13px;
     font-weight: 600;
+    background: var(--accent);
     color: var(--paper);
   }
-  .badge.action { background: var(--action); }
-  .badge.accent { background: var(--accent); }
-  a.inline { color: var(--action); }
-  a.inline.hover { color: var(--ink); }
+  a.inline { color: var(--ink); }
+  a.inline.hover { color: var(--accent); }
 
   .tan-band {
     background: var(--tan);
@@ -296,7 +296,9 @@
   }
   .tan-band h2 { font-family: var(--display); font-weight: 900; font-size: 24px; line-height: 1.25; padding-bottom: 8px; }
   .tan-band p { font-size: 18px; line-height: 1.65; max-width: 62ch; }
-  .tan-band a { color: var(--action); }
+  .tan-band a { color: var(--ink); }
+  .btn-on-tan { background: var(--accent); border-color: var(--ink); color: var(--paper); text-decoration: none; }
+  .btn-on-tan.hover { background: var(--pressed); border-color: var(--ink); color: var(--ink); }
 
   .dark-block {
     background: var(--dark);
@@ -308,30 +310,58 @@
     gap: 16px;
   }
   .dark-block h2 { font-family: var(--display); font-weight: 900; font-size: 24px; line-height: 1.25; color: var(--paper); padding-bottom: 8px; }
+  .dark-block a { color: var(--tan); }
   .transcript {
-    background: var(--ink);
+    background: var(--dark);
+    border: 1px solid var(--line-dark);
     border-radius: var(--r-card);
     padding: 18px 20px;
   }
   .who { font-size: 14px; font-weight: 600; color: var(--tan); margin-bottom: 4px; }
   .transcript p { font-size: 16px; line-height: 1.6; color: var(--paper); }
-  .transcript .hit { color: var(--yellow); font-style: normal; }
-  .btn-dark {
-    background: var(--tan);
-    border-color: var(--tan);
-    color: var(--ink);
+  .transcript .hit { color: var(--tan); font-style: normal; font-weight: 600; }
+  .btn-on-dark {
+    background: var(--accent);
+    border-color: var(--paper);
+    color: var(--paper);
     text-decoration: none;
   }
-  .btn-dark.hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
-  .btn-dark.focus { outline: 2px solid var(--paper); outline-offset: 2px; }
+  .btn-on-dark.hover,
+  .btn-on-dark.pressed { background: var(--pressed); border-color: var(--paper); color: var(--ink); }
+  .btn-on-dark.focus { outline: 2px solid var(--paper); outline-offset: 2px; }
+  .badge.on-dark { border-color: var(--paper); }
   .listen {
     background: var(--paper);
     border-color: var(--paper);
     color: var(--ink);
     text-decoration: none;
   }
-  .listen.hover { background: var(--ink); border-color: var(--paper); color: var(--paper); }
+  .listen.hover { background: var(--dark); border-color: var(--paper); color: var(--paper); }
+  .listen.on-paper { background: var(--dark); border-color: var(--dark); color: var(--paper); }
   .glyph { width: 20px; height: 20px; display: block; }
+
+  .marks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .mark-card { padding: 16px 16px 14px; }
+  .mark-stage {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .mark-stage.dark { background: var(--dark); }
+  .mark-stage.tan { background: var(--tan); }
+  .mark-card img { display: block; }
+  .mark-card .name {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .mark-card p { font-size: 14px; line-height: 1.45; margin-top: 6px; }
+  .sizes { display: flex; align-items: flex-end; gap: 10px; }
+  .sizes img { display: block; }
 
   .cover { overflow: hidden; display: grid; grid-template-columns: 280px 1fr; }
   .cover-art {
@@ -357,18 +387,17 @@
   .pairs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .pair { padding: 16px; display: grid; gap: 12px; }
   .pair h3 { font-family: var(--display); font-weight: 900; font-size: 20px; line-height: 1.3; }
-  .cell { border-radius: var(--r-control); padding: 14px; min-height: 132px; }
-  .cell.broken { background: #F6E7CF; }
-  .cell.spec { background: #E7EEF0; }
-  .mark {
+  .cell { border-radius: var(--r-control); padding: 14px; min-height: 148px; background: var(--paper); border: 1px solid var(--line); }
+  .cell.broken { box-shadow: inset 0 3px 0 var(--accent); }
+  .cell.spec { box-shadow: inset 0 3px 0 var(--tan); }
+  .flag {
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.04em;
     margin-bottom: 10px;
   }
-  .mark.bad { color: var(--accent); }
-  .mark.good { color: var(--action); }
-  .fake-yellow { color: var(--yellow); font-size: 16px; line-height: 1.5; }
+  .flag.bad { color: var(--accent); }
+  .flag.good { color: var(--ink); }
   .platform {
     height: 64px;
     padding: 0 22px;
@@ -380,15 +409,6 @@
     font-size: 16px;
     display: inline-flex;
     align-items: center;
-  }
-  .black-page {
-    background: #000;
-    color: #fff;
-    border-radius: var(--r-control);
-    padding: 12px;
-    font-size: 16px;
-    line-height: 1.45;
-    text-shadow: 0 1px 2px #000;
   }
 
   .footer {
@@ -405,7 +425,7 @@
 <body>
   <header class="nav">
     <div class="brand">
-      <img src="../assets/logos/local-energy/mark.svg" alt="">
+      <img src="../assets/logos/local-energy/mark-on-paper.svg" alt="">
       <div class="wordmark">Local Energy</div>
     </div>
     <nav class="nav-links" aria-label="Specimen destinations">
@@ -436,34 +456,82 @@
       <div class="rules">
         <article class="rule">
           <div class="rule-num">Tan is the field</div>
-          <p><strong>#D49A45</strong> is the brand. On paper it is 2.20:1, so it is not body type and not a light-page button. On #0B1215 it is 7.65:1.</p>
+          <p><strong>#D49A45</strong> is the brand. On paper it is 2.20:1, so it is not body type. On #0B1215 it is 7.65:1, which is where links and the caption word live.</p>
         </article>
         <article class="rule">
-          <div class="rule-num">Blue is the click</div>
-          <p>On paper and on tan, the button is <strong>#003B4A</strong> with a #F2F2F2 label (10.88:1). On a dark band that fill is 1.55:1, so the button flips to tan.</p>
+          <div class="rule-num">Red is the click</div>
+          <p>The button is <strong>#BA0C2F</strong> with a #F2F2F2 label (5.90:1), on paper and on dark. On dark it needs a paper border. On tan it needs an ink border.</p>
         </article>
         <article class="rule">
-          <div class="rule-num">Yellow marks a line</div>
-          <p><strong>#F7BA00</strong> is transcript emphasis. Yellow text on paper is 1.57:1. On paper the mark is a yellow ground behind ink (10.03:1).</p>
+          <div class="rule-num">One dark surface</div>
+          <p><strong>#0B1215</strong> is nav, footer, hero, and player. #191919 is ink on light grounds. It does not fill a panel.</p>
         </article>
         <article class="rule">
-          <div class="rule-num">Red is the star</div>
-          <p><strong>#BA0C2F</strong> fills the star and writes errors (5.90:1 on paper). It is not a button. Against tan it is 2.67:1, so the ink stroke stays.</p>
+          <div class="rule-num">The star, no stroke</div>
+          <p>A regular pentagram, one point up, solid <strong>#BA0C2F</strong>. The California star and the Texas star. Nothing else from either flag.</p>
         </article>
       </div>
     </section>
 
     <section>
-      <h2 class="sec">Eight colors. No new hex.</h2>
+      <h2 class="sec">Four colors. Ink is type. Dark tan is a tool.</h2>
       <div class="swatches">
-        <div class="swatch"><div class="chip" style="background:#D49A45"></div><div class="meta"><div class="name">Tan</div><div class="hex">#D49A45 · 2.20:1 on paper</div><div class="role">Brand field. Button fill only on dark.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#003B4A"></div><div class="meta"><div class="name">Dark blue</div><div class="hex">#003B4A · 10.88:1 on paper</div><div class="role">Links and buttons on light. Not on #0B1215.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#A6783F"></div><div class="meta"><div class="name">Dark tan</div><div class="hex">#A6783F · 3.49:1 on paper</div><div class="role">Input border. Pressed fill. Not body text.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#BA0C2F"></div><div class="meta"><div class="name">Red</div><div class="hex">#BA0C2F · 5.90:1 on paper</div><div class="role">Star and errors. Not a link or a button.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#F7BA00"></div><div class="meta"><div class="name">Yellow</div><div class="hex">#F7BA00 · 1.57:1 on paper</div><div class="role">Transcript ground on paper. Text only on dark (10.03:1).</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#F2F2F2; box-shadow: inset 0 0 0 1px rgb(25 25 25 / 0.16)"></div><div class="meta"><div class="name">Paper</div><div class="hex">#F2F2F2 · the page</div><div class="role">Peter’s white. Also the label color on dark blue.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#191919"></div><div class="meta"><div class="name">Black</div><div class="hex">#191919 · 15.71:1 on paper</div><div class="role">Text. Raised dark surface for the player.</div></div></div>
-        <div class="swatch"><div class="chip" style="background:#0B1215"></div><div class="meta"><div class="name">Dark black</div><div class="hex">#0B1215 · 16.88:1 with paper</div><div class="role">Nav, footer, hero band. Not the reading page.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#D49A45"></div><div class="meta"><div class="name">Tan</div><div class="hex">#D49A45 · 7.65:1 on #0B1215</div><div class="role">Brand field. Links and the caption word on the dark surface. Not text on paper (2.20:1).</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#BA0C2F"></div><div class="meta"><div class="name">Red</div><div class="hex">#BA0C2F · 5.90:1 with paper</div><div class="role">The accent. Star, primary button, badges, errors. Not text on dark (2.86:1) or on tan (2.67:1).</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F2F2F2; box-shadow: inset 0 0 0 1px rgb(25 25 25 / 0.16)"></div><div class="meta"><div class="name">Paper</div><div class="hex">#F2F2F2 · the page</div><div class="role">Peter’s white. The label on a red fill. Not #FFFFFF.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#0B1215"></div><div class="meta"><div class="name">Near-black</div><div class="hex">#0B1215 · 16.88:1 with paper</div><div class="role">The only dark surface. Not #000000, and not a second black beside it.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#191919"></div><div class="meta"><div class="name">Ink</div><div class="hex">#191919 · 15.71:1 on paper</div><div class="role">Text on paper and on tan. Focus ring on light. Never a surface, a nav, or a button fill.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#A6783F"></div><div class="meta"><div class="name">Pressed</div><div class="hex">#A6783F · utility, not a brand color</div><div class="role">Hover and pressed fill. Input border (3.49:1). The label on it is ink, 4.50:1.</div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">The California star and the Texas star. Nothing else.</h2>
+      <p class="lead" style="margin-bottom:16px">One point up. A regular pentagram: inner radius over outer is sin(18°) / sin(54°), 0.381966. Solid fill, sharp points, no stroke. The bear, the stripe, the blue canton, and any lettering stay off the mark.</p>
+      <div class="marks">
+        <article class="mark-card">
+          <div class="mark-stage tan">
+            <img src="../assets/logos/local-energy/mark.svg" width="96" height="96" alt="">
+          </div>
+          <div class="name">Tan tile</div>
+          <p>Brand mark. Red on tan is 2.67:1, so this tile starts at 48px. No outline.</p>
+        </article>
+        <article class="mark-card">
+          <div class="mark-stage">
+            <img src="../assets/logos/local-energy/mark-on-dark.svg" width="96" height="96" alt="">
+          </div>
+          <div class="name">Dark tile</div>
+          <p>Red on #0B1215 is 2.86:1. Same 48px floor. Not the favicon.</p>
+        </article>
+        <article class="mark-card">
+          <div class="mark-stage">
+            <img src="../assets/logos/local-energy/mark-on-paper.svg" width="96" height="96" alt="">
+          </div>
+          <div class="name">Paper tile</div>
+          <p>5.90:1. This is the favicon and the app icon. The nav uses it at 36px.</p>
+        </article>
+        <article class="mark-card">
+          <div class="mark-stage">
+            <img src="../assets/logos/local-energy/mark-standalone.svg" width="78" height="74" alt="">
+          </div>
+          <div class="name">Star alone</div>
+          <p>Red, no tile. On paper only. Do not set it on tan or on #0B1215.</p>
+        </article>
+        <article class="mark-card">
+          <div class="mark-stage">
+            <img src="../assets/logos/local-energy/mark-mono.svg" width="78" height="74" alt="">
+          </div>
+          <div class="name">One color</div>
+          <p>#0B1215 on paper, 16.88:1. Flip the fill to #F2F2F2 on the dark surface.</p>
+        </article>
+      </div>
+      <div class="mark-card" style="margin-top:14px; padding:16px 18px; display:flex; align-items:center; gap:28px;">
+        <div class="sizes">
+          <img src="../assets/logos/local-energy/mark-on-paper.svg" width="16" height="16" alt="">
+          <img src="../assets/logos/local-energy/mark-on-paper.svg" width="32" height="32" alt="">
+          <img src="../assets/logos/local-energy/mark-on-paper.svg" width="48" height="48" alt="">
+        </div>
+        <p style="font-size:16px; line-height:1.5; max-width:68ch;">16, 32, and 48. The paper tile holds a point at 16px. Clear space inside every tile is 15% of the tile. Outside a tile, leave a quarter of the star’s width.</p>
       </div>
     </section>
 
@@ -473,7 +541,7 @@
       <div class="type-board">
         <div class="prose">
           <h3>The pumper’s notebook</h3>
-          <p>A transcript is a record. It is not the judgment. <mark>Yellow marks the line worth keeping.</mark> The rest is how the hour actually went.</p>
+          <p>A transcript is a record. It is not the judgment. <span class="accent">Red marks a short word on paper.</span> The rest is how the hour actually went.</p>
           <h3>What we will not call this</h3>
           <p>The name on the door is Local Energy. The show is one room in the shop. Peter Brecht and Wade Spear talk. The notes stay up after the mics are off.</p>
         </div>
@@ -502,23 +570,22 @@
             <span class="btn solid btn-primary pressed">Pressed</span>
             <span class="btn solid btn-primary focus">Focus</span>
           </div>
-          <p class="helper">Hover keeps the dark-blue border, because tan on paper is 2.20:1. Pressed is dark tan with an ink label at 4.50:1. <a class="inline" href="#">A link stays underlined</a> · <a class="inline hover" href="#">hover</a>.</p>
+          <p class="helper">Hover and pressed fill #A6783F. The label flips to ink (4.50:1). The red border stays. <a class="inline" href="#">A link is ink</a> · <a class="inline hover" href="#">hover is red</a>.</p>
         </div>
         <div class="panel">
           <p class="eyebrow">Field</p>
           <label class="field-label" for="name">Your name</label>
           <input class="input focused" id="name" value="Wade Spear" readonly>
-          <p class="helper error">Say what went wrong, in ink-red #BA0C2F, 5.90:1.</p>
+          <p class="helper error">Say what went wrong, in red #BA0C2F, 5.90:1.</p>
         </div>
         <div class="panel">
-          <p class="eyebrow">Card and badges</p>
+          <p class="eyebrow">Card and badge</p>
           <div class="mini">
             <h3>A note from the shop.</h3>
             <p>Paper card, 8px radius, hairline at 1.39:1. The hairline is not an input border.</p>
           </div>
           <div class="badges">
-            <span class="badge action">Shop talk</span>
-            <span class="badge accent">New</span>
+            <span class="badge">New</span>
           </div>
         </div>
       </div>
@@ -528,10 +595,11 @@
       <div class="tan-band">
         <div>
           <h2>Tan carries ink, not paper-white.</h2>
-          <p>#191919 on #D49A45 is 7.12:1. #F2F2F2 on tan is 2.20:1 and is not used. Links on this field stay dark blue, at 4.93:1. <a href="#">Read the note</a>.</p>
+          <p>#191919 on #D49A45 is 7.12:1. #F2F2F2 on tan is 2.20:1 and is not used. Red on tan is 2.67:1, so the link stays ink and the button takes an ink border. <a href="#">Read the note</a>.</p>
         </div>
         <div class="btn-row">
-          <span class="btn solid btn-primary">Read the note</span>
+          <span class="btn solid btn-on-tan">Read the note</span>
+          <span class="btn solid btn-on-tan hover">Hover</span>
         </div>
       </div>
     </section>
@@ -539,12 +607,13 @@
     <section>
       <div class="dark-block">
         <div>
-          <h2>On dark, the button is tan.</h2>
-          <p style="font-size:16px;line-height:1.6;margin-bottom:14px">Dark blue against #0B1215 is 1.55:1. The primary fill flips to tan, label ink, 7.12:1. Focus ring is paper, 2px outside the control.</p>
+          <h2>On dark, the button is still red.</h2>
+          <p style="font-size:16px;line-height:1.6;margin-bottom:14px">Red against #0B1215 is 2.86:1, so the edge is a 2px paper border. The label stays paper, 5.90:1. Focus is paper, 2px outside the control. <a href="#">A link here is tan.</a></p>
           <div class="btn-row">
-            <span class="btn solid btn-dark">Read the note</span>
-            <span class="btn solid btn-dark hover">Hover</span>
-            <span class="btn solid btn-dark focus">Focus</span>
+            <span class="btn solid btn-on-dark">Read the note</span>
+            <span class="btn solid btn-on-dark hover">Hover</span>
+            <span class="btn solid btn-on-dark focus">Focus</span>
+            <span class="badge on-dark">New</span>
           </div>
           <div class="listen-row">
             <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
@@ -574,40 +643,40 @@
       <h2 class="sec">Three ways this board gets broken.</h2>
       <div class="pairs">
         <article class="pair">
-          <h3>Tan is not the light-page button</h3>
-          <div class="cell broken">
-            <div class="mark bad">Broken · 2.20:1</div>
-            <span class="btn solid" style="background:#D49A45;border-color:#D49A45;color:#F2F2F2;text-decoration:none">Read the note</span>
-            <p style="margin-top:10px">White label on tan, and a tan edge against paper.</p>
+          <h3>Red on dark needs a light edge</h3>
+          <div class="cell broken" style="background:#0B1215;color:#F2F2F2;border-color:#0B1215;">
+            <div class="flag bad">Broken · 2.86:1</div>
+            <span class="btn solid" style="background:#BA0C2F;border-color:#BA0C2F;color:#F2F2F2;text-decoration:none">Read the note</span>
+            <p style="margin-top:10px">The fill sits on #0B1215 with no paper border. The control boundary fails.</p>
           </div>
-          <div class="cell spec">
-            <div class="mark good">On spec · 10.88:1</div>
-            <span class="btn solid btn-primary">Read the note</span>
-            <p style="margin-top:10px">Dark blue fill, paper label, on the paper page.</p>
+          <div class="cell spec" style="background:#0B1215;color:#F2F2F2;border-color:#0B1215;">
+            <div class="flag good" style="color:#F2F2F2">On spec · border 16.88:1</div>
+            <span class="btn solid btn-on-dark">Read the note</span>
+            <p style="margin-top:10px">Same red fill. The 2px paper border is the edge.</p>
           </div>
         </article>
         <article class="pair">
           <h3>The platform does not paint the button</h3>
           <div class="cell broken">
-            <div class="mark bad">Broken</div>
+            <div class="flag bad">Broken</div>
             <span class="platform" style="background:#1DB954">Listen on Spotify</span>
             <p style="margin-top:10px">64px-era pill in Spotify green. The accent is borrowed.</p>
           </div>
           <div class="cell spec">
-            <div class="mark good">On spec</div>
-            <span class="btn solid" style="background:#191919;border-color:#191919;color:#F2F2F2;text-decoration:none"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
-            <p style="margin-top:10px">Ink button. The green stays inside the glyph.</p>
+            <div class="flag good">On spec · 16.88:1</div>
+            <span class="btn solid listen on-paper"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
+            <p style="margin-top:10px">#0B1215 button on paper. The green stays inside the glyph.</p>
           </div>
         </article>
         <article class="pair">
-          <h3>Yellow text needs a dark ground</h3>
-          <div class="cell broken">
-            <div class="mark bad">Broken · 1.57:1</div>
-            <p class="fake-yellow">Yellow letters on paper. The transcript accent, used as body.</p>
+          <h3>The caption word is tan</h3>
+          <div class="cell broken" style="background:#0B1215;color:#F2F2F2;border-color:#0B1215;">
+            <div class="flag bad">Broken · 2.86:1</div>
+            <p style="font-size:16px;line-height:1.5;color:#BA0C2F">Red letters on #0B1215. Yellow is not in the relaunch either.</p>
           </div>
-          <div class="cell spec">
-            <div class="mark good">On spec · 10.03:1</div>
-            <p>Ink on a <mark style="background:#F7BA00">yellow mark</mark>, or yellow type on #191919 inside the player.</p>
+          <div class="cell spec" style="background:#0B1215;color:#F2F2F2;border-color:#0B1215;">
+            <div class="flag good" style="color:#D49A45">On spec · 7.65:1</div>
+            <p style="font-size:16px;line-height:1.5">The program can pull the quote. <span style="color:#D49A45;font-weight:600">The line that mattered</span> stays tan.</p>
           </div>
         </article>
       </div>
@@ -615,7 +684,7 @@
 
     <footer class="footer">
       <p>Local Energy website system · localenergy.com · not Material, not Falcon West.</p>
-      <p>Archivo Black + Lora · paper page · dark bands · self-hosted.</p>
+      <p>Archivo Black + Lora · paper page · one dark surface · red click.</p>
     </footer>
   </main>
 </body>

@@ -2,7 +2,7 @@
 
 Website system for Local Energy. **Not** Falcon West, Falcon West Energy, or Material. Do not mix tokens, type, or buttons with those folders.
 
-Tan is the brand field. The page is paper `#F2F2F2`. Dark blue `#003B4A` is the click on a light page. On a dark band the click is tan, because a blue button disappears into `#0B1215`. Yellow is the transcript mark. Red is the star.
+Tan `#D49A45` is the brand field. The page is paper `#F2F2F2`. Red `#BA0C2F` is the accent and the primary button, with a paper label. `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a panel. The star is the California and Texas state star: a solid upright pentagram, no stroke, and nothing else from either flag.
 
 | File | Role |
 |---|---|
@@ -14,4 +14,4 @@ Tan is the brand field. The page is paper `#F2F2F2`. Dark blue `#003B4A` is the 
 
 Marks, favicon, and the social card live in [`../assets/logos/local-energy/`](../assets/logos/local-energy/). Archivo Black and Lora live in [`../fonts/`](../fonts/) under the OFL. They are not the Falcon West faces.
 
-**Recommendation, short form:** this is a website system, like falconwest.com. It is not a Material theme. A future app, if one is built, would be a Material face — see DESIGN.md §9.
+**Recommendation, short form:** this is a website system, like falconwest.com. It is not a Material theme. A future app, if one is built, would be a Material face — see DESIGN.md §10.

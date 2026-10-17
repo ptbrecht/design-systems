@@ -1,12 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Local Energy">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Local Energy">
   <title>Local Energy</title>
-  <rect width="500" height="500" fill="#D49A45"/>
-  <polygon
-    fill="#BA0C2F"
-    stroke="#191919"
-    stroke-width="4"
-    stroke-linejoin="miter"
-    stroke-miterlimit="3"
-    paint-order="stroke fill"
-    points="250.0,67.0 295.4,206.8 442.4,206.8 323.5,293.2 368.9,433.0 250.0,346.6 131.1,433.0 176.5,293.2 57.6,206.8 204.6,206.8"/>
+  <rect width="512" height="512" fill="#D49A45"/>
+  <polygon fill="#BA0C2F" points="256.00,85.95 298.21,215.86 434.80,215.86 324.29,296.14 366.50,426.05 256.00,345.76 145.50,426.05 187.71,296.14 77.20,215.86 213.79,215.86"/>
 </svg>

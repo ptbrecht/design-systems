@@ -13,7 +13,7 @@ assets/                     # logos + brand style guide
 material/                   # apps / CRM / Tools / serial products ONLY
 falcon-west/                # falconwest.com — rust buttons
 falcon-west-energy/         # falconwestenergy.com — sky buttons, never rust
-local-energy/               # localenergy.com — tan field, dark-blue buttons on light
+local-energy/               # localenergy.com — tan field, red buttons, one dark surface
 writing/                    # voice.md source of truth + gold/draft pack + PL gold PDFs
 ```
 
@@ -83,8 +83,9 @@ A fourth system, for a different brand. **Not** Falcon West Energy, and **not** 
 
 - The name is **Local Energy**. Not “Local Energy podcast.”
 - Paper `#F2F2F2` is the reading page. Tan `#D49A45` is the brand field, not body text (2.20:1 on paper).
-- **Dark blue `#003B4A` buttons** on paper and on tan. On a dark band the button is tan, because blue on `#0B1215` is 1.55:1.
-- Yellow `#F7BA00` is the transcript mark only. Red `#BA0C2F` is the star and errors, not a button.
+- **Red `#BA0C2F` is the accent and the primary button**, on paper and on the dark surface. The label is paper (5.90:1). On `#0B1215` the button adds a paper border (the fill alone is 2.86:1). On tan it adds an ink border (2.67:1).
+- `#0B1215` is the only dark surface. `#191919` is ink on light grounds, not a second black. Dark tan `#A6783F` is the pressed fill and the input border, not a brand color.
+- Yellow and dark blue are not in the relaunch. A highlighted caption word on the dark surface is tan.
 - Archivo Black for display and headings. Lora for body. Neither face is used by the other three systems.
 
 Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy/globals.css`](local-energy/globals.css) · [`local-energy/specimen.html`](local-energy/specimen.html) · [`local-energy/README.md`](local-energy/README.md)
@@ -98,7 +99,7 @@ Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy
 | app.falconwest.com, CRM, Tools, Academy gates, serial products | **Material** |
 | falconwest.com | **Falcon West** website (rust buttons) |
 | falconwestenergy.com | **Falcon West Energy** website (sky buttons, never rust) |
-| localenergy.com | **Local Energy** website (tan field, dark-blue buttons on light, dark bands) |
+| localenergy.com | **Local Energy** website (tan field, red buttons, one dark surface) |
 
 ---
 
@@ -114,7 +115,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 | [`assets/logos/app/apps-logo-mark.svg`](assets/logos/app/apps-logo-mark.svg) | App quad mark (SVG) |
 | [`assets/logos/app/apps-logo-mark-oneline.svg`](assets/logos/app/apps-logo-mark-oneline.svg) | App quad mark, one-line SVG |
 | [`assets/logos/app/collide-icon-128.png`](assets/logos/app/collide-icon-128.png) | Collide icon (Chuck-craft source reference, not a Falcon West mark) |
-| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star (supplied PNG, SVG recreation, app icon, 1200×630 social card) |
+| [`assets/logos/local-energy/`](assets/logos/local-energy/) | Local Energy star (tan, dark, and paper tiles, standalone, one-color, app icon, 1200×630 social card) |
 | [`assets/brand-guide/Falcon West Brand Style Guide.pdf`](assets/brand-guide/Falcon%20West%20Brand%20Style%20Guide.pdf) | One-page brand style guide. Ancestry only: it does not set button face or type floors. Preview: [`falcon-west/brand-guide-1pager.png`](falcon-west/brand-guide-1pager.png). |
 
 ---

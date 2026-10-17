@@ -4,11 +4,13 @@ A complete, buildable description of the **website** for localenergy.com. Every 
 
 This is **not** Falcon West, Falcon West Energy, or Material. Do not import their tokens, type, buttons, or focus. If a behavior is not in this file, do not borrow it from those folders.
 
+The relaunch palette is the one below. Older yellow transcript styling and the dark-blue button are not carried forward.
+
 ---
 
 ## 0. The one-sentence read
 
-Warm and plain-spoken: Archivo Black for the short line, Lora for the talk, tan as the brand field, dark blue as the click on a light page, the red star as the mark, yellow only where a transcript picks out a line.
+Warm and plain-spoken: Archivo Black for the short line, Lora for the talk, tan as the field, red as the click, one near-black for every dark band.
 
 ---
 
@@ -37,161 +39,122 @@ The site is being rebuilt from Carrd into hand-coded Next.js and Tailwind. The d
 
 ## 2. Color
 
-### 2.1 Source palette
+### 2.1 Core palette
 
-Peter’s list. No other brand hex.
+Four colors. No other brand hex. `#003B4A` is not in this system.
 
-| Token | Hex | Given as |
+| Token | Hex | Role |
 |---|---|---|
-| `--color-yellow` | `#F7BA00` | Transcript accent |
-| `--color-paper` | `#F2F2F2` | White |
-| `--color-tan` | `#D49A45` | Primary brand color |
-| `--color-accent` | `#BA0C2F` | Red accent, star fill |
-| `--color-ink` | `#191919` | Black |
-| `--color-dark-tan` | `#A6783F` | Dark tan |
-| `--color-action` | `#003B4A` | Dark blue |
-| `--color-dark` | `#0B1215` | Dark black |
+| `--color-tan` | `#D49A45` | Brand field. Logo tile. Links and caption emphasis on the dark surface. |
+| `--color-accent` | `#BA0C2F` | The accent. Star fill. Primary button fill. Badges. Error text on paper. |
+| `--color-paper` | `#F2F2F2` | Page, cards, field fill, and the label on a red fill. Peter’s white. Not `#FFFFFF`. |
+| `--color-dark` | `#0B1215` | The only dark surface. Nav, footer, hero, player, menus. Not `#000000`. |
 
-There is no `#FFFFFF` and no `#000000` in this system. Peter’s white is `#F2F2F2`. Peter’s black is `#191919`. The deeper ground is `#0B1215`.
+`#191919` is **ink**, the text color on light grounds. It is not a surface. Do not paint a panel, a nav, or a button fill with it.
 
-### 2.2 Roles
-
-| Role | Token | Where |
+| Token | Hex | Role |
 |---|---|---|
-| Page and card ground | `#F2F2F2` | Articles, marketing sections, field fill |
-| Text on paper | `#191919` | Headings, body, labels, captions |
-| Brand field | `#D49A45` | Logo tile, large bands, the primary button **on a dark band** |
-| Text on tan | `#191919` | Anything written on a tan field or a tan button |
-| Action on paper and on tan | `#003B4A` | Primary button fill, links, eyebrows, focus |
-| Text on dark blue | `#F2F2F2` | Button labels |
-| Dark band | `#0B1215` | Nav, footer, hero scrim, page-edge chrome |
-| Raised dark | `#191919` | Player, transcript panel, menus, cards sitting on `#0B1215` |
-| Text on either dark | `#F2F2F2` | Body and headings |
-| Link and display accent on dark | `#D49A45` | Links, speaker names, the primary button fill |
-| Control border on paper | `#A6783F` | Input and select edges |
-| Pressed button fill | `#A6783F` | Pressed state only, label stays `#191919` |
-| Star and errors | `#BA0C2F` | Logo fill, error text, error border, rare badge |
-| Transcript and selection | `#F7BA00` | See §2.6 |
+| `--color-ink` | `#191919` | Text on paper, on tan, and on the pressed button. Focus ring on light grounds. |
 
-Tan is the brand. Dark blue is the click on a light page. On a dark band the click flips to tan, because a dark-blue button disappears into `#0B1215` (1.55:1). Yellow marks speech. Red is the star.
+### 2.2 Utilities
+
+Not brand colors. Do not put them in a palette slide.
+
+| Token | Hex | Role | Why it is here |
+|---|---|---|---|
+| `--color-pressed` | `#A6783F` | Hover and pressed fill of the primary button. Input border on paper. | The core palette has no second red. Paper on this fill is 3.49:1 and fails as a label, so the label flips to ink (4.50:1). On paper the border is 3.49:1, which clears the 3:1 control line and is too heavy to use as a card edge. |
+| `--color-line` | `rgb(25 25 25 / 0.16)` | Card hairline on paper. 1.39:1. | Decorative. Cannot bound an input. Not a new hex. |
+| `--color-line-dark` | `rgb(242 242 242 / 0.20)` | Rules on `#0B1215`. 1.76:1. | Decorative. A control border on dark is `#F2F2F2` or `#D49A45`. Not a new hex. |
+| `--color-scrim` | `rgb(11 18 21 / 0.68)` | Hero photograph overlay. | `#0B1215` at 68%. On a white photo the composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. |
+
+Yellow `#F7BA00` is not in the relaunch. It is not a caption color, not a selection color, and not a token. On a dark video the highlighted word is tan (`#D49A45` on `#0B1215` is 7.65:1). Red cannot do that job: red on `#0B1215` is 2.86:1.
 
 ### 2.3 Pairs this system specifies
 
-Text pairs the components actually use:
-
 | Text | Ground | Ratio | Use |
 |---|---|---|---|
-| `#191919` | `#F2F2F2` | **15.71:1** | Headings, body, labels, captions, listen-button label on dark, link hover on paper |
-| `#F2F2F2` | `#0B1215` | **16.88:1** | Nav, footer, hero type |
-| `#F2F2F2` | `#191919` | **15.71:1** | Player and transcript body, listen-button label on paper |
-| `#F2F2F2` | `#003B4A` | **10.88:1** | Primary button label on paper or tan |
-| `#191919` | `#D49A45` | **7.12:1** | Type on a tan field; label on a tan button |
-| `#191919` | `#A6783F` | **4.50:1** | Pressed-button label. Clears body AA at the floor. Do not lighten the label. |
-| `#D49A45` | `#0B1215` | **7.65:1** | Links and display color on nav and hero |
-| `#D49A45` | `#191919` | **7.12:1** | Links and speaker names on the player |
-| `#003B4A` | `#F2F2F2` | **10.88:1** | Links, secondary labels, eyebrows |
-| `#003B4A` | `#D49A45` | **4.93:1** | Links and secondary labels on a tan field |
-| `#191919` | `#F7BA00` | **10.03:1** | Transcript `<mark>` and text selection |
-| `#F7BA00` | `#0B1215` | **10.78:1** | Transcript emphasis on the hero band |
-| `#F7BA00` | `#191919` | **10.03:1** | Transcript emphasis on the player |
-| `#BA0C2F` | `#F2F2F2` | **5.90:1** | Error text |
-| `#F2F2F2` | `#BA0C2F` | **5.90:1** | Accent-badge label |
+| `#191919` | `#F2F2F2` | **15.71:1** | Headings, body, labels, captions, links at rest |
+| `#F2F2F2` | `#0B1215` | **16.88:1** | Text on nav, footer, hero, player. Listen label on paper. |
+| `#F2F2F2` | `#BA0C2F` | **5.90:1** | Primary button label, badge label |
+| `#BA0C2F` | `#F2F2F2` | **5.90:1** | Error text, eyebrows, link hover, inline accent |
+| `#191919` | `#D49A45` | **7.12:1** | Text on a tan field. Label on a tan secondary hover. |
+| `#D49A45` | `#0B1215` | **7.65:1** | Links, speaker names, and the highlighted caption word |
+| `#191919` | `#A6783F` | **4.50:1** | Hover and pressed button label. AA at the floor. Do not lighten it. |
+| `#F2F2F2` | `#191919` | **15.71:1** | Not a surface pair. Ink is never the ground. Listed so the reverse is not mistaken for a panel. |
 
-Non-text pairs the components use:
+Non-text pairs:
 
 | Edge | Against | Ratio | Verdict |
 |---|---|---|---|
-| `#003B4A` button fill | `#F2F2F2` | 10.88:1 | Passes |
-| `#003B4A` button fill | `#D49A45` | 4.93:1 | Passes |
-| `#D49A45` button fill | `#0B1215` | 7.65:1 | Passes |
-| `#A6783F` input border | `#F2F2F2` | 3.49:1 | Passes 1.4.11. This is the floor. Do not lighten it. |
-| `#191919` star stroke | `#D49A45` | 7.12:1 | The outline that separates the star from the tile |
-| `#003B4A` focus ring | `#F2F2F2` | 10.88:1 | Focus on paper, drawn **outside** the control |
-| `#003B4A` focus ring | `#D49A45` | 4.93:1 | Focus on a tan field |
-| `#F2F2F2` focus ring | `#0B1215` | 16.88:1 | Focus on a dark band |
-| `#F2F2F2` on the scrim result `#595E60` | hero type | **5.87:1** | See §7.9 |
+| `#BA0C2F` button fill | `#F2F2F2` | **5.90:1** | Passes. On paper the red fill is its own boundary. |
+| `#BA0C2F` button fill | `#0B1215` | **2.86:1** | Fails 3:1. A red button on dark carries a 2px `#F2F2F2` border (16.88:1). |
+| `#BA0C2F` button fill | `#D49A45` | **2.67:1** | Fails 3:1. A red button on tan carries a 2px `#191919` border (7.12:1). |
+| `#A6783F` hover fill | `#F2F2F2` | **3.49:1** | Passes 3:1. |
+| `#A6783F` hover fill | `#0B1215` | **4.84:1** | Passes. |
+| `#A6783F` hover fill | `#D49A45` | **1.58:1** | Fails. The ink border from the tan-field rest state stays on hover. |
+| `#A6783F` input border | `#F2F2F2` | **3.49:1** | Passes 1.4.11. Do not lighten it. |
+| `#191919` focus ring | `#F2F2F2` | **15.71:1** | Focus on paper, drawn outside the control. |
+| `#191919` focus ring | `#D49A45` | **7.12:1** | Focus on a tan field. |
+| `#F2F2F2` focus ring | `#0B1215` | **16.88:1** | Focus on the dark surface. |
+| `#BA0C2F` as a ring | `#0B1215` | **2.86:1** | Not a focus color. |
+| `#BA0C2F` as a ring | `#D49A45` | **2.67:1** | Not a focus color. |
+| `#0B1215` listen fill | `#F2F2F2` | **16.88:1** | Passes. |
+| Red star | `#F2F2F2` tile | **5.90:1** | The small mark. No stroke. |
+| Red star | `#D49A45` tile | **2.67:1** | Brand graphic, 48px and up. Not the favicon. |
+| Red star | `#0B1215` tile | **2.86:1** | Brand graphic, 48px and up. Not the favicon. |
 
-### 2.4 Pairs that fail, and the role that avoids them
-
-These are computed so nobody “just tries it.”
+### 2.4 Pairs that fail
 
 | Pair | Ratio | What it cannot do |
 |---|---|---|
-| `#D49A45` on `#F2F2F2` | 2.20:1 | Tan text on the page, at any size. Tan button fill on paper: the control edge fails too. |
-| `#F2F2F2` on `#D49A45` | 2.20:1 | White type on a tan field or a tan button. |
-| `#A6783F` on `#F2F2F2` | 3.49:1 | Body, captions, links. Large Archivo Black (19px and up) would pass 3:1 and is still reserved — headings stay `#191919`. |
-| `#F2F2F2` on `#A6783F` | 3.49:1 | Button labels. Pressed buttons keep the `#191919` label (4.50:1). |
-| `#F7BA00` on `#F2F2F2` | 1.57:1 | Yellow text on the page. |
-| `#F7BA00` on `#D49A45` | 1.41:1 | Yellow on a tan field. |
-| `#BA0C2F` on `#D49A45` | 2.67:1 | The red star with no stroke. The ink stroke is required. |
-| `#BA0C2F` on `#0B1215` | 2.86:1 | Red type or a red icon on nav, footer, hero. |
-| `#BA0C2F` on `#191919` | 2.66:1 | Red type on the player. |
-| `#BA0C2F` on `#003B4A` | 1.84:1 | Red on a dark-blue button. |
-| `#191919` on `#BA0C2F` | 2.66:1 | Ink labels on a red fill. Badge labels on red are `#F2F2F2` (5.90:1). |
-| `#003B4A` on `#0B1215` | 1.55:1 | A dark-blue button on the nav, footer, or hero. The fill vanishes. |
-| `#003B4A` on `#191919` | 1.44:1 | A dark-blue button on the player. |
-| `#A6783F` on `#D49A45` | 1.58:1 | Dark-tan type on a tan field. |
+| `#D49A45` on `#F2F2F2` | 2.20:1 | Tan text on the page, at any size. |
+| `#F2F2F2` on `#D49A45` | 2.20:1 | Paper type on a tan field or a tan button. |
+| `#BA0C2F` on `#0B1215` | 2.86:1 | Red text on the dark surface. A red control with no light border. |
+| `#BA0C2F` on `#D49A45` | 2.67:1 | Red text on tan. A red control on tan with no ink border. The star on the tan tile, below 48px. |
+| `#BA0C2F` on `#191919` | 2.66:1 | Red type on ink. |
+| `#191919` on `#BA0C2F` | 2.66:1 | Ink labels on a red button. Labels on red are `#F2F2F2`. |
+| `#F2F2F2` on `#A6783F` | 3.49:1 | The hover label. It stays `#191919`. |
+| `#191919` on `#0B1215` | 1.07:1 | Ink type on the dark surface. Text there is `#F2F2F2`. |
+| `#A6783F` on `#F2F2F2` as text | 3.49:1 | Body, captions, links. Legal only as a 1.5px input border. |
 
-### 2.5 Derived color
+### 2.5 Red
 
-**No new hex.** Every failure above is solved by moving the color to a role where a pair in §2.3 already passes.
-
-Two alphas, because the palette has no quiet neutral:
-
-| Token | Value | Ratio | Why it exists |
-|---|---|---|---|
-| `--color-line` | `rgb(25 25 25 / 0.16)` | 1.39:1 on `#F2F2F2` | Card hairline and section rules. Equivalent solid `#CFCFCF`. Decorative only — it cannot bound an input. Dark tan at full strength is 3.49:1 and reads as a control, so it is reserved for inputs. |
-| `--color-line-dark` | `rgb(242 242 242 / 0.20)` | 1.76:1 on `#0B1215` | Decorative rules on dark bands. Not a control border. On dark, a control border is `#D49A45` or `#F2F2F2`. |
-
-The hero scrim is `#0B1215` at 68% opacity, not a new color. See §7.9.
-
-### 2.6 Yellow — allowed and forbidden
-
-Yellow `#F7BA00` is the transcript accent and nothing else.
+Red is the accent and the primary button, on paper and on the dark surface.
 
 **Allowed**
 
-- On `#0B1215` or `#191919`, yellow **text** for the emphasized words in a transcript or caption (10.78:1 and 10.03:1).
-- On `#F2F2F2`, a yellow **background** behind `#191919` text (`<mark>`). The letters stay ink. 10.03:1.
-- Text selection uses that same ink-on-yellow pair.
+- Star fill. See §8 for which tile.
+- Primary button fill, with a `#F2F2F2` label (5.90:1).
+- On `#0B1215`, that button also has a 2px `#F2F2F2` border, because the fill against the band is 2.86:1.
+- On `#D49A45`, that button also has a 2px `#191919` border, because the fill against tan is 2.67:1.
+- Badges: `#F2F2F2` label on a red fill. On the dark surface, add the same 2px paper border.
+- Text on `#F2F2F2` only: errors, eyebrows, link hover, a short inline accent (5.90:1).
 
 **Forbidden**
 
-- Yellow text on `#F2F2F2`, on tan, or on dark tan.
-- Yellow button fills, link colors, focus rings, nav, headings, body copy, borders, badges, scrims, or the logo.
+- Red text on `#0B1215` or on `#D49A45`.
+- Ink text on a red fill.
+- A red focus ring.
+- Red as the resting link color. Links at rest are ink, so the accent stays on the thing you click.
 
-Speaker names are tan, not yellow, so yellow stays the mark on a single phrase.
+### 2.6 Links
 
-### 2.7 Red — allowed and forbidden
+- On `#F2F2F2`: `#191919`, underlined (15.71:1). Hover `#BA0C2F`, still underlined (5.90:1).
+- On `#D49A45`: `#191919`, underlined (7.12:1). Red on tan fails, so the hover does not change color.
+- On `#0B1215`: `#D49A45`, underlined (7.65:1). Hover `#F2F2F2`.
 
-Red `#BA0C2F` is the star and the error color.
+The underline is part of the link, not a hover trick.
 
-**Allowed**
+### 2.7 One dark surface
 
-- Star fill, always with the `#191919` stroke on the tan tile.
-- Error text and the error border of a field, on `#F2F2F2` (5.90:1).
-- A rare badge: `#F2F2F2` label on a `#BA0C2F` fill (5.90:1).
+The reading page is `#F2F2F2`. `#0B1215` is the nav, the footer, the hero band, the player, and any menu. There is no second black and no `prefers-color-scheme` theme. A card on a dark band is the same `#0B1215`, separated by `--color-line-dark` or by a tan rule. `#191919` never fills that card.
 
-**Forbidden**
-
-- Button fills. White on red would pass at 5.90:1 and is still not a button. One click color on a light page: dark blue.
-- Links, headings, body, section fields, focus, and anything on tan or on either dark surface (those pairs fail §2.4).
-- A star with no ink stroke. Red against the tan tile is 2.67:1.
-
-### 2.8 Dark bands, not a dark theme
-
-The reading page is `#F2F2F2`. Blog posts, about, and shop-talk notes are set in ink on paper. Lora at body size is a reading face, and the site is more than a player.
-
-`#0B1215` and `#191919` are **surface roles** for the nav, the footer, the hero, and the player. They replace the current page’s pure `#000000`. They are not a `prefers-color-scheme` theme. There is no second set of page, card, and field colors for an always-dark site.
-
-On those bands:
+On `#0B1215`:
 
 - Body and headings are `#F2F2F2`.
-- Links and speaker names are `#D49A45`.
-- The primary button is tan with an ink label (§6.2).
-- Yellow text is legal only inside a transcript.
-- Dark blue is not used as type or as a button fill (1.55:1 / 1.44:1).
-- Red is not used as type.
+- Links, speaker names, and a highlighted caption word are `#D49A45`.
+- The primary button is red with a paper label and a paper border (§7.2).
+- Red text is not used.
 
 ---
 
@@ -232,7 +195,7 @@ A heading that follows other content gets its space from **padding-top**, not ma
 
 Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. The black weight and the padding-top are what mark it. Removing that padding makes h4 disappear into the paragraph.
 
-Tracking is 0 on display and headings. Do not tighten Archivo Black. Eyebrows are sentence case, Lora 14/600, tracking 0.04em, color `#003B4A` on paper. They are not uppercase.
+Tracking is 0 on display and headings. Do not tighten Archivo Black. Eyebrows are sentence case, Lora 14/600, tracking 0.04em, color `#BA0C2F` on paper and `#D49A45` on `#0B1215`. They are not uppercase.
 
 Headings and body on paper are `#191919`. Muted gray is not in the palette. `#A6783F` fails captions at 3.49:1, so captions stay ink and drop to 14px italic when they need to feel quieter. Disabled controls may use `#A6783F`; that color is not for live text.
 
@@ -281,9 +244,9 @@ Page padding: 20px under 768px, 40px from 768px, 64px from 1120px.
 --radius-card      8px    cards, transcript panel, menus
 ```
 
-The current site’s 16px radius is retired. Buttons are not pills. Cards are not squares-with-a-different-radius-than-buttons in the Material sense, and they are not Falcon West’s 6px. 4px on controls and 8px on cards is this system’s own pair.
+The current site’s 16px radius is retired. Buttons are not pills. 4px on controls and 8px on cards is this system’s own pair.
 
-Flat color. No decorative gradients. The only transparency in the system is the hairline, the card shadow `0 1px 2px rgb(11 18 21 / 0.06)`, and the hero scrim.
+Flat color. No decorative gradients. The only transparency is the hairline, the card shadow `0 1px 2px rgb(11 18 21 / 0.06)`, and the hero scrim.
 
 ---
 
@@ -293,18 +256,20 @@ A 2px ring, 2px outside the control, so the ring sits on the surface behind it.
 
 ```css
 :focus-visible {
-  outline: 2px solid #003B4A;
+  outline: 2px solid #191919;
   outline-offset: 2px;
 }
 ```
 
-On `#0B1215`, on `#191919`, and on the hero scrim, the ring is `#F2F2F2` instead. Paper on dark black is 16.88:1.
+On `#0B1215` and on the hero scrim, the ring is `#F2F2F2`. Paper on `#0B1215` is 16.88:1.
 
-The offset is the part that makes focus work. A blue ring drawn on top of a blue button has nothing to contrast with. A 3px white ring, which is what the current site uses, is about 1.12:1 on `#F2F2F2` and fails on the reading page. It is retired.
+Ink on paper is 15.71:1. Ink on tan is 7.12:1. A red ring fails on tan (2.67:1) and on `#0B1215` (2.86:1), so focus is never red.
 
-Fields use the same ring, and their border switches from 1.5px `#A6783F` to 2px `#003B4A`.
+The offset is required. A ring drawn on top of the red fill has to contrast with the fill, and paper-on-red is the label, not a ring sitting in the same pixels. The offset puts the ring on the surface behind the control.
 
-The focus color is never yellow.
+Fields use the same ring. Their border switches from 1.5px `#A6783F` to 2px `#191919`.
+
+The current site’s 3px white ring is about 1.12:1 on `#F2F2F2`. It is retired.
 
 ---
 
@@ -314,88 +279,77 @@ The focus color is never yellow.
 
 A 64px bar, background `#0B1215`. This is chrome, not a button.
 
-- Star tile 36px, square, linking home.
-- Wordmark “Local Energy” in Archivo Black 20px / 900, `#F2F2F2`, 12px to the right of the tile.
-- Destinations in Lora 16px / 400, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1), still not a filled pill.
-- Suggested destinations: Shop talk, Writing, About, Listen. The bar has destinations. A logo alone in the corner is the current site’s gap, not the spec.
-- Under 768px the same bar stays. Destinations move into a `#191919` panel under the bar. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
+- Mark 36px. Use [`mark-on-paper.svg`](../assets/logos/local-energy/mark-on-paper.svg) (red on paper, 5.90:1). The tan tile is below its 48px minimum here.
+- Wordmark “Local Energy” in Archivo Black 20px / 900, `#F2F2F2`, 12px to the right of the mark.
+- Destinations in Lora 16px / 400, `#F2F2F2`. Hover and current: `#D49A45` (7.65:1). Not a filled pill.
+- Suggested destinations: Shop talk, Writing, About, Listen.
+- Under 768px the same bar stays. Destinations move into a `#0B1215` panel under the bar, separated by `--color-line-dark`. Panel links are `#F2F2F2`, hover `#D49A45`, padding 12px 20px, min height 44px.
 
 ### 7.2 Buttons
 
 Height 44px including a 2px border (`box-sizing: border-box`). Padding inline 16px. Radius 4px. Label Lora 16px / 600, sentence case, tracking 0. Not Archivo Black. Not 64px tall. Not a 16px radius.
 
-Color states change instantly. Do not fade them. A crossfade between `#F2F2F2` on `#003B4A` and `#191919` on `#D49A45` passes through pairs that fail.
+Color states change instantly. Do not fade them. A crossfade between paper-on-red and ink-on-`#A6783F` passes through pairs that fail.
 
-**Primary, on paper or on tan**
+**Primary, on paper**
 
-- Rest: fill and border `#003B4A`, label `#F2F2F2` (10.88:1).
-- Hover: fill `#D49A45`, border stays `#003B4A`, label `#191919` (7.12:1). The tan fill against paper is only 2.20:1, so the blue border is what keeps the control visible. Do not drop it.
-- Pressed: fill `#A6783F`, border `#003B4A`, label `#191919` (4.50:1). Do not switch the label to `#F2F2F2` (3.49:1, fails).
+- Rest: fill and border `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
+- Hover and pressed: fill `#A6783F`, border stays `#BA0C2F`, label `#191919` (4.50:1). Do not leave the label on `#F2F2F2` (3.49:1).
 
-**Primary, on `#0B1215` or `#191919`**
+**Primary, on `#0B1215`**
 
-- Rest: fill and border `#D49A45`, label `#191919` (7.12:1). Fill against `#0B1215` is 7.65:1. A dark-blue fill here is forbidden (1.55:1).
-- Hover: fill and border `#F2F2F2`, label `#191919` (15.71:1).
-- Pressed: fill `#A6783F`, border `#D49A45`, label `#191919` (4.50:1).
+- Rest: fill `#BA0C2F`, border 2px `#F2F2F2`, label `#F2F2F2` (5.90:1). The border is the boundary. Red against `#0B1215` is 2.86:1 and cannot be the edge by itself.
+- Hover and pressed: fill `#A6783F`, border stays `#F2F2F2`, label `#191919` (4.50:1). The dark-tan fill against `#0B1215` is 4.84:1.
+
+**Primary, on tan**
+
+- Rest: fill `#BA0C2F`, border 2px `#191919`, label `#F2F2F2`. Red against tan is 2.67:1. The ink border against tan is 7.12:1.
+- Hover and pressed: fill `#A6783F`, border stays `#191919`, label `#191919`. Dark tan against tan is 1.58:1, so the border stays.
 
 **Secondary, on paper or tan**
 
-- Rest: transparent fill, border and label `#003B4A`.
-- Hover: fill `#003B4A`, label `#F2F2F2`.
+- Rest: transparent fill, border and label `#BA0C2F` on paper (5.90:1). On tan, border and label `#191919` (red on tan fails).
+- Hover: fill `#BA0C2F`, label `#F2F2F2`. On tan, keep the ink border.
 
-**Secondary, on dark**
+**Secondary, on `#0B1215`**
 
-- Rest: transparent fill, border and label `#D49A45`.
-- Hover: fill `#D49A45`, label `#191919`.
+- Rest: transparent fill, border and label `#D49A45` (7.65:1). A red outline on this ground is 2.86:1.
+- Hover: fill `#D49A45`, label `#191919` (7.12:1).
 
 **Link button**
 
-The third button is a link. No fill, no border, no pill. Lora 16px / 600, underlined, the link colors in §7.3. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link.
+The third button is a link. No fill, no border, no pill. Lora 16px / 600, underlined, the link colors in §2.6. If it is the only control in a row, give it at least 44px of hit area with padding. It still looks like a link.
 
 One primary button in a group. Listen buttons are not primaries.
 
-### 7.3 Links
-
-Underlined by default. The underline is part of the link, not a hover trick.
-
-- On `#F2F2F2` and on `#D49A45`: `#003B4A`. Hover `#191919`. Both stay underlined.
-- On `#0B1215` and on `#191919`: `#D49A45`. Hover `#F2F2F2`.
-
-Never yellow. Never red. Red on paper would pass at 5.90:1 and is still the error color, so it is not a link.
-
-### 7.4 Fields
+### 7.3 Fields
 
 - Label above the box, Lora 14px / 600, `#191919`, 8px gap. The placeholder is not the label.
 - Input height 44px, radius 4px, fill `#F2F2F2`, text Lora 16px `#191919`.
 - Resting border 1.5px solid `#A6783F` (3.49:1). Do not swap in the hairline.
-- Focus: border 2px `#003B4A` plus the §6 ring.
+- Focus: border 2px `#191919` plus the §6 ring.
 - Helper: Lora 14px `#191919`, 8px under the box.
 - Error: border and helper `#BA0C2F` (5.90:1). Do not invent a pale red fill.
 
-### 7.5 Cards
+### 7.4 Cards
 
-Paper fill, 1px `--color-line`, radius 8px, shadow `0 1px 2px rgb(11 18 21 / 0.06)`, padding 24px (16px in a tight row). No left-border stripe. A card is a surface, not an alert.
+Paper fill, 1px `--color-line`, radius 8px, shadow `0 1px 2px rgb(11 18 21 / 0.06)`, padding 24px (16px in a tight row). No left-border stripe.
 
-A card on a dark band is `#191919`, with a 1px `--color-line-dark` edge and `#F2F2F2` text.
+A card on a dark band is `#0B1215` with a 1px `--color-line-dark` edge and `#F2F2F2` text. It is not a lighter black.
 
-### 7.6 Badges
+### 7.5 Badges
 
 Height 24px, padding 0 8px, radius 4px, Lora 13px / 600. Not a button.
 
-- Action: fill `#003B4A`, label `#F2F2F2`.
-- Accent, rare: fill `#BA0C2F`, label `#F2F2F2`.
-- On a dark band: fill `#D49A45`, label `#191919`.
+- On paper: fill `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
+- On `#0B1215`: the same fill and label, plus a 2px `#F2F2F2` border (the fill against the band is 2.86:1).
 
-No yellow badge.
-
-### 7.7 Listen buttons
-
-The show is on other people’s platforms. Those platforms do not get to paint Local Energy’s buttons.
+### 7.6 Listen buttons
 
 Same geometry as a button: 44px, radius 4px, Lora 16px / 600, sentence case (“Listen on Spotify”). A 20px platform glyph sits 8px to the left of the label. Use the platform’s official icon, in the platform’s color. The specimen draws stand-in glyphs so this repo does not ship trademark artwork.
 
-- On paper: fill and border `#191919`, label `#F2F2F2` (15.71:1). Hover inverts to fill `#F2F2F2`, border `#191919`, label `#191919`.
-- On dark: fill and border `#F2F2F2`, label `#191919`. Hover inverts to fill `#191919`, border `#F2F2F2`, label `#F2F2F2`.
+- On paper: fill and border `#0B1215`, label `#F2F2F2` (16.88:1). Hover inverts to fill `#F2F2F2`, border `#0B1215`, label `#191919`.
+- On `#0B1215`: fill and border `#F2F2F2`, label `#191919`. Hover inverts to fill `#0B1215`, border `#F2F2F2`, label `#F2F2F2`. The border is what keeps the hover visible against the band.
 
 Platform colors are not tokens:
 
@@ -405,62 +359,84 @@ Platform colors are not tokens:
 | Spotify | `#1DB954` | |
 | YouTube | `#FF0000` | |
 
-### 7.8 Transcript and captions
+### 7.7 Transcript and video captions
 
-The player panel is `#191919` (raised dark) inside a `#0B1215` band, or the panel is the band.
+The player is `#0B1215`. There is no second panel color under it.
 
 - Line: Lora 16px / 400, line-height 1.6, color `#F2F2F2`.
-- Speaker: Lora 14px / 600, `#D49A45` (7.12:1 on `#191919`).
+- Speaker: Lora 14px / 600, `#D49A45` (7.65:1).
 - Timestamp: Lora 14px / 400, `#F2F2F2`.
-- Emphasized words: color `#F7BA00`. Not a yellow background behind yellow letters.
-- On a paper article, a quoted emphasis is `<mark>`: background `#F7BA00`, color `#191919`. Do not set those letters to yellow.
+- The highlighted word, including a YouTube Shorts caption, is `#D49A45`. Red is 2.86:1 here and cannot be the highlight. Yellow is not in the relaunch.
+- On a paper article, a short emphasis is red text `#BA0C2F` (5.90:1), not a colored ground behind the letters. Ink on red is 2.66:1, so do not put a red highlight behind ink type.
 
 ```css
-::selection { background: #F7BA00; color: #191919; }
+::selection { background: #D49A45; color: #191919; }
 ```
 
-### 7.9 Hero and photography
+Ink on tan is 7.12:1.
 
-A photograph is allowed on the **home hero only**. One image. It is not a page texture, not a card pattern, and not a background behind an article.
+### 7.8 Hero and photography
 
-Type that sits on the photograph has to clear 4.5:1 without help from a text-shadow. The current overlay — about 54% `#000000` — resolves to `#757575` on a white photo, and `#F2F2F2` on that is **4.12:1**. It fails. The text-shadow is hiding that failure. Both are retired.
+A photograph is allowed on the **home hero only**. One image. It is not a page texture and not a background behind an article.
 
-**Scrim.** Cover the whole text block, including 16px of padding around the line boxes, with `#0B1215` at **at least 68%** opacity (`rgb(11 18 21 / 0.68)`). On a pure-white photograph that composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. Darker photos only improve the number. A gradient may fade the photo in above the text. The pixels behind the type still meet 68%.
+Type on the photograph clears 4.5:1 without a text-shadow. The old overlay, about 54% `#000000`, resolves to `#757575` on a white photo, and `#F2F2F2` on that is **4.12:1**. It fails. Both the overlay and the text-shadow are retired.
 
-If the picture is too busy for a flat scrim, put the type on a solid `#0B1215` panel instead. Do not put type on the photo and hope.
+**Scrim.** Cover the whole text block, including 16px of padding around the line boxes, with `#0B1215` at **at least 68%** opacity. On a pure-white photograph that composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. A gradient may fade the photo in above the text. The pixels behind the type still meet 68%.
 
-Hero type is `#F2F2F2`. The display line may be `#D49A45` when it sits on solid `#0B1215` or `#191919` (7.65:1 / 7.12:1). Do not set the display line in tan on the minimum scrim unless you remeasure that composite; the safe hero color is `#F2F2F2`. The listen row uses the dark-surface listen button.
+Hero type is `#F2F2F2`. The display line may be `#D49A45` only on solid `#0B1215` (7.65:1), not on the minimum scrim. The primary button uses the dark-surface recipe in §7.2. The listen row uses the dark-surface listen button.
 
-The hero can also be a solid `#0B1215` band with no photo. That is the fallback, and it is correct.
+The hero can also be a solid `#0B1215` band with no photo. That fallback is correct.
 
-### 7.10 Blog covers and posts
+### 7.9 Blog covers and posts
 
 Cover images are 3:2, at least 1200px wide. No words in the image file. No color overlay.
 
-The title and the dek sit **under** the image, on `#F2F2F2`, in the 68ch column. h1 is the title (30px / 26px), not Display. A 2px × 48px `#D49A45` rule may sit between the image and the title. That rule is a brand mark at 2.20:1 against paper. It is decorative. The title’s contrast comes from ink on paper, not from the rule.
+The title and the dek sit **under** the image, on `#F2F2F2`, in the 68ch column. h1 is the title (30px / 26px), not Display. A 2px × 48px `#D49A45` rule may sit between the image and the title. That rule is a brand mark at 2.20:1 against paper. It is decorative. The title’s contrast comes from ink on paper.
 
-Inside the post, follow §3 and §4. Yellow shows up only as `<mark>` or inside an embedded transcript panel.
-
-### 7.11 Replacing the current site
+### 7.10 Replacing the current site
 
 | Current Carrd page | This system |
 |---|---|
-| Always `#000000` | `#F2F2F2` page. `#0B1215` nav, hero band, footer. `#191919` player. |
+| Always `#000000` | `#F2F2F2` page. `#0B1215` for every dark band. |
 | `#FFFFFF` and `#F2F2F2` type | `#F2F2F2` on dark. `#191919` on paper. |
 | Divider `#262626` | `--color-line` on paper, `--color-line-dark` on dark. |
-| Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. §7.9. |
-| Logo top-left, no nav | Star, wordmark, and destinations. §7.1. |
+| Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. |
+| Logo top-left, no nav | Mark, wordmark, and destinations. §7.1. |
 | Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black and Lora. §3. |
-| Buttons 64px tall, 16px radius, Apple / Spotify / YouTube fills | 44px, 4px radius, one listen style. §7.2, §7.7. |
-| Focus 3px white | 2px ring, 2px offset. §6. |
+| Buttons 64px tall, 16px radius, platform fills | 44px, 4px radius, red primary, one listen style. |
+| Focus 3px white | 2px ink ring on light, 2px paper ring on dark, 2px offset. |
 
 ---
 
-## 8. Voice
+## 8. Logo
 
-[`VOICE.md`](VOICE.md) is the Local Energy application of [`../writing/voice.md`](../writing/voice.md). Short version, so a component does not ship with the wrong sentence:
+The star is the red star of the California Bear Flag and the Texas Lone Star, drawn in that tradition: one point up, a regular pentagram, solid and sharp. It does not carry the bear, the stripe, the blue canton, or any lettering from either flag.
 
-- Headlines are 2–6 words, concrete, something a person can picture. “Supporting Independent Energy.” already fits.
+The geometry is the regular pentagram. Outer points sit on a circle. The inner radius is `sin(18°) / sin(54°)` of the outer radius, **0.381966**. Points are mathematically placed, one straight up. There is no stroke, no shadow, and no second shape inside the star.
+
+The outline is dropped. Red against the tan tile is **2.67:1** and red against `#0B1215` is **2.86:1**. Both sit under 3:1. A stroke thick enough to repair that becomes a second shape, and at 16px it fattens the points until they stop being sharp. Drawing the star larger does not change the ratio. The mark that has to be sharp at 16px is the red star on paper, where the pair is **5.90:1** and needs no help.
+
+| File | What | Smallest size |
+|---|---|---|
+| [`mark.svg`](../assets/logos/local-energy/mark.svg) | Red star on the tan tile. The brand mark. | **48px** |
+| [`mark-on-dark.svg`](../assets/logos/local-energy/mark-on-dark.svg) | Red star on the `#0B1215` tile. | **48px** |
+| [`mark-on-paper.svg`](../assets/logos/local-energy/mark-on-paper.svg) | Red star on the paper tile. Favicon and app icon. | **16px** |
+| [`mark-standalone.svg`](../assets/logos/local-energy/mark-standalone.svg) | Red star, no tile. On paper only. | **16px** |
+| [`mark-mono.svg`](../assets/logos/local-energy/mark-mono.svg) | One-color star, `#0B1215`. On paper it is 16.88:1. Set the fill to `#F2F2F2` when it sits on `#0B1215`. | **16px** |
+
+[`mark.png`](../assets/logos/local-energy/mark.png) is the tan tile rendered from `mark.svg`. [`app-icon.png`](../assets/logos/local-energy/app-icon.png) and [`favicon.png`](../assets/logos/local-energy/favicon.png) are rendered from `mark-on-paper.svg`.
+
+**Clear space.** Inside every tile the nearest point of the star is 15% of the tile away from the edge (77px on the 512 master). Outside a tile, or around the standalone and one-color stars, keep a margin equal to one quarter of the star’s width. Nothing sits in that margin: no type, no rule, no second mark.
+
+**Do not** add the outline back, recolor the star to tan, or set the standalone red star on `#0B1215` or on tan.
+
+---
+
+## 9. Voice
+
+[`VOICE.md`](VOICE.md) is the Local Energy application of [`../writing/voice.md`](../writing/voice.md).
+
+- Headlines are 2–6 words, concrete. “Supporting Independent Energy.” already fits.
 - The tagline is the tagline. It is longer than a headline and it does not get compressed into one.
 - Body copy teaches. It sounds like shop talk, not a brand film.
 - AI is a tool or a program. Not a teammate, not “he” or “she,” not a character.
@@ -468,7 +444,7 @@ Inside the post, follow §3 and §4. Yellow shows up only as `<mark>` or inside 
 
 ---
 
-## 9. Should this be Material?
+## 10. Should this be Material?
 
 Peter asked whether Local Energy should be “a material idea.” It should not. This folder stays a website system.
 
@@ -478,37 +454,37 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 
 ---
 
-## 10. Prohibitions
-
-Building any of these means the system has been broken:
+## 11. Prohibitions
 
 1. `#000000` as a page, a band, or a scrim. The dark ground is `#0B1215`.
 2. `#FFFFFF` as a token. The white is `#F2F2F2`.
-3. Tan text on paper, or `#F2F2F2` text on tan, or a tan button fill on paper without the dark-blue border specified in §7.2.
-4. `#F2F2F2` labels on a `#A6783F` fill, or `#A6783F` as body, caption, or link text.
-5. A dark-blue button on `#0B1215` or `#191919`.
-6. Yellow used as anything but §2.6.
-7. Red used as anything but §2.7. A star with no ink stroke.
-8. Platform-colored button fills (`#872EC4`, `#1DB954`, `#FF0000`, or the next network’s green).
-9. Buttons at 64px, or controls at a 16px radius, or pill buttons.
-10. Archivo Black under 18px, or Archivo Black on buttons, links, labels, or body. A third typeface.
-11. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
-12. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
-13. A white focus ring on paper. Yellow as focus.
-14. An always-dark page. Dark is a band.
-15. Calling the brand “Local Energy podcast,” or personifying AI in copy.
-16. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, navy focus, or square-card rule.
-17. A left-border stripe on a card. A hairline used as an input border.
-18. A fade between button states. An un-underlined text link.
+3. `#191919` used as a surface, a nav, or a button fill. It is ink.
+4. `#003B4A`, or any blue, anywhere.
+5. `#F7BA00`, or any yellow.
+6. Tan text on paper, or paper text on tan.
+7. Red text on `#0B1215` or on tan. Ink text on a red fill.
+8. A red button on `#0B1215` without the paper border, or on tan without the ink border.
+9. A `#F2F2F2` label on the `#A6783F` hover fill.
+10. `#A6783F` as a brand color, a link, or body text.
+11. Platform-colored button fills.
+12. Buttons at 64px, or controls at a 16px radius.
+13. Archivo Black under 18px, or Archivo Black on buttons, links, labels, or body.
+14. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
+15. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
+16. A red focus ring. A white focus ring on paper.
+17. The tan-tile or dark-tile star below 48px. A stroke put back on the star.
+18. Calling the brand “Local Energy podcast,” or personifying AI in copy.
+19. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, or navy focus.
+20. An un-underlined text link. A fade between button states.
 
 ---
 
-## 11. Relationship to the other systems
+## 12. Relationship to the other systems
 
 | Folder | What it is | Shared with Local Energy |
 |---|---|---|
 | [`../falcon-west/`](../falcon-west/) | falconwest.com | Nothing visual. Writing craft, via `writing/voice.md`. |
-| [`../falcon-west-energy/`](../falcon-west-energy/) | falconwestenergy.com | A different “energy” brand. Do not share buttons, navy, or sky. |
-| [`../material/`](../material/) | Apps, CRM, tools | Nothing, unless a future product is documented there as a Material face. §9. |
+| [`../falcon-west-energy/`](../falcon-west-energy/) | falconwestenergy.com | A different brand. Do not share buttons or navy. |
+| [`../material/`](../material/) | Apps, CRM, tools | Nothing, unless a future product is documented there as a Material face. §10. |
 
 Do not reconcile these into one palette.

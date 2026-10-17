@@ -11,7 +11,11 @@
    below and keep everything else.
 
    Default face is Lora, hooked to Tailwind's --font-sans so unmarked text
-   is the body face. Archivo Black is font-display only. */
+   is the body face. Archivo Black is font-display only.
+
+   Four brand colors: tan, red, paper, and one near-black. #191919 is ink,
+   not a surface. #A6783F is the pressed fill and the input border only.
+   There is no blue and no yellow. */
 
 @import "tailwindcss";
 
@@ -47,15 +51,12 @@
   --color-paper: #f2f2f2;
   --color-ink: #191919;
   --color-tan: #d49a45;
-  --color-dark-tan: #a6783f;
-  --color-action: #003b4a;
   --color-accent: #ba0c2f;
-  --color-highlight: #f7ba00;
   --color-dark: #0b1215;
+  --color-pressed: #a6783f;
   --color-on-dark: #f2f2f2;
-  --color-on-action: #f2f2f2;
+  --color-on-accent: #f2f2f2;
   --color-on-tan: #191919;
-  --color-on-highlight: #191919;
   --color-line: rgb(25 25 25 / 0.16);
   --color-line-dark: rgb(242 242 242 / 0.2);
   --color-scrim: rgb(11 18 21 / 0.68);
@@ -144,18 +145,18 @@
   }
 
   ::selection {
-    background: var(--color-highlight);
-    color: var(--color-on-highlight);
+    background: var(--color-tan);
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-action);
+    outline: 2px solid var(--color-ink);
     outline-offset: 2px;
   }
 }
 
-/* Color states do not fade. A crossfade between paper-on-blue and
-   ink-on-tan passes through pairs that fail WCAG. */
+/* Color states do not fade. A crossfade between paper-on-red and
+   ink-on-#A6783F passes through pairs that fail WCAG. */
 
 @layer components {
   .le-nav {
@@ -217,49 +218,65 @@
   }
 
   .le-btn-primary {
-    background: var(--color-action);
-    border-color: var(--color-action);
-    color: var(--color-on-action);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
   }
 
-  .le-btn-primary:hover {
-    background: var(--color-tan);
-    border-color: var(--color-action);
-    color: var(--color-on-tan);
-  }
-
+  .le-btn-primary:hover,
   .le-btn-primary:active {
-    background: var(--color-dark-tan);
-    border-color: var(--color-action);
+    background: var(--color-pressed);
+    border-color: var(--color-accent);
     color: var(--color-ink);
   }
 
   .le-on-dark .le-btn-primary {
-    background: var(--color-tan);
-    border-color: var(--color-tan);
-    color: var(--color-on-tan);
+    background: var(--color-accent);
+    border-color: var(--color-paper);
+    color: var(--color-on-accent);
   }
 
-  .le-on-dark .le-btn-primary:hover {
-    background: var(--color-paper);
+  .le-on-dark .le-btn-primary:hover,
+  .le-on-dark .le-btn-primary:active {
+    background: var(--color-pressed);
     border-color: var(--color-paper);
     color: var(--color-ink);
   }
 
-  .le-on-dark .le-btn-primary:active {
-    background: var(--color-dark-tan);
-    border-color: var(--color-tan);
+  .le-on-tan .le-btn-primary {
+    background: var(--color-accent);
+    border-color: var(--color-ink);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-tan .le-btn-primary:hover,
+  .le-on-tan .le-btn-primary:active {
+    background: var(--color-pressed);
+    border-color: var(--color-ink);
     color: var(--color-ink);
   }
 
   .le-btn-secondary {
-    border-color: var(--color-action);
-    color: var(--color-action);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
-  .le-btn-secondary:hover {
-    background: var(--color-action);
-    color: var(--color-on-action);
+  .le-btn-secondary:hover,
+  .le-btn-secondary:active {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .le-on-tan .le-btn-secondary {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+
+  .le-on-tan .le-btn-secondary:hover,
+  .le-on-tan .le-btn-secondary:active {
+    background: var(--color-accent);
+    border-color: var(--color-ink);
+    color: var(--color-on-accent);
   }
 
   .le-on-dark .le-btn-secondary {
@@ -267,7 +284,8 @@
     color: var(--color-tan);
   }
 
-  .le-on-dark .le-btn-secondary:hover {
+  .le-on-dark .le-btn-secondary:hover,
+  .le-on-dark .le-btn-secondary:active {
     background: var(--color-tan);
     color: var(--color-on-tan);
   }
@@ -277,13 +295,18 @@
     padding-inline: 0;
     border: 0;
     background: transparent;
-    color: var(--color-action);
+    color: var(--color-ink);
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
 
   .le-btn-link:hover {
+    color: var(--color-accent);
+  }
+
+  .le-on-tan .le-btn-link,
+  .le-on-tan .le-btn-link:hover {
     color: var(--color-ink);
   }
 
@@ -295,19 +318,21 @@
     color: var(--color-paper);
   }
 
-  .le-on-dark :focus-visible {
+  .le-on-dark :focus-visible,
+  .le-hero :focus-visible {
     outline-color: var(--color-paper);
   }
 
   .le-listen {
-    background: var(--color-ink);
-    border-color: var(--color-ink);
+    background: var(--color-dark);
+    border-color: var(--color-dark);
     color: var(--color-paper);
   }
 
-  .le-listen:hover {
+  .le-listen:hover,
+  .le-listen:active {
     background: var(--color-paper);
-    border-color: var(--color-ink);
+    border-color: var(--color-dark);
     color: var(--color-ink);
   }
 
@@ -317,8 +342,9 @@
     color: var(--color-ink);
   }
 
-  .le-on-dark .le-listen:hover {
-    background: var(--color-ink);
+  .le-on-dark .le-listen:hover,
+  .le-on-dark .le-listen:active {
+    background: var(--color-dark);
     border-color: var(--color-paper);
     color: var(--color-paper);
   }
@@ -342,7 +368,7 @@
     width: 100%;
     min-height: 44px;
     padding: 0.5rem 0.75rem;
-    border: 1.5px solid var(--color-dark-tan);
+    border: 1.5px solid var(--color-pressed);
     border-radius: var(--radius-control);
     background: var(--color-paper);
     color: var(--color-ink);
@@ -353,7 +379,7 @@
 
   .le-field input:focus-visible,
   .le-field textarea:focus-visible {
-    border: 2px solid var(--color-action);
+    border: 2px solid var(--color-ink);
   }
 
   .le-field .le-error {
@@ -370,33 +396,37 @@
     padding: 1.5rem;
   }
 
+  .le-on-dark .le-card {
+    background: var(--color-dark);
+    border-color: var(--color-line-dark);
+    box-shadow: none;
+    color: var(--color-paper);
+  }
+
   .le-badge {
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     height: 24px;
     padding: 0 0.5rem;
+    border: 2px solid transparent;
     border-radius: var(--radius-control);
-    background: var(--color-action);
-    color: var(--color-on-action);
+    background: var(--color-accent);
+    color: var(--color-paper);
     font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0;
   }
 
-  .le-badge-accent {
-    background: var(--color-accent);
-    color: var(--color-paper);
-  }
-
-  .le-on-dark .le-badge-tan {
-    background: var(--color-tan);
-    color: var(--color-on-tan);
+  .le-on-dark .le-badge {
+    border-color: var(--color-paper);
   }
 
   .le-transcript {
-    background: var(--color-ink);
+    background: var(--color-dark);
     color: var(--color-paper);
+    border: 1px solid var(--color-line-dark);
     border-radius: var(--radius-card);
     padding: 1.5rem;
     color-scheme: dark;
@@ -418,7 +448,7 @@
 
   .le-transcript em,
   .le-transcript .hit {
-    color: var(--color-highlight);
+    color: var(--color-tan);
     font-style: normal;
   }
 
@@ -498,18 +528,18 @@
   }
 
   .le-prose a {
-    color: var(--color-action);
+    color: var(--color-ink);
     text-decoration: underline;
     text-underline-offset: 0.15em;
   }
 
   .le-prose a:hover {
-    color: var(--color-ink);
+    color: var(--color-accent);
   }
 
-  .le-prose mark {
-    background: var(--color-highlight);
-    color: var(--color-on-highlight);
+  .le-prose em.accent {
+    color: var(--color-accent);
+    font-style: normal;
   }
 
   .le-prose blockquote {
