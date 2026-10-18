@@ -32,7 +32,7 @@ Headings = Raleway ExtraBold ink `#080808`. Body color `#434343`. Never Crimson 
 8. **No third typeface** competing in body/headings.
 
 ## falconwest.com (FW) — Insurance
-- Rust CTAs `#D2793D` (hover `#A85F2E`); outline white + rust.
+- Rust CTAs `#BA5915` (hover `#A85F2E`, pressed `#9C5322`); outline white + rust. 6px, flat, 44px min, label "Start Now". Phone 619-297-9181 (619-452-2524 is Peter's office / Energy only).
 - Sky = links only, not buttons.
 - Priority pages: home, /team/, /private-client/, /business-insurance/, /personal-insurance/, /about/, contact/start, industry landings, blog index + recent posts.
 - Confirm Additional CSS A+B landed: Raleway buttons; /team/ lead 24px; scan peers for same lead token.

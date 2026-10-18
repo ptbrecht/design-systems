@@ -8,7 +8,7 @@ This is **not** the Material / app system. Do not apply Material rules, Material
 
 ## 0. The one-sentence read
 
-Traditional and trust-first: a classic serif voice under a Raleway ExtraBold wordmark, navy as the main brand field, rust only on buttons, sky only on links — established and personal, not trendy. *Serving You Since 1981.*
+Traditional and trust-first: a classic serif voice under the FW falcon mark, navy as the main brand field, rust only on buttons, sky only on links — established and personal, not trendy. Elegant over modern. Since 1981.
 
 ---
 
@@ -30,8 +30,9 @@ Falcon West is an independent insurance brokerage. The site should feel like a l
 | Token | Hex | Role |
 |---|---|---|
 | `--color-navy-900` | `#15445D` | **Main brand color.** Nav, dark sections, large brand fields. Never a button fill or button border. |
-| `--color-rust-600` | `#D2793D` | **Button fill** (main brand). Filled CTA, or the border of a white outline button. Highlight / rollover accent only — never a dominant background. |
+| `--color-rust-600` | `#BA5915` | **The falconwest.com rust.** Same orange as the FW logo. Button fill, outline-button border and label, text-link hover, focus outline on light, active tab. Highlight / rollover accent only — never a dominant background. |
 | `--color-rust-700` | `#A85F2E` | Button hover (main brand). |
+| `--color-rust-800` | `#9C5322` | Button pressed (main brand). |
 | `--color-sky-500` | `#3D96D2` | Older decorative / logo / non-a11y Energy fill only. On the main brand, reserved as a link-family accent — not a button, not a background. **Not** the Energy production filled-button color. |
 | `--color-sky-600` | `#2D78AD` | Main-brand text hyperlink default. |
 | `--color-sky-700` | `#2F78A7` | Energy filled-button rest (a11y floor). |
@@ -42,11 +43,27 @@ Falcon West is an independent insurance brokerage. The site should feel like a l
 | `--color-paper-50` | `#FCFEFE` | Page background. On-dark text. |
 | `--color-white` | `#FFFFFF` | Cards, outline-button fill, field fill. |
 
+`#D2793D` (the old rust-600) is **retired** on falconwest.com. White on it was 3.21:1, which fails AA for 15px button labels. It survives only in the legacy brand-guide PDF.
+
+#### Rust contrast (WCAG 2.x)
+
+| Use | Pair | Ratio | Result |
+|---|---|---|---|
+| Button rest label | paper `#FCFEFE` on `#BA5915` | 4.58 | Pass (AA normal text) |
+| Button hover label | paper on `#A85F2E` | 4.78 | Pass |
+| Button pressed label | paper on `#9C5322` | 5.65 | Pass |
+| Outline label and border, ghost, rust text | `#BA5915` on `#FFFFFF` / `#FCFEFE` | 4.64 / 4.58 | Pass |
+| Rust text on anything darker than paper | use `#A85F2E` | 4.84 on white | Pass. `#BA5915` on `#DCDCDC` is 3.38 (fails) |
+| Focus outline on light | `#BA5915` vs paper | 4.58 | Pass (3:1 non-text) |
+| Any rust on navy (text, rule, focus) | `#BA5915` on `#15445D` | 2.24 | **Fails.** Use paper on navy |
+
+Labels on rust are always paper. Rust text appears only on white or paper.
+
 ### 2.2 Four color rules (binding)
 
 1. **Navy `#15445D` is the main brand color** — navigation, dark sections, large brand fields. **Never** a button fill. **Never** a button border.
-2. **Buttons are always rust orange `#D2793D`** — filled, or white with an orange border. Hover `#A85F2E`.
-3. **Sky blue `#3D96D2` is reserved for text hyperlinks** on the main brand. Link color `#2D78AD`. Link hover `#D2793D`.
+2. **Buttons are always rust `#BA5915`** — filled, or white with a rust border. Hover `#A85F2E`, pressed `#9C5322`, paper label.
+3. **Sky blue `#3D96D2` is reserved for text hyperlinks** on the main brand. Link color `#2D78AD`. Link hover `#BA5915`.
 4. **Rust and sky are highlight / rollover accents only.** Resist rust as "primary." Never a dominant background.
 
 Navy is the brand. Rust is the action. Sky is the link. Do not invert these.
@@ -55,7 +72,7 @@ Navy is the brand. Rust is the action. Sky is the link. Do not invert these.
 
 ```css
 a       { color: #2D78AD; text-decoration: underline; }
-a:hover { color: #D2793D; }
+a:hover { color: #BA5915; }
 ```
 
 Sky is not a button color on the main brand. Rust is not a link color at rest — only the hover of a text link.
@@ -68,11 +85,12 @@ Energy shares type, spacing, components, and navy as the main brand field. Energ
 
 | Role | Main brand | Energy |
 |---|---|---|
-| Button fill | `#D2793D` | `#2F78A7` (a11y floor) |
+| Button fill | `#BA5915` | `#2F78A7` (a11y floor) |
 | Button hover | `#A85F2E` | `#266690` |
+| Button pressed | `#9C5322` | — (see Energy locks) |
 | Outline button | rust border / rust label | `#2F78A7` border / label |
-| Focus border | `#D2793D` | `#2F78A7` |
-| Focus ring | `rgba(210,121,61,0.28)` | `rgba(47,120,167,0.28)` |
+| Focus border | `#BA5915` | `#2F78A7` |
+| Focus ring | `rgba(186,89,21,0.28)` | `rgba(47,120,167,0.28)` |
 | Link | `#2D78AD` / hover rust | `#2D78AD` / hover `#2F78A7` |
 | Palette | navy + rust + sky accents | **black, white, and blue tones only** |
 
@@ -130,12 +148,14 @@ Buttons are Title Case — never Material's uppercase 14/500 tracking. Eyebrows 
 
 ## 5. Focus
 
-Main brand — 2px orange border + soft 3px orange ring:
+Main brand — 2px rust border + soft 3px rust ring:
 
 ```
-border: 2px solid #D2793D;
-box-shadow: 0 0 0 3px rgba(210,121,61,0.28);
+border: 2px solid #BA5915;
+box-shadow: 0 0 0 3px rgba(186,89,21,0.28);
 ```
+
+On navy, rust fails (2.24:1). Use `#FCFEFE` for the border and `rgba(252,254,254,0.35)` for the ring.
 
 Energy substitutes `#2F78A7` / `rgba(47,120,167,0.28)`.
 
@@ -147,25 +167,27 @@ This is **not** the Material navy ring.
 
 ### 6.1 Navigation
 
-Navy `#15445D` bar, 64–72px tall. This is a brand field, **not a button**. Wordmark "Falcon West" in Raleway ExtraBold white. Tagline "Serving You Since 1981" in Crimson Text Italic, paper-50. In-nav destinations are text links, not rust pills.
+Navy `#15445D` bar, 64–72px tall. This is a brand field, **not a button**. Logo: the **FW falcon mark only** (§6.7). There is no text wordmark and no tagline in the bar. In-nav destinations are text links, not rust pills. The phone is `619-297-9181` as a text link, and the one primary button is **Start Now**.
 
 ### 6.2 Button
 
-Height 44px, horizontal padding 22px, radius 6px, Raleway Bold 15px Title Case.
+Min height 44px, horizontal padding 22px, radius 6px, Raleway Bold 15px Title Case. **Flat:** no shadow, no gradient. No pills.
 
-- **Filled** — background `#D2793D`, text `#FCFEFE`. Hover `#A85F2E`.
-- **Outline** — background `#FFFFFF`, text `#D2793D`, `1.5px solid #D2793D`. Hover fill `#A85F2E`, hover text paper-50.
-- **Ghost** — transparent, text `#D2793D`, no border. Hover text `#A85F2E`.
+- **Filled** — background `#BA5915`, text `#FCFEFE`. Hover `#A85F2E`. Pressed `#9C5322`. No border.
+- **Outline** — background `#FFFFFF`, text `#BA5915`, `1.5px solid #BA5915`. Hover fill `#A85F2E`, hover border `#A85F2E`, hover text paper-50. Pressed `#9C5322`.
+- **Ghost** — transparent, text `#BA5915`, no border. Hover text `#A85F2E`.
+
+**Labels:** the primary CTA is **Start Now** everywhere, linking to `https://app.falconwest.com/welcome/`. The secondary is **Call 619-297-9181**. No other intake labels (no "Say Hello", "Let's Talk", "Speak with an Expert", "New Clients", "Start Online", "Start Here", "Start Personal", "Call Now").
 
 Navy is never a button. Sky is never a button on the main brand.
 
 ### 6.3 Field
 
-Radius 6px (matches the button). Resting: white fill, `1px solid #DCDCDC`, 16px Crimson Text, label in Raleway 12/700 above the box. Focus: 2px `#D2793D` border + 3px orange ring. Helper / caption `#6B6B6B` Crimson 14.
+Radius 6px (matches the button). Resting: white fill, `1px solid #DCDCDC`, 16px Crimson Text, label in Raleway 12/700 above the box. Focus: 2px `#BA5915` border + 3px rust ring. Helper / caption `#6B6B6B` Crimson 14.
 
 ### 6.4 Tabs
 
-Raleway Bold Title Case on a `1px #DCDCDC` rule. Active tab: `#D2793D` text and a 2px rust underline. Inactive: `#6B6B6B`.
+Raleway Bold Title Case on a `1px #DCDCDC` rule. Active tab: `#BA5915` text and a 2px rust underline. Inactive: `#6B6B6B`.
 
 ### 6.5 Card
 
@@ -173,7 +195,23 @@ See §4. A card is a surface, not an alert. Do not add a colored left rail.
 
 ### 6.6 Badge
 
-Height 22px, padding `0 10px`, radius 999. Raleway 11/700, uppercase, tracking 0.08em. Tones: rust (`#D2793D` / paper), sky (`#3D96D2` / paper), navy (`#15445D` / paper). Pills are badges only — never buttons.
+Height 22px, padding `0 10px`, radius 999. Raleway 11/700, uppercase, tracking 0.08em. Tones: rust (`#BA5915` / paper), sky (`#3D96D2` / paper), navy (`#15445D` / paper). Pills are badges only — never buttons.
+
+---
+
+### 6.7 Logo
+
+The logo is the **FW falcon mark** (`../assets/logos/falcon-west/Falcon West Logo (No Text).png`; sources in `Source Files/`). Its orange is `#BA5915`, the same as rust-600.
+
+- Header and favicon use the mark only. There is **no text wordmark**: don't set "Falcon West" in Raleway beside the mark as a logo. The ring lockup ("Falcon West Insurance Brokers, Inc.") is for social cards and print.
+- Full color on navy is approved. The wings are 8.43:1 on navy. 91% of the letter edge sits on the wings (3.75:1) or the black letter shadow (4.53:1), so the mark meets 3:1 non-text contrast in practice. Don't recolor or tint it.
+- Use a sharp source (SVG, or 2x/3x PNG) at about 52px tall or more in the header.
+- Never use the wings alone as a background or watermark.
+
+### 6.8 Phone and contact
+
+- falconwest.com phone: **619-297-9181** (`tel:+16192979181`) on every general CTA, the header and the footer.
+- **619-452-2524** is Peter Brecht's office line and the falconwestenergy.com main number. It never appears on falconwest.com general CTAs. On falconwest.com it may appear only on Peter's own bio contact links.
 
 ---
 
@@ -197,6 +235,9 @@ Building any of these means the website language has been broken:
 8. Material rules: navy focus ring, uppercase 14/500 buttons, rust-700 as "primary for text," 4px/0 shape inversion, opacity-model body copy.
 9. Treating rust as the primary brand color.
 10. A falcon watermark as a standalone background.
+11. White or paper labels on any rust lighter than `#BA5915`; the retired `#D2793D` anywhere on falconwest.com; rust text or focus on navy.
+12. Pill buttons, button drop shadows or gradients, or intake labels other than "Start Now".
+13. A text wordmark beside the FW mark, or a recolored mark.
 
 ---
 

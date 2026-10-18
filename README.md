@@ -52,9 +52,10 @@ Also in `material/`:
 The brokerage marketing site. **A separate system from Material.**
 
 - Navy `#15445D` is the brand field — never a button fill or button border
-- **Rust `#D2793D` buttons** (hover `#A85F2E`)
+- **Rust `#BA5915` buttons** (the logo orange; hover `#A85F2E`, pressed `#9C5322`; 6px, flat, 44px, primary label "Start Now")
+- FW falcon mark only (no text wordmark); phone 619-297-9181
 - Sky is for text links, not buttons
-- Crimson Text editorial + Raleway wordmark / chrome
+- Crimson Text editorial + Raleway headings / chrome
 
 Start here: [`falcon-west/DESIGN.md`](falcon-west/DESIGN.md) · [`falcon-west/specimen.html`](falcon-west/specimen.html) · [`falcon-west/README.md`](falcon-west/README.md)
 
@@ -124,7 +125,7 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 
 | File | Role |
 |---|---|
-| [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; Falcon West website wordmark and chrome |
+| [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; Falcon West website headings and chrome |
 | [`fonts/CrimsonText-Regular.ttf`](fonts/CrimsonText-Regular.ttf), [`fonts/CrimsonText-Italic.ttf`](fonts/CrimsonText-Italic.ttf), [`fonts/CrimsonText-SemiBold.ttf`](fonts/CrimsonText-SemiBold.ttf) | Falcon West website editorial. Not used in Material. |
 | [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display, h1, and h2. Not used on Falcon West. |
 | [`fonts/Archivo-Variable.ttf`](fonts/Archivo-Variable.ttf) | Local Energy h3, h4, and chrome. Width 100. Weights 700 and 800 only. Not used on Falcon West. |
