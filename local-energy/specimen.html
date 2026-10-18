@@ -113,7 +113,7 @@
   .display {
     font-family: var(--display);
     font-weight: 900;
-    font-size: 36px;
+    font-size: clamp(2.25rem, 1.5rem + 2.4vw, 3.25rem);
     line-height: 1.15;
     letter-spacing: 0;
     color: var(--paper);
@@ -500,7 +500,7 @@
         <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="#1DB954"/></svg>Listen on Spotify</span>
         <span class="btn solid listen"><svg class="glyph" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="14" y="3" rx="3" fill="#FF0000"/><path d="M8 6.5v7l6-3.5z" fill="#F2F2F2"/></svg>Watch on YouTube</span>
       </div>
-      <p class="hero-note">The page under this band is paper. A photograph may sit behind this hero only, under a #0B1215 scrim at 68% or more. #F2F2F2 on that worst-case composite is 5.87:1. The old 54% black overlay is 4.12:1 and is retired. No text-shadow.</p>
+      <p class="hero-note">The page under this band is paper. A photograph may sit behind this hero only, under a flat #0B1215 scrim at 80% (#0b1215cc). On a white photo the composite is #3C4144, and #F2F2F2 on it is 9.23:1. No gradient, no blur, no text-shadow.</p>
     </div>
     <img class="hero-mark" src="../assets/logos/local-energy/mark-bare.svg" alt="Local Energy star">
   </section>
@@ -607,7 +607,7 @@
 
     <section>
       <h2 class="sec">Archivo Black for the short line. Archivo for the chrome. Lora for the talk.</h2>
-      <p class="lead" style="margin-bottom:16px">Display is 36px on an 18px body — 2.00×, not the 2.3–3× that left headings sitting on the paragraph above them. Space above a heading is padding, so it cannot collapse. h3 is Archivo 800, not Archivo Black.</p>
+      <p class="lead" style="margin-bottom:16px">The home hero H1 is fluid: 36px at 320px, 52px at 1440px. Article h1 stays 30px / 26px. h2 and h3 do not move. Space above a heading is padding, so it cannot collapse. h3 is Archivo 800, not Archivo Black.</p>
       <div class="type-board">
         <div class="prose">
           <h2>The pumper’s notebook</h2>
@@ -619,7 +619,7 @@
         </div>
         <p class="gap-note">36px padding-top on the second h2, 8px under it. The heading belongs to the paragraph below. That gap is padding, so it cannot collapse.</p>
         <div class="type-meta">
-          <span>Display 36 / 30 · h1 30 / 26 · h2 24 / 22 · Archivo Black 900</span>
+          <span>Hero H1 36–52 · article h1 30 / 26 · h2 24 / 22 · Archivo Black 900</span>
           <span>h3 20 Archivo 800 · h4 18 Archivo 700</span>
           <span>Body Lora 18 / 1.65 · measure 68ch</span>
           <span>Buttons, nav, labels: Archivo 16 or 14 / 700</span>

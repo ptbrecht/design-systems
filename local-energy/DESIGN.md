@@ -82,7 +82,7 @@ These fills are worse against `#0B1215` than the rest red is: hover **2.01:1**, 
 | `--color-line` | `#D4D4D4` in light, `#2A3236` in dark | Decorative divider only. | Light: **1.32:1** on `#F2F2F2`, **1.48:1** on `#FFFFFF`. Dark: **1.45:1** on `#0B1215`, **1.27:1** on `#162024`. Not an input border. `#2A3236` is also the neutral hover fill; the hex is shared and the jobs are not. |
 | `--color-text-muted` | `#4A4A4A` in light, `#B8BDBF` in dark | Secondary text on the page and on a raised card. | Light: **7.92:1** on `#F2F2F2`, **8.86:1** on `#FFFFFF`. Dark: **9.96:1** on `#0B1215`, **8.74:1** on `#162024`. Not on tan (**3.59:1**). |
 | `--color-error` | `#BA0C2F` in light, `#FF8A8A` in dark | Error text. Not a brand color. Not a fill. | Light: **5.90:1** on `#F2F2F2`, **6.60:1** on `#FFFFFF`. Dark: **8.33:1** on `#0B1215`, **7.31:1** on `#162024`. `#FF8A8A` on paper is **2.03:1**, so it is not the border of a paper field. |
-| `--color-scrim` | `rgb(11 18 21 / 0.68)` | Hero photograph overlay. | `#0B1215` at 68%. On a white photo the composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. |
+| `--color-scrim` | `#0b1215cc` | Flat hero photograph overlay. | `#0B1215` at 80%. On a white photo the composite is `#3C4144`, and `#F2F2F2` on it is **9.23:1**. No gradient and no blur. |
 
 Yellow `#F7BA00` is not in the relaunch. It is not a caption color, not a selection color, and not a token. On a dark video the highlighted word is tan (`#D49A45` on `#0B1215` is 7.65:1). Red cannot do that job: red on `#0B1215` is 2.86:1.
 
@@ -248,13 +248,13 @@ All three are SIL Open Font License. Files and the license texts live in [`../fo
 
 ### 3.1 Scale
 
-Body stays 18px on desktop and mobile, so the ratios below are against 18px. Nothing in the page scale is 2.3× body or larger. Archivo Black at 36px already looks like a much larger regular bold; that is why the hero stops at 36. Moving h3 and h4 off Archivo Black is what keeps the lower headings from shouting.
+Body stays 18px on desktop and mobile, so the ratios below are against 18px. Inner-page headings stay at or under 2.3× body. The home hero H1 is the one exception: it is fluid, and at the top of its range it is 52px (2.89×). Moving h3 and h4 off Archivo Black is what keeps the lower headings from shouting.
 
 A heading that follows other content gets its space from **padding-top**, not margin-top, so the gap cannot collapse away. The first heading on the page uses padding-top 0. Padding-bottom is short, so the heading belongs to the text under it.
 
 | Style | Family | Desktop | Mobile | Weight | Line-height | Padding-top | Padding-bottom |
 |---|---|---|---|---|---|---|---|
-| Display | Archivo Black | 36px | 30px | 900 | 1.15 | 0 | 12px |
+| Hero H1 | Archivo Black | `clamp(2.25rem, 1.5rem + 2.4vw, 3.25rem)`, 52px at 1440px | 36px at 320px | 900 | 1.15 | 0 | 12px |
 | h1 | Archivo Black | 30px | 26px | 900 | 1.20 | 40px / 28px | 12px |
 | h2 | Archivo Black | 24px | 22px | 900 | 1.25 | 36px / 24px | 8px |
 | h3 | Archivo | 20px | 20px | 800 | 1.30 | 28px / 20px | 8px |
@@ -268,7 +268,7 @@ A heading that follows other content gets its space from **padding-top**, not ma
 | Caption, helper | Lora | 14px | 14px | 400 | 1.50 | — | — |
 | Field text | Lora | 16px | 16px | 400 | 1.50 | — | — |
 
-Ratios against the 18px body: display 2.00×, mobile display 1.67×, h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. Archivo 700 and the padding-top are what mark it against Lora 400. Removing that padding makes h4 disappear into the paragraph.
+Ratios against the 18px body: hero H1 2.00× at 320px and 2.89× at 1440px, article h1 1.67×, h2 1.33×, h3 1.11×, h4 1.00×. h4 is the same size as body on purpose. Archivo 700 and the padding-top are what mark it against Lora 400. Removing that padding makes h4 disappear into the paragraph. The hero clamp does not apply to the article h1, h2, or h3.
 
 Tracking is 0 on display and headings. Do not tighten Archivo Black or Archivo. Eyebrows are sentence case, Archivo 14/700, tracking 0.04em, color `#BA0C2F` on light surfaces and `#D49A45` on dark surfaces. On tan the eyebrow is ink, because red on tan is 2.67:1. They are not uppercase.
 
@@ -280,10 +280,11 @@ Headings and body follow the scheme: `#191919` on light, `#F2F2F2` on dark. Mute
 
 ### 3.2 Where each level goes
 
-- **Display** is the home hero line only. “Supporting Independent Energy.” One display per page.
-- **h1** is the article title. Articles do not use Display.
+- **Hero H1** is the home hero line only. “Supporting Independent Energy.” One per page. Archivo Black, `clamp(2.25rem, 1.5rem + 2.4vw, 3.25rem)`. At 320px that is 36px. At 1440px it is 52px. It is an `h1`.
+- **h1** on an inner page is the article title. It stays 30px on desktop and 26px on mobile. It does not use the hero clamp.
+- **h2 and h3** are unchanged: h2 is Archivo Black 24px / 22px, h3 is Archivo 20px / 800.
 - **h2–h4** run inside the prose column, in order. Do not skip from h1 to h3.
-- The social card is a poster at 1200×630. It may set type larger than Display. The page scale does not govern it. The brand on the card is the wordmark lockup (paper letters, red star), not a second line of live type. The headline stays Archivo Black. The tagline stays Lora italic. There is no Archivo UI type on the card. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
+- The social card is a poster at 1200×630. It may set type larger than the hero H1. The page scale does not govern it. The brand on the card is the wordmark lockup (paper letters, red star), not a second line of live type. The headline stays Archivo Black. The tagline stays Lora italic. There is no Archivo UI type on the card. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
 
 ### 3.3 Measure
 
@@ -325,7 +326,7 @@ Page padding: 20px under 768px, 40px from 768px, 64px from 1120px.
 
 The current site’s 16px radius is retired. Buttons are not pills. 4px on controls and 8px on cards is this system’s own pair.
 
-Flat color. No decorative gradients. The only transparency is the hairline, the card shadow `0 1px 2px rgb(11 18 21 / 0.06)`, and the hero scrim.
+Flat color. No decorative gradients. The only transparency is the hairline, the card shadow `0 1px 2px rgb(11 18 21 / 0.06)`, and the hero scrim. The scrim is a flat fill. It is not a gradient and it is not a blur.
 
 ---
 
@@ -508,9 +509,9 @@ A photograph is allowed on the **home hero only**. One image. It is not a page t
 
 Type on the photograph clears 4.5:1 without a text-shadow. The old overlay, about 54% `#000000`, resolves to `#757575` on a white photo, and `#F2F2F2` on that is **4.12:1**. It fails. Both the overlay and the text-shadow are retired.
 
-**Scrim.** Cover the whole text block, including 16px of padding around the line boxes, with `#0B1215` at **at least 68%** opacity. On a pure-white photograph that composite is `#595E60`, and `#F2F2F2` on it is **5.87:1**. A gradient may fade the photo in above the text. The pixels behind the type still meet 68%.
+**Scrim.** Cover the whole hero, including the type, with a flat `#0B1215` at **80%** (`#0b1215cc`). On a pure-white photograph that composite is `#3C4144`, and `#F2F2F2` on it is **9.23:1**. That holds from 320px to 1440px, because the scrim does not change with the viewport. 85% (`#0b1215d9`, **10.97:1** on the same white photo) is not required. Do not use a gradient. Do not blur the photograph or the scrim.
 
-Hero type is `#F2F2F2`. The display line may be `#D49A45` only on solid `#0B1215` (7.65:1), not on the minimum scrim. The primary button uses the dark-surface recipe in §7.2. The listen row uses the dark-surface listen button.
+Hero type is `#F2F2F2`. The hero H1 is the fluid Archivo Black line in §3. It may be `#D49A45` only on solid `#0B1215` (7.65:1), not on the scrim. The primary button uses the dark-surface recipe in §7.2. The listen row uses the dark-surface listen button.
 
 The phone hero lockup is [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) at 13px tall. Cap height is about **10.1px**, which meets the 10px floor. §8.2.
 
@@ -529,7 +530,7 @@ The title and the dek sit **under** the image, on the page surface, in the 68ch 
 | Always `#000000` | Follows `prefers-color-scheme`, default dark. Light page `#F2F2F2`, light card `#FFFFFF`. Dark page `#0B1215`, dark card `#162024`. |
 | `#FFFFFF` and `#F2F2F2` type | `#F2F2F2` on dark. `#191919` on light. `#FFFFFF` is a card, not type. |
 | Divider `#262626` | `--color-line`: `#D4D4D4` in light, `#2A3236` in dark. Decorative only. |
-| Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. |
+| Oilfield photo, ~54% black overlay, text-shadow | One hero photo, flat `#0B1215` at 80% (`#0b1215cc`), no gradient, no blur, no text-shadow. |
 | Logo top-left, no nav | Wordmark lockup and destinations. §7.1. |
 | Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black for display, h1, and h2. Archivo 700–800 for the smaller headings and the chrome. Lora for body. §3. |
 | Buttons 64px tall, 16px radius, platform fills | 44px, 4px radius, red primary, one listen style. |
@@ -639,8 +640,8 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 11. Platform-colored button fills.
 12. Buttons at 64px, or controls at a 16px radius.
 13. Live Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav destinations, labels, badges, or body. The wordmark lockup is outlined, and its floor is a 10px cap, not 18px. Below 10px, use the bare star. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.
-14. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
-15. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
+14. An inner-page heading at 2.3× the body or larger. The home hero H1 is the exception, and its cap is 3.25rem. A heading that follows content and has no padding-top.
+15. Text-shadow as the way type clears a photograph. A hero scrim under 80% `#0B1215`. A gradient or a blur on that scrim.
 16. A red focus ring. A white focus ring on paper.
 17. The tan-tile star below 48px. A stroke put back on the star. A paper or tan tile behind the star on `#0B1215`. A paper tile on the favicon. The opaque dark tile used as the site mark.
 18. A star glyph forced into a sentence of body copy. The star belongs to the lockup.

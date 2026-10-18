@@ -87,7 +87,7 @@
   --color-on-dark: #f2f2f2;
   --color-on-accent: #f2f2f2;
   --color-on-tan: #191919;
-  --color-scrim: rgb(11 18 21 / 0.68);
+  --color-scrim: #0b1215cc;
 
   /* Active scheme. Dark is the default. Light overrides these six. */
   --color-surface: #0b1215;
@@ -115,13 +115,10 @@
   --color-error-dark: #ff8a8a;
 
   /* Desktop sizes. Pair with the *-mobile tokens under 768px.
-     text-display is the home hero only. Article titles are text-h1. */
-  --text-display: 2.25rem;
+     text-display is the home hero H1 only. Article titles are text-h1. */
+  --text-display: clamp(2.25rem, 1.5rem + 2.4vw, 3.25rem);
   --text-display--line-height: 1.15;
   --text-display--font-weight: 900;
-  --text-display-mobile: 1.875rem;
-  --text-display-mobile--line-height: 1.15;
-  --text-display-mobile--font-weight: 900;
 
   --text-h1: 1.875rem;
   --text-h1--line-height: 1.2;
@@ -666,6 +663,17 @@
     position: absolute;
     inset: 0;
     background: var(--color-scrim);
+    backdrop-filter: none;
+  }
+
+  .le-hero h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--text-display);
+    line-height: 1.15;
+    letter-spacing: 0;
+    color: var(--color-on-dark);
   }
 
   .le-prose {
@@ -848,6 +856,16 @@
     .le-prose blockquote {
       font-size: 1.25rem;
     }
+  }
+
+  .le-hero h1,
+  .le-hero .le-prose h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--text-display);
+    line-height: 1.15;
+    letter-spacing: 0;
+    padding-top: 0;
   }
 }
 
