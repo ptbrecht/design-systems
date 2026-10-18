@@ -197,7 +197,7 @@ The underline is part of the link, not a hover trick.
 
 ### 2.7 Theme
 
-Local Energy has a light theme and a dark theme. The site follows `prefers-color-scheme`. When the device does not say, the site is dark. A control in the nav can override that choice (§7.1). Tan bands stay tan in both modes. The hero and the player stay `#0B1215` in both modes, because the type there sits on a photograph and a scrim.
+Local Energy has a light theme and a dark theme. localenergy.com follows the device’s light/dark setting (`prefers-color-scheme`) and uses dark when none is reported. There is no light/dark toggle and no stored override. Browsers do not expose “no preference” separately, so the dark fallback applies only when the device reports neither light nor dark; a device set to light gets light. Tan bands stay tan in both modes. The hero and the player stay `#0B1215` in both modes, because the type there sits on a photograph and a scrim.
 
 | Token | Light | Dark |
 |---|---|---|
@@ -364,8 +364,9 @@ When the bar or the footer meets a page of the same color, a 1px `--color-line` 
 - Brand, light: [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg), the same 13px. Ink letters, red star. A tan band uses this file in both modes.
 - Destinations in Archivo 16px / 700. Dark: `#F2F2F2`, hover and current `#D49A45` (7.65:1). Light: `#191919`, hover and current `#BA0C2F` (5.90:1). Tan as a light-bar hover is 2.20:1 and is not used. Not a filled pill. The current item does not get a heavier weight.
 - Suggested destinations: Shop talk, Writing, About, Listen.
-- Theme toggle, at the end of the bar. Icon only. No visible word. Hit area 44×44. `aria-label` is “Switch to light mode” while the theme is dark, and “Switch to dark mode” while the theme is light. It uses the neutral button (§7.2): on the paper bar, fill `#0B1215` and a paper icon; on the dark bar, fill `#F2F2F2` and an ink icon. Hover and pressed follow that neutral button and do not invert. Focus is the §6 ring for the mode in force.
 - Under 768px the same bar stays. Destinations move into a menu. The menu is the raised surface, not the page: `#FFFFFF` in light, `#162024` in dark, with a 1px `--color-line`. Padding 12px 20px, min height 44px. Link colors match the page text for that mode. Hover matches the bar.
+- **Mobile menu over the home hero.** When the phone menu opens over the home hero, the panel stays dark in both themes: panel `#0B1215`, text `#F2F2F2` (16.88:1), lines `#2A3236`, hover and current `#D49A45` (7.65:1). This matches the wide-screen Listen dropdown, which also stays dark over the hero. Everywhere else the panel follows the theme, as above.
+- **Phone menu icon (below 768px).** When the menu is open, the icon switches instantly to the accent color: red `#BA0C2F` in light (5.90:1 on the `#F2F2F2` bar), tan `#D49A45` in dark (7.65:1 on the `#0B1215` bar). This matches the open Listen button. The icon must clear **3:1** against the header it sits on. Red on `#0B1215` is 2.86:1, so wherever the bar behind the icon is `#0B1215`, the open icon is tan. Only the movement (the icon turning into an X) animates. The color change does not fade. Closed, the icon is the bar’s text color. Hit area 44×44, `aria-expanded` reflects the state, focus is the §6 ring.
 
 ### 7.2 Buttons
 
@@ -646,8 +647,10 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 18. A star glyph forced into a sentence of body copy. The star belongs to the lockup.
 19. Calling the brand “Local Energy podcast,” or personifying AI in copy.
 20. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, or navy focus.
-21. An un-underlined text link. A fade between button states.
+21. An un-underlined text link. A fade between button states, or a fade on the phone menu icon’s color.
 22. A neutral button that inverts on hover or pressed. On paper and tan it stays a dark fill. On `#0B1215` it stays a light fill.
+23. A light/dark toggle or a stored theme override. The site follows the device setting and falls back to dark.
+24. A light mobile menu panel over the home hero.
 
 ---
 

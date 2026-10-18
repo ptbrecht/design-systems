@@ -22,7 +22,8 @@
    pressed #1E2529) and light on #0B1215 (#F2F2F2, hover #D9D9D9,
    pressed #C9C9C9). Hover does not invert.
    #A6783F is not a brand color. It is only the input border.
-   The site follows prefers-color-scheme and defaults to dark.
+   The site follows prefers-color-scheme and falls back to dark when
+   neither light nor dark is reported. There is no theme toggle.
    Light: surface #F2F2F2, raised #FFFFFF, text #191919, muted #4A4A4A,
    line #D4D4D4, focus #191919, wordmark.svg, error #BA0C2F.
    Dark: surface #0B1215, raised #162024, text #F2F2F2, muted #B8BDBF,
@@ -253,16 +254,36 @@
     border: 1px solid var(--color-line);
   }
 
-  .le-btn.le-theme-toggle {
-    width: 44px;
-    min-width: 44px;
-    padding: 0;
+  /* Over the home hero the phone menu stays dark in both themes,
+     matching the Listen dropdown. Elsewhere it follows the theme. */
+  .le-hero .le-menu,
+  .le-menu.le-menu-over-hero {
+    background: var(--color-dark);
+    color: var(--color-on-dark);
+    border-color: var(--color-line-dark);
   }
 
-  .le-theme-toggle svg {
-    width: 20px;
-    height: 20px;
-    display: block;
+  .le-hero .le-menu a,
+  .le-menu.le-menu-over-hero a {
+    color: var(--color-on-dark);
+  }
+
+  .le-hero .le-menu a:hover,
+  .le-menu.le-menu-over-hero a:hover {
+    color: var(--color-tan);
+  }
+
+  /* Phone menu icon, below 768px. Open: accent, instantly. Only the movement animates. */
+  .le-menu-button {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    color: var(--color-text);
+    transition-property: transform;
+  }
+
+  .le-menu-button[aria-expanded="true"] {
+    color: var(--color-tan);
   }
 
   .le-nav a {
@@ -861,6 +882,16 @@
 
     .le-wordmark-light { display: block; }
     .le-wordmark-dark { display: none; }
+
+    /* Red on the paper bar (5.90:1). A #0B1215 bar keeps tan: red there is 2.86:1. */
+    .le-menu-button[aria-expanded="true"] {
+      color: var(--color-accent);
+    }
+
+    .le-hero .le-menu-button[aria-expanded="true"],
+    .le-on-dark .le-menu-button[aria-expanded="true"] {
+      color: var(--color-tan);
+    }
 
     .le-btn-primary,
     .le-btn-primary:hover,
