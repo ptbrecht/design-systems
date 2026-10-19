@@ -180,10 +180,10 @@
   --spacing-page-desktop: 3rem;
   --spacing-page-wide: 4rem;
   /* Section spacing (§4.2), phone values; desktop is 48 / 80 / 120 / 160. */
-  --spacing-near: 2.5rem;
-  --spacing-section-new: 4rem;
-  --spacing-change: 6rem;
-  --spacing-far: 6rem;
+  --space-near: 2.5rem;
+  --space-section: 4rem;
+  --space-change: 6rem;
+  --space-far: 6rem;
 
   --radius-mark: 0px;
   --radius-control: 4px;
