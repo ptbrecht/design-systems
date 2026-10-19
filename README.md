@@ -127,8 +127,8 @@ Updated logos and the brand style guide only. No Originals, carriers, rugby, Mis
 |---|---|
 | [`fonts/Raleway.ttf`](fonts/Raleway.ttf) | Material UI; Falcon West website headings and chrome |
 | [`fonts/CrimsonText-Regular.ttf`](fonts/CrimsonText-Regular.ttf), [`fonts/CrimsonText-Italic.ttf`](fonts/CrimsonText-Italic.ttf), [`fonts/CrimsonText-SemiBold.ttf`](fonts/CrimsonText-SemiBold.ttf) | Falcon West website editorial. Not used in Material. |
-| [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display, h1, and h2. Not used on Falcon West. |
-| [`fonts/Archivo-Variable.ttf`](fonts/Archivo-Variable.ttf) | Local Energy h3, h4, and chrome. Width 100. Weights 700 and 800 only. Not used on Falcon West. |
+| [`fonts/ArchivoBlack-Regular.ttf`](fonts/ArchivoBlack-Regular.ttf) | Local Energy display and h1. Not used on Falcon West. |
+| [`fonts/Archivo-Variable.ttf`](fonts/Archivo-Variable.ttf) | Local Energy h2, h3, h4, and chrome. Width 100. Weight 700 only. Not used on Falcon West. |
 | [`fonts/Lora-Variable.ttf`](fonts/Lora-Variable.ttf), [`fonts/Lora-Italic-Variable.ttf`](fonts/Lora-Italic-Variable.ttf) | Local Energy body. Not used on Falcon West. |
 
 Do not cross the sets, and do not add a face inside a system that already has its set. Local Energy’s license texts: [`fonts/OFL-ArchivoBlack.txt`](fonts/OFL-ArchivoBlack.txt), [`fonts/OFL-Archivo.txt`](fonts/OFL-Archivo.txt), [`fonts/OFL-Lora.txt`](fonts/OFL-Lora.txt).
