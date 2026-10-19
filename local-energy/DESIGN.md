@@ -289,29 +289,73 @@ Headings and body follow the scheme: `#191919` on light, `#F2F2F2` on dark. Mute
 
 Prose, including headings, leads, and quotes, sets in a column of **68ch** (`--measure`). At 18px Lora that is the line length. Do not stretch an article to the page width. The page shell maxes at **1120px**; the column sits inside it.
 
+There are two widths, on purpose (UI layout rules):
+
+- **Wide, 992px of content** (the 1120px shell less its 64px gutters): the homepage, the Show Notes lists, the States hub.
+- **Reading, 640–736px** (prose at 60–72 characters, 640 preferred): posts and episode pages, state-page prose, the homepage intro.
+- **Full bleed** only for the hero and real photos.
+
+Every heading on a page sits on the same left edge as its width's text. Text is left aligned; centring is only for one-line captions in the footer. Asymmetry is allowed where it earns its place: a photo may be offset or wider than the text column, and the intro may sit left with the right side empty.
+
 ---
 
 ## 4. Space
 
-A 4px grid. These are the steps pages and posts use. Tailwind’s default spacing already contains them; `globals.css` aliases the ones that posts need by name.
+A 4px grid. These are the steps inside components. Tailwind’s default spacing already contains them; `globals.css` aliases the ones that posts need by name.
 
 | Token | px | Typical use |
 |---|---|---|
 | 1 | 4 | Icon gap inside a tight row |
-| 2 | 8 | Label-to-field, badge gap, list-item gap |
+| 2 | 8 | Label-to-field, list-item gap |
 | 3 | 12 | Display and h1 padding-bottom |
 | 4 | 16 | Paragraph gap, card padding (compact), button padding-inline |
-| 5 | 20 | Mobile page padding |
-| 6 | 24 | Card padding, h2 mobile padding-top, h4 desktop padding-top |
-| 8 | 32 | Stack gap inside a card group |
-| 10 | 40 | h1 desktop padding-top, page padding from 768px |
-| 12 | 48 | — |
-| 16 | 64 | Section gap on desktop, page padding from 1120px |
-| 10 / 16 | 40 / 64 | Section gap mobile / desktop |
+| 6 | 24 | Phone gutter, h2 mobile padding-top, h4 desktop padding-top |
+| 7 | 28 | Gutter from 414px |
+| 8 | 32 | Stack gap inside a group |
+| 10 | 40 | h1 desktop padding-top |
+| 12 | 48 | Gutter from 768px |
+| 16 | 64 | Gutter from 1024px |
 
-Paragraphs: 16px between them. Lists: 8px between items, 16px before and after the list. Sections of a page (hero, then a writing block, then the footer) are 64px apart on desktop and 40px on mobile. That section gap is not the heading padding. Heading padding is the gap inside the article.
+Paragraphs: 16px between them. Lists: 8px between items, 16px before and after the list. Heading padding is the gap inside an article; it is not the section gap.
 
-Page padding: 20px under 768px, 40px from 768px, 64px from 1120px.
+### 4.1 Gutters
+
+| Viewport | Side margin |
+|---|---|
+| 320–413px | 24px |
+| 414–767px | 28px |
+| 768–1023px | 48px |
+| 1024–1279px | 64px |
+| 1280px and up | the 1120px shell, centred: at least 120px each side at 1440 (224px to the text) |
+
+16px gutters are only for image-led pages, and this site is not one.
+
+### 4.2 Section spacing
+
+Sections are separated by **space, never by rules or dividers**. The gap says how far the subject moves:
+
+| Step | Desktop | Phone | Use |
+|---|---|---|---|
+| Near | 48px | 40px | A close relation: the TL;DR to the article, a heading row to its grid |
+| Section | 80px | 64px | A new section: the article to the transcript, More episodes to the hosts |
+| Change | 120px | 96px | A new subject, the end of a page before the footer |
+| Far | 160px | 96px | The biggest change on a page: the article to More episodes |
+
+Use at least **three distinct gaps** per page, and never the same gap between every block. In code: `--space-near`, `--space-section`, `--space-change`, `--space-far`.
+
+### 4.3 Budget per page
+
+- At most **6 component types**.
+- At most **1 filled band** (tan, at most one per page, §2.5).
+- **1 primary button** (Listen) plus at most 2 secondary.
+- **0 pills or badges**, except the transcript toggle (and a pause control, if a moving hero ever returns).
+- At most **1 card grid**, unboxed.
+- Icons only inside listen links and controls, never as a decorative row.
+- At most **1 eyebrow or label** (or none).
+
+### 4.4 Whitespace
+
+Measured as 1 minus the share of an 8px grid covered by text lines, images and icons: at least **0.60** on desktop inner pages and at least **0.45** at 390px.
 
 ---
 

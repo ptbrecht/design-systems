@@ -174,9 +174,16 @@
   --spacing-heading-bottom: 0.5rem;
   --spacing-section: 4rem;
   --spacing-section-mobile: 2.5rem;
-  --spacing-page: 1.25rem;
-  --spacing-page-desktop: 2.5rem;
+  /* Gutters (DESIGN.md §4.1): 24px, 28px from 414px (set in :root at that
+     width by the site), 48px from 768px, 64px from 1024px. */
+  --spacing-page: 1.5rem;
+  --spacing-page-desktop: 3rem;
   --spacing-page-wide: 4rem;
+  /* Section spacing (§4.2), phone values; desktop is 48 / 80 / 120 / 160. */
+  --spacing-near: 2.5rem;
+  --spacing-section-new: 4rem;
+  --spacing-change: 6rem;
+  --spacing-far: 6rem;
 
   --radius-mark: 0px;
   --radius-control: 4px;
