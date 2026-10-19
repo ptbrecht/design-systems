@@ -170,14 +170,15 @@ Non-text pairs:
 
 Red is the accent and the primary button, on paper and on the dark surface.
 
+**Color budget (per page).** At most **one** tan band. Red has two jobs: the **Listen** button (the page’s one primary action) and link hover; error text is the only other red. No red eyebrows, red section labels, red stat badges, red ticker arrows, or decorative stars. The star appears only in the wordmark lockup and the favicon.
+
 **Allowed**
 
-- Star fill. See §8. On `#0B1215` the star is bare.
+- Star fill, in the wordmark lockup and favicon only. See §8. On `#0B1215` the star is bare.
 - Primary button fill, with a `#F2F2F2` label (5.90:1). Hover `#8F0A24` (8.39:1) and pressed `#7B091F` (9.87:1) keep that paper label.
 - On `#0B1215`, that button also has a 2px `#F2F2F2` border on rest, hover, and pressed. Rest is 2.86:1 against the band. Hover is 2.01:1. Pressed is 1.71:1.
 - On `#D49A45`, that button also has a 2px `#191919` border on every state, because rest against tan is 2.67:1.
-- Badges: `#F2F2F2` label on a red fill. On the dark surface, add the same 2px paper border.
-- Text on light surfaces: eyebrows, link hover, a short inline accent, and error text. `#BA0C2F` on `#F2F2F2` is **5.90:1**. On `#FFFFFF` it is **6.60:1**.
+- Text on light surfaces: link hover and error text. Eyebrows are not red (they are ink on light, tan on dark). `#BA0C2F` on `#F2F2F2` is **5.90:1**. On `#FFFFFF` it is **6.60:1**.
 
 **Forbidden**
 
@@ -233,8 +234,8 @@ On a dark surface:
 Two families, three files. Do not add another face. Do not use Inter, Raleway, or Crimson Text on this site.
 
 ```
---font-display   "Archivo Black"    weight 900. Display, h1, and h2 only.
---font-ui        "Archivo"          weight 800 for h3. Weight 700 for h4 and chrome.
+--font-display   "Archivo Black"    weight 900. Display (hero) and h1 only.
+--font-ui        "Archivo"          weight 700 for h2, h3, h4, card titles, and chrome.
 --font-body      "Lora"             400 body. 400 italic for the tagline and pull quotes.
 ```
 
@@ -242,9 +243,11 @@ All three are SIL Open Font License. Files and the license texts live in [`../fo
 
 **Archivo Black** is the display cut. Its file’s internal weight class is Regular. The `@font-face` rule assigns that file to weight 900 and sets `font-synthesis: none`, so the browser does not faux-bold an already-black face. Set `font-weight: 900` wherever this family is used. It is too heavy for UI. Its floor is **18px**. It is not used for h3, h4, nav destinations, buttons, labels, badges, or eyebrows. The wordmark lockup is the exception: LOCAL ENERGY in this face, caps, drawn as outlines rather than live nav type. Live Archivo Black still stops at 18px. The lockup’s own floor is a **10px cap height**. Below that, use the bare star. §8.
 
-**Archivo** is the variable file (`Archivo-Variable.ttf`). The weight axis runs 100–900 and the width axis runs 62–125. The file’s default instance is weight 600 at width 100. This system does not use that default. Width stays **100** (`font-stretch: normal`). The only weights are **800** on h3 and **700** on h4, eyebrows, buttons, nav destinations, labels, badges, and listen-button labels. The variable file also contains a Black instance at 900. Do not use it. Display type is the Archivo Black file, not Archivo at 900. The wordmark is not Archivo.
+**Archivo** is the variable file (`Archivo-Variable.ttf`). The weight axis runs 100–900 and the width axis runs 62–125. The file’s default instance is weight 600 at width 100. This system does not use that default. Width stays **100** (`font-stretch: normal`). The only weight is **700**: h2, h3, h4, card titles, eyebrows, buttons, nav destinations, labels, badges, and listen-button labels. Weight 800 is retired. The variable file also contains a Black instance at 900. Do not use it. Display type is the Archivo Black file, not Archivo at 900. The wordmark is not Archivo.
 
 **Lora** is body, lead, captions, helpers, field text, and transcript lines. Italic is the tagline and pull quotes only.
+
+**Weight budget.** A page uses three weights: **900** (Archivo Black, the hero Display line and h1 only), **700** (Archivo), and **400** (Lora). No 800, no 500/600. Headings and card titles are never underlined; an underline means a link in body copy or a text link, and a linked card title underlines on hover only.
 
 ### 3.1 Scale
 
@@ -256,8 +259,8 @@ A heading that follows other content gets its space from **padding-top**, not ma
 |---|---|---|---|---|---|---|---|
 | Display | Archivo Black | 36px | 30px | 900 | 1.15 | 0 | 12px |
 | h1 | Archivo Black | 30px | 26px | 900 | 1.20 | 40px / 28px | 12px |
-| h2 | Archivo Black | 24px | 22px | 900 | 1.25 | 36px / 24px | 8px |
-| h3 | Archivo | 20px | 20px | 800 | 1.30 | 28px / 20px | 8px |
+| h2 | Archivo | 24px | 22px | 700 | 1.25 | 36px / 24px | 8px |
+| h3 | Archivo | 20px | 20px | 700 | 1.30 | 28px / 20px | 8px |
 | h4 | Archivo | 18px | 18px | 700 | 1.35 | 24px / 20px | 8px |
 | Lead | Lora | 20px | 18px | 400 | 1.60 | 0 | 16px |
 | Body | Lora | 18px | 18px | 400 | 1.65 | 0 | 16px between paragraphs |
@@ -280,8 +283,9 @@ Headings and body follow the scheme: `#191919` on light, `#F2F2F2` on dark. Mute
 
 ### 3.2 Where each level goes
 
-- **Display** is the home hero line only. “Supporting Independent Energy.” One display per page.
-- **h1** is the article title. Articles do not use Display.
+- **Display** is the home hero line only, 36px desktop / 30px mobile, no exceptions. The line is “Oil & gas shop talk with Peter Brecht and Wade Spear.” One display per page, and no eyebrow above it.
+- **h1** is the article title and the state-page name (30px / 26px). State pages do not get a larger feature size. Articles do not use Display.
+- **Episode titles** are the guest or topic only. The “/ Local Energy NN.NN” suffix is not part of the h1 or card title; if shown, it is a caption (Lora 14/400) under the title.
 - **h2–h4** run inside the prose column, in order. Do not skip from h1 to h3.
 - The social card is a poster at 1200×630. It may set type larger than Display. The page scale does not govern it. The brand on the card is the wordmark lockup (paper letters, red star), not a second line of live type. The headline stays Archivo Black. The tagline stays Lora italic. There is no Archivo UI type on the card. See [`../assets/logos/local-energy/social-card.html`](../assets/logos/local-energy/social-card.html).
 
@@ -467,12 +471,16 @@ The page under a card stays the page surface. A card is not a lighter page, and 
 
 ### 7.5 Badges
 
+Badges are retired on content pages (no rank badges, no “Podcast” or “PLACEHOLDER” chips). The geometry below is kept only for app UI. The page budget is 0 pills or badges, except the transcript toggle and the hero pause control if a rotating hero ever returns.
+
 Height 24px, padding 0 8px, radius 4px, Archivo 13px / 700, line-height 1. Not a button.
 
 - On paper: fill `#BA0C2F`, label `#F2F2F2` (5.90:1). The fill against paper is 5.90:1.
 - On `#0B1215`: the same fill and label, plus a 2px `#F2F2F2` border (the fill against the band is 2.86:1).
 
 ### 7.6 Listen buttons
+
+**The listen row.** One per page: a single red primary button, “Listen”, followed by plain text links “Apple · Spotify · YouTube” (Archivo 16/700, link colors in §2.6, middle-dot separators, no glyph pills, no border, no fill). Do not set four platform buttons side by side. No end-of-post tan Listen panel. The platform-button spec below applies only where a platform link must stand alone as a control.
 
 Same geometry as a button: 44px, radius 4px, Archivo 16px / 700, sentence case (“Listen on Spotify”). A 20px platform glyph sits 8px to the left of the label. Use the platform’s official icon, in the platform’s color. The specimen draws stand-in glyphs so this repo does not ship trademark artwork.
 
@@ -485,6 +493,16 @@ Platform colors are not tokens:
 | Apple Podcasts | `#872EC4` | |
 | Spotify | `#1DB954` | |
 | YouTube | `#FF0000` | |
+
+### 7.6a Sponsor row
+
+Sponsors (“friends of the show”) sit in one row of unboxed logos on the page surface: no tan band, no card, no border, no tile behind each logo. Keep the “since Day One” line above it as plain Lora.
+
+### 7.6b Posts and episode pages
+
+- No rules or dividers between sections. Separation is space only (layout scale in the ui guide: 48/80/120/160 desktop, 40/64/96 mobile, at least three distinct gaps).
+- Episode titles drop the “/ Local Energy NN.NN” suffix (§3.2).
+- Episode cards are unboxed: no border, no fill, no per-card label. Title Archivo 700, not underlined.
 
 ### 7.7 Transcript and video captions
 
@@ -505,6 +523,8 @@ Ink on tan is 7.12:1.
 ### 7.8 Hero and photography
 
 A photograph is allowed on the **home hero only**. One image. It is not a page texture and not a background behind an article.
+
+**Imagery rules.** Use real photos of the people on the show (Peter, Wade, guests, the places they work). No stock oilfield photography. The hero is **one still photo**, not a rotation, so it needs no pause control. No text set inside the image file and no words over the subject’s face. Keep type on the scrimmed text block below, and keep the scrim to the text block, not the whole photo.
 
 Type on the photograph clears 4.5:1 without a text-shadow. The old overlay, about 54% `#000000`, resolves to `#757575` on a white photo, and `#F2F2F2` on that is **4.12:1**. It fails. Both the overlay and the text-shadow are retired.
 
@@ -531,7 +551,7 @@ The title and the dek sit **under** the image, on the page surface, in the 68ch 
 | Divider `#262626` | `--color-line`: `#D4D4D4` in light, `#2A3236` in dark. Decorative only. |
 | Oilfield photo, ~54% black overlay, text-shadow | One hero photo, `#0B1215` at 68% under the type, no text-shadow. |
 | Logo top-left, no nav | Wordmark lockup and destinations. §7.1. |
-| Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black for display, h1, and h2. Archivo 700–800 for the smaller headings and the chrome. Lora for body. §3. |
+| Archivo 900 headlines, Archivo 500 tagline, Inter 400 body | Archivo Black for display and h1. Archivo 700 for h2–h4 and the chrome. Lora for body. §3. |
 | Buttons 64px tall, 16px radius, platform fills | 44px, 4px radius, red primary, one listen style. |
 | Focus 3px white | 2px ink ring on light, 2px paper ring on dark, 2px offset. |
 
@@ -638,7 +658,7 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 10. `#A6783F` as a brand color, a button fill, a field, a star, a link, a headline, or body text. Its only job is the input border.
 11. Platform-colored button fills.
 12. Buttons at 64px, or controls at a 16px radius.
-13. Live Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav destinations, labels, badges, or body. The wordmark lockup is outlined, and its floor is a 10px cap, not 18px. Below 10px, use the bare star. Archivo at any weight other than 700 or 800. Archivo at a width other than 100. Body copy set in Archivo.
+13. Live Archivo Black under 18px, or Archivo Black on h3, h4, buttons, nav destinations, labels, badges, or body. The wordmark lockup is outlined, and its floor is a 10px cap, not 18px. Below 10px, use the bare star. Archivo at any weight other than 700. Archivo Black on h2. Archivo at a width other than 100. Body copy set in Archivo.
 14. A heading at 2.3× the body or larger, or a heading that follows content and has no padding-top.
 15. Text-shadow as the way type clears a photograph. A scrim under 68% `#0B1215`.
 16. A red focus ring. A white focus ring on paper.
@@ -648,6 +668,11 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 20. Falcon West rust, sky, or navy. Material’s Raleway, rust primary, or navy focus.
 21. An un-underlined text link. A fade between button states.
 22. A neutral button that inverts on hover or pressed. On paper and tan it stays a dark fill. On `#0B1215` it stays a light fill.
+23. An underlined heading or card title at rest. Weight 800 anywhere.
+24. More than one tan band on a page. Red eyebrows, red section labels, rank badges, or decorative stars outside the lockup and favicon.
+25. More than one listen row per page, or a row of platform pill buttons.
+26. Boxed sponsor logos, section dividers in posts, or a “/ Local Energy NN.NN” suffix in an episode title.
+27. Stock photography, a rotating hero, or text overlaid on a photo’s subject.
 
 ---
 
