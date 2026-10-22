@@ -26,8 +26,11 @@ Traditional and trust-first, Energy-colored: Crimson body under a Raleway ExtraB
 | Outline / secondary | white fill + 1.5px `#2F78A7` + sky label | Hover: fill `#2F78A7`, white label. |
 | Text link | `#2D78AD` | Hover `#2F78A7` (sky stays sky). |
 | Sky 500 (decorative) | `#3D96D2` | Older decorative / logo / non-a11y fill **only**. Not the production filled-button color. |
-| Ink / body / muted | `#080808` / `#434343` / `#6B6B6B` | Same as main brand. |
-| Line / paper / white | `#DCDCDC` / `#FCFEFE` / `#FFFFFF` | Same as main brand. |
+| Ink / body / muted | `#030A10` / `#3D525F` / `#596C78` | **Navy-tinted** (`--fwe-n-90/60/50`). Not the main brand's rust neutrals. |
+| Line / line-strong / paper / white | `#DADFE2` / `#788791` / `#FBFEFF` / `#FFFFFF` | Navy-tinted (`--fwe-n-10/40/0`). White unchanged. |
+| Dark mode (Insights, posts) | page `#030A10`, raised `#10202A`, line `#3D525F` | Was `#080808` / `#1A1A1A`. Text `#FBFEFF` / `#DADFE2` / `#B9C1C6`. |
+
+Full scale and contrast: [`neutrals.md`](neutrals.md) · [`neutrals.css`](neutrals.css) · [`neutrals-swatches.png`](neutrals-swatches.png). No pure grays (Peter, Oct 22 2026).
 
 ### Binding rules
 

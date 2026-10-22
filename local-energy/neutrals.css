@@ -1,0 +1,39 @@
+/* Local Energy (localenergy.com) tinted neutrals. OKLCH hue 74.0, chroma peak 0.016, L = 0.995 - 0.0095*step. Adopted Oct 22 2026 (Peter). Source of truth: neutrals.md. */
+:root {
+  --le-n-0: #fffdfb;  /* oklch(0.995 0.003 74) */
+  --le-n-1: #fcfaf7;  /* oklch(0.986 0.005 74) */
+  --le-n-5: #f0ede9;  /* oklch(0.947 0.006 74) */
+  --le-n-10: #e2ddd7;  /* oklch(0.900 0.010 74) */
+  --le-n-20: #c4beb6;  /* oklch(0.804 0.013 74) */
+  --le-n-30: #a7a098;  /* oklch(0.709 0.014 74) */
+  --le-n-40: #8a837b;  /* oklch(0.614 0.015 74) */
+  --le-n-50: #6e6860;  /* oklch(0.520 0.014 74) */
+  --le-n-60: #534d47;  /* oklch(0.424 0.013 74) */
+  --le-n-70: #393530;  /* oklch(0.331 0.010 74) */
+  --le-n-75: #2c2925;  /* oklch(0.283 0.008 74) */
+  --le-n-80: #201e1a;  /* oklch(0.236 0.008 74) */
+  --le-n-85: #151310;  /* oklch(0.188 0.007 74) */
+  --le-n-90: #0a0907;  /* oklch(0.140 0.005 74) */
+}
+
+/* role mapping, light */
+:root {
+  /* page (page): var(--le-n-5), was #f2f2f2 */
+  /* raised: stays #ffffff (pure white raised surface, not a gray) */
+  /* line (hairline): var(--le-n-10), was #d4d4d4 */
+  /* tag bg (tag bg): var(--le-n-10), was #ebebeb */
+  /* muted (muted text): var(--le-n-60), was #4a4a4a */
+  /* tag text (tag text): var(--le-n-70), was #3d3d3d */
+  /* text (body + headings): var(--le-n-85), was #191919 */
+}
+
+/* role mapping, dark */
+@media (prefers-color-scheme: dark) { :root {
+  /* page (page): var(--le-n-85), was #0b1215 */
+  /* raised (raised): var(--le-n-80), was #162024 */
+  /* line (hairline): var(--le-n-70), was #2a3236 */
+  /* tag bg (tag bg): var(--le-n-70), was #2a3236 */
+  /* muted (muted text): var(--le-n-20), was #b8bdbf */
+  /* tag text (tag text): var(--le-n-10), was #d9dcdd */
+  /* text (body + headings): var(--le-n-5), was #f2f2f2 */
+} }

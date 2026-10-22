@@ -93,6 +93,20 @@ Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy
 
 ---
 
+## Neutrals
+
+Each website system uses grays tinted from its signature color, never pure gray (Peter, Oct 22 2026). OKLCH steps 0–90, same lightness ladder across brands. Brand accent and button colors are unchanged.
+
+| System | Tint | Scale | Note |
+|---|---|---|---|
+| falcon-west | rust | [`falcon-west/neutrals.md`](falcon-west/neutrals.md) · [`.css`](falcon-west/neutrals.css) | **Light mode only.** Dark mode keeps navy `#091D27` / `#0E2C3C` / `#07151D`. |
+| falcon-west-energy | navy | [`falcon-west-energy/neutrals.md`](falcon-west-energy/neutrals.md) · [`.css`](falcon-west-energy/neutrals.css) | Dark mode moves from `#080808` to `#030A10`. |
+| local-energy | tan | [`local-energy/neutrals.md`](local-energy/neutrals.md) · [`.css`](local-energy/neutrals.css) | Dark page `#151310`; `#0B1215` stays for hero, player, scrim. |
+
+Material is not affected.
+
+---
+
 ## Which system?
 
 | Surface | System |

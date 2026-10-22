@@ -1,0 +1,36 @@
+/* falconwest.com (+ app.falconwest.com) tinted neutrals. OKLCH hue 49.2, chroma peak 0.016, L = 0.995 - 0.0095*step. Adopted Oct 22 2026 (Peter). Source of truth: neutrals.md. */
+:root {
+  --fw-n-0: #fffdfc;  /* oklch(0.995 0.003 49) */
+  --fw-n-1: #fdf9f8;  /* oklch(0.985 0.004 49) */
+  --fw-n-5: #f2ecea;  /* oklch(0.947 0.007 49) */
+  --fw-n-10: #e3dcd9;  /* oklch(0.899 0.009 49) */
+  --fw-n-20: #c7bdb8;  /* oklch(0.805 0.013 49) */
+  --fw-n-30: #aa9f99;  /* oklch(0.710 0.016 49) */
+  --fw-n-40: #8d827d;  /* oklch(0.615 0.015 49) */
+  --fw-n-50: #706762;  /* oklch(0.521 0.014 49) */
+  --fw-n-60: #554c48;  /* oklch(0.424 0.014 49) */
+  --fw-n-70: #3a3431;  /* oklch(0.330 0.010 49) */
+  --fw-n-75: #2d2826;  /* oklch(0.282 0.008 49) */
+  --fw-n-80: #211d1b;  /* oklch(0.235 0.007 49) */
+  --fw-n-85: #161211;  /* oklch(0.187 0.007 49) */
+  --fw-n-90: #0b0907;  /* oklch(0.141 0.006 49) */
+}
+
+/* role mapping, light */
+:root {
+  --color-paper: var(--fw-n-0);  /* was #fcfefe */
+  /* --color-white: stays #ffffff (pure white raised surface, not a gray) */
+  --color-table-stripe: var(--fw-n-1);  /* was #f4f6f7 */
+  /* btn-secondary:hover bg (hover fill): var(--fw-n-5), was #f1f3f4 */
+  --color-line: var(--fw-n-10);  /* was #dcdcdc */
+  --color-muted: var(--fw-n-50);  /* was #6b6b6b */
+  --color-body: var(--fw-n-60);  /* was #434343 */
+  --color-ink: var(--fw-n-90);  /* was #080808 */
+}
+
+/* DARK MODE: NOT rust-tinted (Peter, Oct 22 2026).
+   Dark mode keeps the navy surfaces in the dark theme tokens (tokens-dark.css):
+   --color-paper #091D27 page, --color-white #0E2C3C raised, --color-navy-900 #07151D footer,
+   --color-band #091D27, ink #F4F7F8, body #D3DCE1, muted #9FB3BE, line rgb(252 254 254/.16).
+   Load this file BEFORE the dark theme tokens so they override the light mapping above.
+   Do not map dark roles to --fw-n-70..90 (rust charcoal). */
