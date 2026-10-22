@@ -16,11 +16,14 @@ Notes:
 
 ## Surfaces
 
-- Paper `#FCFEFE`
-- Body ink `#080808`
-- Muted `#6B6B6B`
-- Card border `#DCDCDC`
-- Footer / read-scroll a11y: `.fwe-read-scroll` `#BDBDBD`; footer tel underlined
+Navy-tinted neutrals (Peter, Oct 22 2026; [`neutrals.md`](neutrals.md)):
+
+- Paper `#FBFEFF` (was `#FCFEFE`)
+- Headings `#030A10` (was `#080808`), body `#3D525F`
+- Muted `#596C78` (was `#6B6B6B`)
+- Card border `#DADFE2` (was `#DCDCDC`); control edge `#788791`
+- Dark mode page `#030A10`, raised `#10202A` (was `#080808` / `#1A1A1A`)
+- Footer / read-scroll a11y: `.fwe-read-scroll` `#B9C1C6` (`--fwe-n-20`, was `#BDBDBD`); footer tel underlined
 
 ## Type
 

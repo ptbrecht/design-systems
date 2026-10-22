@@ -201,16 +201,19 @@ Local Energy has a light theme and a dark theme. The site follows `prefers-color
 
 | Token | Light | Dark |
 |---|---|---|
-| `--color-surface` | `#F2F2F2` page, nav, footer | `#0B1215` page, nav, footer |
-| `--color-surface-raised` | `#FFFFFF` cards and menus | `#162024` cards and menus |
-| `--color-text` | `#191919` | `#F2F2F2` |
-| `--color-text-muted` | `#4A4A4A` | `#B8BDBF` |
-| `--color-line` | `#D4D4D4` | `#2A3236` |
+| `--color-surface` | `#F0EDE9` (`--le-n-5`) page, nav, footer | `#151310` (`--le-n-85`) page, nav, footer |
+| `--color-surface-raised` | `#FFFFFF` cards and menus | `#201E1A` (`--le-n-80`) cards and menus |
+| `--color-text` | `#151310` (`--le-n-85`) | `#F0EDE9` (`--le-n-5`) |
+| `--color-text-muted` | `#534D47` (`--le-n-60`) | `#C4BEB6` (`--le-n-20`) |
+| `--color-line` | `#E2DDD7` (`--le-n-10`) | `#393530` (`--le-n-70`) |
+| Tag | `#393530` on `#E2DDD7` | `#E2DDD7` on `#393530` |
 | `--color-focus` | `#191919`, 2px, offset 2px | `#F2F2F2`, 2px, offset 2px |
 | `--color-error` | `#BA0C2F` | `#FF8A8A` |
 | Wordmark | [`wordmark.svg`](../assets/logos/local-energy/wordmark.svg) | [`wordmark-on-dark.svg`](../assets/logos/local-energy/wordmark-on-dark.svg) |
 
-**Page surfaces** are `#F2F2F2` and `#0B1215`. The “not `#FFFFFF`” rule and the “not a lighter black” rule apply to the page, the nav, the footer, and any full-bleed band. Do not paint those with `#FFFFFF` or `#162024`.
+**Tan-tinted neutrals (Peter, Oct 22 2026).** The table above supersedes the older pure-gray values (`#F2F2F2` page, `#0B1215` page, `#162024`, `#191919`, `#4A4A4A`, `#B8BDBF`, `#D4D4D4`, `#2A3236`) wherever they appear in this guide as page, raised, text, muted or line. `#0B1215` stays a brand color for the hero, player, scrim and neutral button; `#F2F2F2` stays the label on red. Tan and red are unchanged. Full scale and contrast: [`neutrals.md`](neutrals.md) · [`neutrals.css`](neutrals.css) · [`neutrals-swatches.png`](neutrals-swatches.png).
+
+**Page surfaces** are `#F0EDE9` and `#151310`. The “not `#FFFFFF`” rule and the “not a lighter black” rule apply to the page, the nav, the footer, and any full-bleed band. Do not paint those with `#FFFFFF` or `#162024`.
 
 **Raised surfaces** are for cards and menus only. Light `#FFFFFF`. Dark `#162024`. They are allowed. They are not a second page color, and they are not type.
 

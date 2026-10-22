@@ -1,0 +1,41 @@
+/* falconwestenergy.com tinted neutrals. OKLCH hue 236.0, chroma peak 0.034, L = 0.995 - 0.0095*step. Adopted Oct 22 2026 (Peter). Source of truth: neutrals.md. */
+:root {
+  --fwe-n-0: #fbfeff;  /* oklch(0.995 0.003 236) */
+  --fwe-n-1: #f8fbfd;  /* oklch(0.986 0.004 236) */
+  --fwe-n-5: #ebeef0;  /* oklch(0.947 0.004 236) */
+  --fwe-n-10: #dadfe2;  /* oklch(0.901 0.007 236) */
+  --fwe-n-20: #b9c1c6;  /* oklch(0.806 0.011 236) */
+  --fwe-n-30: #98a3ab;  /* oklch(0.709 0.017 236) */
+  --fwe-n-40: #788791;  /* oklch(0.615 0.023 236) */
+  --fwe-n-50: #596c78;  /* oklch(0.520 0.030 236) */
+  --fwe-n-60: #3d525f;  /* oklch(0.426 0.034 236) */
+  --fwe-n-70: #243844;  /* oklch(0.329 0.033 236) */
+  --fwe-n-75: #1a2c37;  /* oklch(0.283 0.031 236) */
+  --fwe-n-80: #10202a;  /* oklch(0.234 0.029 236) */
+  --fwe-n-85: #08151c;  /* oklch(0.187 0.023 236) */
+  --fwe-n-90: #030a10;  /* oklch(0.139 0.019 236) */
+}
+
+/* role mapping, light */
+:root {
+  --color-paper: var(--fwe-n-0);  /* was #fcfefe */
+  /* --color-white: stays #ffffff (pure white raised surface, not a gray) */
+  --color-line: var(--fwe-n-10);  /* was #dcdcdc */
+  --color-line-strong: var(--fwe-n-40);  /* was #8a8a8a */
+  --color-muted: var(--fwe-n-50);  /* was #6b6b6b */
+  --color-body: var(--fwe-n-60);  /* was #434343 */
+  --color-ink: var(--fwe-n-90);  /* was #080808 */
+  --color-dark: var(--fwe-n-90);  /* was #080808 */
+}
+
+/* role mapping, dark */
+@media (prefers-color-scheme: dark) { :root {
+  --color-paper: var(--fwe-n-90);  /* was #080808 */
+  --color-white: var(--fwe-n-80);  /* was #1a1a1a */
+  --color-dark: var(--fwe-n-80);  /* was #1a1a1a */
+  --color-line: var(--fwe-n-60);  /* was #434343 */
+  --color-line-strong: var(--fwe-n-40);  /* was #8a8a8a */
+  --color-muted: var(--fwe-n-20);  /* was #bdbdbd */
+  --color-body: var(--fwe-n-10);  /* was #dcdcdc */
+  --color-ink: var(--fwe-n-0);  /* was #fcfefe */
+} }

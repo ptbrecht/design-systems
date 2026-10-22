@@ -36,12 +36,14 @@ Falcon West is an independent insurance brokerage. The site should feel like a l
 | `--color-sky-500` | `#3D96D2` | Older decorative / logo / non-a11y Energy fill only. On the main brand, reserved as a link-family accent — not a button, not a background. **Not** the Energy production filled-button color. |
 | `--color-sky-600` | `#2D78AD` | Main-brand text hyperlink default. |
 | `--color-sky-700` | `#2F78A7` | Energy filled-button rest (a11y floor). |
-| `--color-ink-900` | `#080808` | Headings. |
-| `--color-charcoal-700` | `#434343` | Body copy. |
-| `--color-charcoal-500` | `#6B6B6B` | Muted / caption / helper. |
-| `--color-line-200` | `#DCDCDC` | Card hairline, resting field border. |
-| `--color-paper-50` | `#FCFEFE` | Page background. On-dark text. |
+| `--color-ink-900` | `#0B0907` (`--fw-n-90`) | Headings. Was `#080808`. |
+| `--color-charcoal-700` | `#554C48` (`--fw-n-60`) | Body copy. Was `#434343`. |
+| `--color-charcoal-500` | `#706762` (`--fw-n-50`) | Muted / caption / helper. Was `#6B6B6B`. |
+| `--color-line-200` | `#E3DCD9` (`--fw-n-10`) | Card hairline, resting field border. Was `#DCDCDC`. |
+| `--color-paper-50` | `#FFFDFC` (`--fw-n-0`) | Page background. Was `#FCFEFE`. Text on navy stays `#FCFEFE` (`--color-on-navy`). |
 | `--color-white` | `#FFFFFF` | Cards, outline-button fill, field fill. |
+
+**Neutrals are rust-tinted, light mode only** (Peter, Oct 22 2026). Full scale, zebra `--fw-n-1`, hover fill `--fw-n-5`, and contrast: [`neutrals.md`](neutrals.md) · [`neutrals.css`](neutrals.css) · [`neutrals-swatches.png`](neutrals-swatches.png). No pure grays. Dark mode keeps navy surfaces (`#091D27` page, `#0E2C3C` raised, `#07151D` footer) and never uses the rust charcoal steps. Navy, rust, sky and white are unchanged.
 
 `#D2793D` (the old rust-600) is **retired** on falconwest.com. White on it was 3.21:1, which fails AA for 15px button labels. It survives only in the legacy brand-guide PDF.
 
