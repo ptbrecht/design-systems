@@ -660,3 +660,10 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 | [`../material/`](../material/) | Apps, CRM, tools | Nothing, unless a future product is documented there as a Material face. §10. |
 
 Do not reconcile these into one palette.
+
+
+---
+
+## Shared standards
+
+This brand follows the shared [link-preview standard](../standards/link-previews.md) (`og:video` + `og:image`) and is reviewed against the [site review checklist](../standards/site-review-checklist.md).

@@ -14,6 +14,7 @@ material/                   # apps / CRM / Tools / serial products ONLY
 falcon-west/                # falconwest.com — rust buttons
 falcon-west-energy/         # falconwestenergy.com — sky buttons, never rust
 local-energy/               # localenergy.com — tan field, red buttons, one dark surface
+standards/                  # shared standards + site review checklist (all brands)
 writing/                    # voice.md source of truth + gold/draft pack + PL gold PDFs
 ```
 
@@ -90,6 +91,15 @@ A fourth system, for a different brand. **Not** Falcon West Energy, and **not** 
 - Archivo Black for display, h1, and h2. Archivo (700–800) for h3, h4, and chrome. Lora for body. None of these faces is used by the other three systems.
 
 Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy/globals.css`](local-energy/globals.css) · [`local-energy/specimen.html`](local-energy/specimen.html) · [`local-energy/README.md`](local-energy/README.md)
+
+---
+
+## Shared standards (all brands)
+
+| Doc | What |
+|---|---|
+| [`standards/site-review-checklist.md`](standards/site-review-checklist.md) | Checklist for every site review |
+| [`standards/link-previews.md`](standards/link-previews.md) | `og:video` + `og:image` link previews (added Oct 23 2026) |
 
 ---
 

@@ -30,6 +30,7 @@ Headings = Raleway ExtraBold ink `#080808`. Body color `#434343`. Never Crimson 
 6. **Contrast** — white text only on fills that clear AA (Energy primary a11y `#2F78A7` rest OK; don’t paint secondaries as primary).
 7. **Mobile** — stack OK; type doesn’t drop below floors; tap targets ~44px.
 8. **No third typeface** competing in body/headings.
+9. **Link previews** — `og:video` + `og:image` per [`../standards/link-previews.md`](../standards/link-previews.md); full list in [`../standards/site-review-checklist.md`](../standards/site-review-checklist.md).
 
 ## falconwest.com (FW) — Insurance
 - Rust CTAs `#BA5915` (hover `#A85F2E`, pressed `#9C5322`); outline white + rust. 6px, flat, 44px min, label "Start Now". Phone 619-297-9181 (619-452-2524 is Peter's office / Energy only).
