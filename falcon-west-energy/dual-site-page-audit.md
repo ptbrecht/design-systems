@@ -30,6 +30,7 @@ Headings = Raleway ExtraBold ink `#080808`. Body color `#434343`. Never Crimson 
 6. **Contrast** — white text only on fills that clear AA (Energy primary a11y `#2F78A7` rest OK; don’t paint secondaries as primary).
 7. **Mobile** — stack OK; type doesn’t drop below floors; tap targets ~44px.
 8. **No third typeface** competing in body/headings.
+9. **Website best practices** — run every rule in [`../standards/WEBSITE-BEST-PRACTICES.md`](../standards/WEBSITE-BEST-PRACTICES.md) (link previews, Fathom-only analytics, review checks).
 
 ## falconwest.com (FW) — Insurance
 - Rust CTAs `#D2793D` (hover `#A85F2E`); outline white + rust.

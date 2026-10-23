@@ -88,3 +88,10 @@ Label the surface **Falcon West Energy Insurance Solutions**.
 ## 6. Relationship to Material
 
 Material lives in [`../material/README.md`](../material/README.md) / [`../material/tokens.json`](../material/tokens.json). It is a working tool for professionals. This overlay is the Energy marketing site. They share a name and a palette family. They do not share type roles, button geometry, focus, or shape. Do not reconcile them into one system.
+
+
+---
+
+## Shared standards
+
+This brand follows the [website best practices standard](../standards/WEBSITE-BEST-PRACTICES.md) (rules WEB-01…) in every site review.

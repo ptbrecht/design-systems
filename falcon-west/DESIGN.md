@@ -244,3 +244,10 @@ Building any of these means the website language has been broken:
 ## 9. Relationship to Material
 
 The app language (Material 2, retuned) lives in [`../material/README.md`](../material/README.md) and [`../material/tokens.json`](../material/tokens.json). It is a working tool for professionals. This file is the public brokerage. They share a palette and a name. They do not share type roles, button geometry, focus, or shape. Do not reconcile them into one system.
+
+
+---
+
+## Shared standards
+
+This brand follows the [website best practices standard](../standards/WEBSITE-BEST-PRACTICES.md) (rules WEB-01…) in every site review.

@@ -660,3 +660,10 @@ If a real product shows up later — accounts, a library, a tool with a lot of c
 | [`../material/`](../material/) | Apps, CRM, tools | Nothing, unless a future product is documented there as a Material face. §10. |
 
 Do not reconcile these into one palette.
+
+
+---
+
+## Shared standards
+
+This brand follows the [website best practices standard](../standards/WEBSITE-BEST-PRACTICES.md) (rules WEB-01…) in every site review.
