@@ -94,4 +94,4 @@ Material lives in [`../material/README.md`](../material/README.md) / [`../materi
 
 ## Shared standards
 
-This brand follows the shared [link-preview standard](../standards/link-previews.md) (`og:video` + `og:image`) and is reviewed against the [site review checklist](../standards/site-review-checklist.md).
+This brand follows the [website best practices standard](../standards/WEBSITE-BEST-PRACTICES.md) (rules WEB-01…) in every site review.

@@ -14,7 +14,7 @@ material/                   # apps / CRM / Tools / serial products ONLY
 falcon-west/                # falconwest.com — rust buttons
 falcon-west-energy/         # falconwestenergy.com — sky buttons, never rust
 local-energy/               # localenergy.com — tan field, red buttons, one dark surface
-standards/                  # shared standards + site review checklist (all brands)
+standards/                  # WEBSITE-BEST-PRACTICES.md (all brands)
 writing/                    # voice.md source of truth + gold/draft pack + PL gold PDFs
 ```
 
@@ -98,8 +98,7 @@ Start here: [`local-energy/DESIGN.md`](local-energy/DESIGN.md) · [`local-energy
 
 | Doc | What |
 |---|---|
-| [`standards/site-review-checklist.md`](standards/site-review-checklist.md) | Checklist for every site review |
-| [`standards/link-previews.md`](standards/link-previews.md) | `og:video` + `og:image` link previews (added Oct 23 2026) |
+| [`standards/WEBSITE-BEST-PRACTICES.md`](standards/WEBSITE-BEST-PRACTICES.md) | Website best practices: link previews, Fathom-only analytics, review checks (WEB-01…) |
 
 ---
 
